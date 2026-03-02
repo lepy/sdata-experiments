@@ -30,12 +30,16 @@ Optional validiert:
 
 Spannungs-/Festigkeitskennwerte:
 
-- `sdn:Rm`
-- `sdn:ReH`
-- `sdn:ReL`
-- `sdn:Rp`
-- `sdn:Rt`
-- `sdn:Rr`
+| Property | ISO-6892-1 Konzept | Normnahe Bedeutung (aus SKOS) | Einheit / Hinweis |
+| --- | --- | --- | --- |
+| `sdn:Rm` | `iso6892:Rm` (`R_m`) | Spannung bei Hoechstkraft (Zugfestigkeit). | typ. MPa |
+| `sdn:ReH` | `iso6892:ReH` (`R_eH`) | Hoechste Spannung vor dem ersten Kraftabfall (obere Streckgrenze). | typ. MPa; zusammen mit `ReL` zu betrachten |
+| `sdn:ReL` | `iso6892:ReL` (`R_eL`) | Kleinste Spannung waehrend des plastischen Fliessens (ohne Einschwingeffekte). | typ. MPa |
+| `sdn:Rp` | `iso6892:Rp` (`R_p`) | Spannung bei vorgegebenem Anteil plastischer Extensometer-Dehnung. | haeufig `Rp0,2` |
+| `sdn:Rt` | `iso6892:Rt` (`R_t`) | Spannung bei vorgegebenem Anteil gesamter Extensometer-Dehnung. | verwandt mit `Rp` |
+| `sdn:Rr` | `iso6892:Rr` (`R_r`) | Spannungsgrenzwert, bei dem eine vorgegebene bleibende Dehnung nach Entlastung nicht ueberschritten wird. | typ. MPa |
+
+Quelle der fachlichen Beschreibungen: `vocabularies/iso6892-1-skos.ttl` (DIN EN ISO 6892-1-nahe SKOS-Modellierung).
 
 Dehnungskennwerte:
 
