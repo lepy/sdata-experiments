@@ -15,5 +15,5 @@ Zugehoerige Probengeometrien: `compressiontest/sdata-compression-specimens.ttl`
 - `CompressionModulus`
 - `StrainAtCompressiveStrength`
 
-Die Result-Kennwerte sind auf `sdata-quantities.ttl` gemappt
+Die Result-Kennwerte sind auf `https://w3id.org/sdata/quantities/` gemappt
 (`sq:CompressiveStrength`, `sq:CompressionModulus`, `sq:StrainAtCompressiveStrength`).

@@ -15,5 +15,5 @@ Zugehoerige Probengeometrien: `fatiguetest/sdata-fatigue-specimens.ttl`
 - `StressRatio`
 - `CycleFrequency`
 
-Die Kennwerte sind auf `sdata-quantities.ttl` gemappt
+Die Kennwerte sind auf `https://w3id.org/sdata/quantities/` gemappt
 (`sq:NumberOfCyclesToFailure`, `sq:StressRatio`, `sq:CycleFrequency`).

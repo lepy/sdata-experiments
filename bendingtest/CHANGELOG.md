@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.0 - 2026-03-02
+- Continued `sq:*` mappings against external `sdata-quantity` ontology (`https://w3id.org/sdata/quantities/`, sdata-ontology v0.1.0).
+
 ## 0.3.0 - 2026-03-02
 - Added dedicated bending specimen geometry vocabulary `sdata-bending-specimens.ttl` (`https://w3id.org/sdata/bending/specimens/`).
 

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.0 - 2026-03-02
+- Kept SHACL quantity paths on `sq:*`, now explicitly resolved from external `sdata-quantity` (sdata-ontology v0.1.0).
+
 ## 0.8.0 - 2026-03-02
 - Added provenance SHACL constraints for result traceability:
   - `ResultGenerationActivityShape`, `SoftwareToolShape`, `ProcessingPipelineShape`

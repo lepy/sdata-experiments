@@ -18,5 +18,5 @@ Alle TTL-Module und Shape-/Vokabular-Graphen importieren zusaetzlich direkt `htt
 - Namespaces sind fachlich stabil
 - Module sind logisch getrennt, aber ueber `owl:imports` verbunden
 - Resultatklassen liegen in den fachlichen Testmodulen
-- Resultatkennwerte sind ueber `sdata-quantities.ttl` vereinheitlicht
+- Resultatkennwerte sind ueber `https://w3id.org/sdata/quantities/` (externes `sdata-quantity`) vereinheitlicht
 - SHACL in `shapes/` bleibt von OWL-Modellen getrennt

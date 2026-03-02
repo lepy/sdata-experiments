@@ -1,6 +1,6 @@
 # Quantities
 
-Datei: `core/sdata-quantities.ttl`
+Quelle: externes `sdata-quantity` im `sdata-ontology`-Repo (v0.1.0)
 
 Namespace: `https://w3id.org/sdata/quantities/`
 

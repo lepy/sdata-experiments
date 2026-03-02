@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.0 - 2026-03-02
+- Removed local `core/sdata-quantities.ttl`; quantities are now sourced from external `sdata-ontology` repo (`sdata-quantity` v0.1.0, namespace `https://w3id.org/sdata/quantities/`).
+
 ## 0.5.0 - 2026-03-02
 - Added provenance model for result generation:
   - `ResultGenerationActivity`, `SoftwareTool`, `ProcessingPipeline`

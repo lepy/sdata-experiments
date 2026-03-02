@@ -3,7 +3,7 @@
 Dateien:
 
 - `core/sdata-testdata.ttl`
-- `core/sdata-quantities.ttl`
+- extern: `https://w3id.org/sdata/quantities/` (aus `sdata-ontology` repo, v0.1.0)
 
 ## Zweck
 
@@ -26,6 +26,6 @@ Gemeinsame Modellierung fuer alle Testarten:
 
 ## Quantities
 
-`sdata-quantities.ttl` bietet zentrale Kennwert-Properties (z. B. `sq:Rm`, `sq:CompressiveStrength`,
-`sq:FlexuralStrength`, `sq:NumberOfCyclesToFailure`), die in Result-Modulen per `owl:equivalentProperty`
-genutzt werden.
+Die externe `sdata-quantity`-Ontologie (`https://w3id.org/sdata/quantities/`) bietet zentrale
+Kennwert-Properties (z. B. `sq:Rm`, `sq:CompressiveStrength`, `sq:FlexuralStrength`,
+`sq:NumberOfCyclesToFailure`), die in Result-Modulen per `owl:equivalentProperty` genutzt werden.

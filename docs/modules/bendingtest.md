@@ -16,5 +16,5 @@ Zugehoerige Probengeometrien: `bendingtest/sdata-bending-specimens.ttl`
 - `MaximumDeflectionAtFailure`
 - `SupportSpanLength`
 
-Die Result-Kennwerte sind auf `sdata-quantities.ttl` gemappt
+Die Result-Kennwerte sind auf `https://w3id.org/sdata/quantities/` gemappt
 (`sq:FlexuralStrength`, `sq:FlexuralModulus`, `sq:MaximumDeflectionAtFailure`).

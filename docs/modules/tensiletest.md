@@ -19,7 +19,7 @@ Zugehoerige Probengeometrien: `tensiletest/sdata-tensile-specimens.ttl`
 
 Legacy-Namen bleiben ueber `owl:equivalentProperty` abbildbar.
 
-Alle Result-Kennwerte sind zusaetzlich auf `sdata-quantities.ttl` gemappt
+Alle Result-Kennwerte sind zusaetzlich auf `https://w3id.org/sdata/quantities/` gemappt
 (z. B. `sdn:Rm -> sq:Rm`).
 
 Fuer standardisierte Ergebnisablage ist am `TensileTestResult` zusaetzlich

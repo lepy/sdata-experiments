@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.0 - 2026-03-02
+- Continued `sq:*` mappings against external `sdata-quantity` ontology (`https://w3id.org/sdata/quantities/`, sdata-ontology v0.1.0).
+
 ## 0.5.0 - 2026-03-02
 - Added dedicated fatigue specimen geometry vocabulary `sdata-fatigue-specimens.ttl` (`https://w3id.org/sdata/fatigue/specimens/`).
 

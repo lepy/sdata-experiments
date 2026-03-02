@@ -7,7 +7,7 @@ Die SHACL-Dateien unter `shapes/` bilden das erste Validierungsniveau fuer RDF-I
 - Einstiegspunkt fuer alle Shapes: `shapes/sdata-shapes.ttl`
 - Core-Regeln: `shapes/sdata-core-shapes.ttl`
 - Testtypspezifische Regeln: `shapes/sdata-*-shapes.ttl`
-- Result-Kennwerte werden ueber `sdata-quantities.ttl` (`sq:*`) validiert.
+- Result-Kennwerte werden ueber `https://w3id.org/sdata/quantities/` (`sq:*`) validiert.
 
 ## Empfohlener Ablauf
 

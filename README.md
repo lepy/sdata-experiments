@@ -34,7 +34,6 @@ sdata-testdata/
 ├── scripts/
 │   └── check_ttl.py
 ├── core/
-│   ├── sdata-quantities.ttl
 │   ├── sdata-testdata.ttl
 │   └── CHANGELOG.md
 ├── tensiletest/
@@ -84,7 +83,7 @@ sdata-testdata/
 ## Namespaces
 
 - `core/sdata-testdata.ttl` -> `https://w3id.org/sdata/testdata/`
-- `core/sdata-quantities.ttl` -> `https://w3id.org/sdata/quantities/`
+- `sdata-quantity` (extern, `sdata-ontology` repo v0.1.0) -> `https://w3id.org/sdata/quantities/`
 - `tensiletest/sdata-tensile.ttl` -> `https://w3id.org/sdata/tensile/`
 - `tensiletest/sdata-tensile-specimens.ttl` -> `https://w3id.org/sdata/tensile/specimens/`
 - `compressiontest/sdata-compression.ttl` -> `https://w3id.org/sdata/compression/`
@@ -128,7 +127,7 @@ Probekoerpergeometrien werden je Testtyp in separaten Dateien verwaltet:
 `sdata-tensile-specimens.ttl`, `sdata-compression-specimens.ttl`,
 `sdata-bending-specimens.ttl`, `sdata-fatigue-specimens.ttl`.
 
-`core/sdata-quantities.ttl` definiert zentrale, wiederverwendbare Kennwert-Properties.
+`sdata-quantity` wird extern im `sdata-ontology`-Repo gepflegt.
 Die Result-Properties in den Testmodulen sind darauf per `owl:equivalentProperty` gemappt.
 
 ## Tensile / ISO 6892-1
@@ -140,7 +139,7 @@ Die Result-Properties in den Testmodulen sind darauf per `owl:equivalentProperty
 - `shapes/sdata-core-shapes.ttl`: Basiskonsistenz (IDs, Kardinalitaeten, Datentypen)
 - `shapes/sdata-*-shapes.ttl`: testtypspezifische KPI-Regeln
 - `shapes/sdata-shapes.ttl`: Sammelgraph fuer alle Shape-Module
-- Result-KPI-Regeln validieren `sq:*`-Properties aus `core/sdata-quantities.ttl`
+- Result-KPI-Regeln validieren `sq:*`-Properties aus `https://w3id.org/sdata/quantities/`
 
 TTL-Validation mit Parser:
 

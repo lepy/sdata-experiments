@@ -1,0 +1,1171 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Modulare Ontologien fuer mechanische Pruefdaten">
+      
+      
+      
+        <link rel="canonical" href="https://lepy.github.io/sdata-experiments/modules/tensiletest-dp600/">
+      
+      
+        <link rel="prev" href="../tensiletest-result/">
+      
+      
+        <link rel="next" href="../compressiontest/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Tensile DP600 Example - sdata-testdata</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tensile-test-beispiel-dp600" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../.." title="sdata-testdata" class="md-header__button md-logo" aria-label="sdata-testdata" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            sdata-testdata
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tensile DP600 Example
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Hauptnavigation" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Architektur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../deployment/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Deployment
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../core/" class="md-tabs__link">
+          
+  
+  
+  Module
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../validation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Validation
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="sdata-testdata" class="md-nav__button md-logo" aria-label="sdata-testdata" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    sdata-testdata
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architektur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tensiletest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tensile Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tensiletest-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TensileTestResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tensile DP600 Example
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tensile DP600 Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vollstaendiges-beispiel-turtle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vollstaendiges Beispiel (Turtle)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compressiontest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compression Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bendingtest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bending Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fatiguetest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fatigue Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shapes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shapes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vollstaendiges-beispiel-turtle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vollstaendiges Beispiel (Turtle)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tensile-test-beispiel-dp600">Tensile Test Beispiel (DP600)</h1>
+<p>Datei im Repo: <code>examples/dp600.ttl</code></p>
+<p>Dieses Beispiel zeigt einen vollstaendigen Zugversuch mit:</p>
+<ul>
+<li><code>sdt:TestProgram -&gt; sdt:TestSeries -&gt; sdn:TensileTest</code></li>
+<li><code>sdn:TensileTestResult</code> als Ergebnis-Container</li>
+<li>Result-Kennwerten als separate <code>sdata:AttributeQuantityValue</code>-Knoten</li>
+</ul>
+<h2 id="vollstaendiges-beispiel-turtle">Vollstaendiges Beispiel (Turtle)</h2>
+<div class="highlight"><pre><span></span><code>@<span class="nv">prefix</span><span class="w"> </span><span class="nv">ex</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">example</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">data</span><span class="o">/</span><span class="nv">dp600</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">dcterms</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">purl</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">dc</span><span class="o">/</span><span class="nv">terms</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">rdf</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">w3</span>.<span class="nv">org</span><span class="o">/</span><span class="mi">1999</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="mi">22</span><span class="o">-</span><span class="nv">rdf</span><span class="o">-</span><span class="nv">syntax</span><span class="o">-</span><span class="nv">ns</span>#<span class="o">&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">rdfs</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">w3</span>.<span class="nv">org</span><span class="o">/</span><span class="mi">2000</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="nv">rdf</span><span class="o">-</span><span class="nv">schema</span>#<span class="o">&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">xsd</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">w3</span>.<span class="nv">org</span><span class="o">/</span><span class="mi">2001</span><span class="o">/</span><span class="nv">XMLSchema</span>#<span class="o">&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">qudt</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">qudt</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">schema</span><span class="o">/</span><span class="nv">qudt</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">unit</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">qudt</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">vocab</span><span class="o">/</span><span class="nv">unit</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">sdata</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">w3id</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">sdata</span><span class="o">/</span><span class="nv">core</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">sdt</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">w3id</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">sdata</span><span class="o">/</span><span class="nv">testdata</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">sdn</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">w3id</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">sdata</span><span class="o">/</span><span class="nv">tensile</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">sq</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">w3id</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">sdata</span><span class="o">/</span><span class="nv">quantities</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">stsp</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">w3id</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">sdata</span><span class="o">/</span><span class="nv">tensile</span><span class="o">/</span><span class="nv">specimens</span><span class="o">/&gt;</span><span class="w"> </span>.
+@<span class="nv">prefix</span><span class="w"> </span><span class="nv">vocts</span>:<span class="w"> </span><span class="o">&lt;</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">w3id</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">sdata</span><span class="o">/</span><span class="nv">vocabularies</span><span class="o">/</span><span class="nv">test</span><span class="o">-</span><span class="nv">standards</span><span class="o">/&gt;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">program</span><span class="o">-</span><span class="nv">dp600</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">TestProgram</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">programId</span><span class="w"> </span><span class="s2">&quot;PRG-DP600-2026&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">hasSeries</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">series</span><span class="o">-</span><span class="nv">dp600</span><span class="o">-</span><span class="nv">tensile</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">series</span><span class="o">-</span><span class="nv">dp600</span><span class="o">-</span><span class="nv">tensile</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">TestSeries</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">seriesId</span><span class="w"> </span><span class="s2">&quot;SER-DP600-TEN-01&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">partOfProgram</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">program</span><span class="o">-</span><span class="nv">dp600</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">hasTest</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">tensile</span><span class="o">-</span><span class="nv">test</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">material</span><span class="o">-</span><span class="nv">dp600</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">Material</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">identifier</span><span class="w"> </span><span class="s2">&quot;DP600&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">remark</span><span class="w"> </span><span class="s2">&quot;Dual phase steel&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">specimen</span><span class="o">-</span><span class="nv">a1</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">Specimen</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">identifier</span><span class="w"> </span><span class="s2">&quot;DP600-A1&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">hasMaterial</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">material</span><span class="o">-</span><span class="nv">dp600</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">specimenShape</span><span class="w"> </span><span class="nv">stsp</span>:<span class="nv">iso6892_b1_1</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">specimenThickness</span><span class="w"> </span><span class="s2">&quot;1.20&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">specimenWidth</span><span class="w"> </span><span class="s2">&quot;20.00&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">specimenLength</span><span class="w"> </span><span class="s2">&quot;120.00&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">machine</span><span class="o">-</span><span class="nv">zwick</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">TestingMachine</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">identifier</span><span class="w"> </span><span class="s2">&quot;ZWICK-Z250-01&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">operator</span><span class="o">-</span><span class="nv">anna</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">Operator</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">identifier</span><span class="w"> </span><span class="s2">&quot;anna.m&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">lab</span><span class="o">-</span><span class="nv">berlin</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">Laboratory</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">identifier</span><span class="w"> </span><span class="s2">&quot;LAB-BERLIN-01&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">method</span><span class="o">-</span><span class="nv">iso6892</span><span class="o">-</span><span class="nv">a</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">TestMethod</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">identifier</span><span class="w"> </span><span class="s2">&quot;ISO6892-1-METHOD-A&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">condition</span><span class="o">-</span><span class="nv">rt</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">TestCondition</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">testTemperature</span><span class="w"> </span><span class="s2">&quot;23.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">testHumidity</span><span class="w"> </span><span class="s2">&quot;45.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">channel</span><span class="o">-</span><span class="nv">force</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">MeasurementChannel</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">channelName</span><span class="w"> </span><span class="s2">&quot;Force&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">channelUnit</span><span class="w"> </span><span class="s2">&quot;N&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">channelDatatype</span><span class="w"> </span><span class="s2">&quot;xsd:decimal&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">channel</span><span class="o">-</span><span class="nv">extension</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">MeasurementChannel</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">channelName</span><span class="w"> </span><span class="s2">&quot;Extension&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">channelUnit</span><span class="w"> </span><span class="s2">&quot;mm&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">channelDatatype</span><span class="w"> </span><span class="s2">&quot;xsd:decimal&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">measurement</span><span class="o">-</span><span class="nv">series</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">MeasurementSeries</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">samplingFrequency</span><span class="w"> </span><span class="s2">&quot;1000.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">hasChannel</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">channel</span><span class="o">-</span><span class="nv">force</span>,<span class="w"> </span><span class="nv">ex</span>:<span class="nv">channel</span><span class="o">-</span><span class="nv">extension</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">software</span><span class="o">-</span><span class="nv">tool</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">SoftwareTool</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">identifier</span><span class="w"> </span><span class="s2">&quot;sdata-evaluator&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">softwareVersion</span><span class="w"> </span><span class="s2">&quot;2.4.1&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">pipeline</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">ProcessingPipeline</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">identifier</span><span class="w"> </span><span class="s2">&quot;iso6892-1-default-pipeline&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">parameterSetHash</span><span class="w"> </span><span class="s2">&quot;sha256:1f8b8e9d4ec7bc2a9d7b4efdd86ad6f8ab03d4a33739d4a4261f4b640df83d8f&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nb">result</span><span class="o">-</span><span class="nv">generation</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdt</span>:<span class="nv">ResultGenerationActivity</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">activityStartTime</span><span class="w"> </span><span class="s2">&quot;2026-03-02T09:12:02Z&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">dateTime</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">activityEndTime</span><span class="w"> </span><span class="s2">&quot;2026-03-02T09:12:20Z&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">dateTime</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">usedMeasurementSeries</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">measurement</span><span class="o">-</span><span class="nv">series</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">usedTestMethod</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">method</span><span class="o">-</span><span class="nv">iso6892</span><span class="o">-</span><span class="nv">a</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">usedSoftwareTool</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">software</span><span class="o">-</span><span class="nv">tool</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">usedProcessingPipeline</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">pipeline</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">responsibleOperator</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">operator</span><span class="o">-</span><span class="nv">anna</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">tensile</span><span class="o">-</span><span class="nv">test</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdn</span>:<span class="nv">TensileTest</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">testId</span><span class="w"> </span><span class="s2">&quot;TEN-DP600-001&quot;</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">partOfSeries</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">series</span><span class="o">-</span><span class="nv">dp600</span><span class="o">-</span><span class="nv">tensile</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">hasSpecimen</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">specimen</span><span class="o">-</span><span class="nv">a1</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">usesMachine</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">machine</span><span class="o">-</span><span class="nv">zwick</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">performedBy</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">operator</span><span class="o">-</span><span class="nv">anna</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">performedAt</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">lab</span><span class="o">-</span><span class="nv">berlin</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">usesMethod</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">method</span><span class="o">-</span><span class="nv">iso6892</span><span class="o">-</span><span class="nv">a</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">usesStandard</span><span class="w"> </span><span class="nv">vocts</span>:<span class="nv">ISO6892_1</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">hasCondition</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">condition</span><span class="o">-</span><span class="nv">rt</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">hasMeasurementSeries</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">measurement</span><span class="o">-</span><span class="nv">series</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">testDate</span><span class="w"> </span><span class="s2">&quot;2026-03-02&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">date</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">testStartTime</span><span class="w"> </span><span class="s2">&quot;2026-03-02T09:00:00Z&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">dateTime</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">testEndTime</span><span class="w"> </span><span class="s2">&quot;2026-03-02T09:12:00Z&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">dateTime</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdn</span>:<span class="nv">hasTensileResult</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">tensile</span><span class="o">-</span><span class="nb">result</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">hasResult</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">tensile</span><span class="o">-</span><span class="nb">result</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">tensile</span><span class="o">-</span><span class="nb">result</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdn</span>:<span class="nv">TensileTestResult</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">Rm</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">rm</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">Rp</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">rp</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">A</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">a</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">ReH</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">reh</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">ReL</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">rel</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">Agt</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">agt</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">At</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">at</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">Z</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">z</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sq</span>:<span class="nv">Fm</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">fm</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">testPassed</span><span class="w"> </span><span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">test</span><span class="o">-</span><span class="nv">passed</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">resultGenerationActivity</span><span class="w"> </span><span class="nv">ex</span>:<span class="nb">result</span><span class="o">-</span><span class="nv">generation</span><span class="o">-</span><span class="mi">001</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">resultGeneratedAt</span><span class="w"> </span><span class="s2">&quot;2026-03-02T09:12:20Z&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">dateTime</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">sdt</span>:<span class="nv">remark</span><span class="w"> </span><span class="s2">&quot;DP600 tensile sample, room temperature.&quot;</span><span class="w"> </span>.
+
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">rm</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;612.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">MPa</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Tensile strength Rm&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Maximum tensile stress according to ISO 6892-1.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">rp</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;402.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">MPa</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Proof strength Rp&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Proof strength (0.2% plastic strain) according to ISO 6892-1.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">a</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;18.5&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">PERCENT</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Percentage elongation after fracture A&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Total elongation measured after fracture.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">reh</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;410.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">MPa</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Upper yield strength ReH&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Upper yield strength according to ISO 6892-1.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">rel</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;396.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">MPa</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Lower yield strength ReL&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Lower yield strength according to ISO 6892-1.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">agt</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;11.4&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">PERCENT</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Total extension at maximum force Agt&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Total extension at the moment of maximum force.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">at</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;19.2&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">PERCENT</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Total extension at fracture At&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Total extension measured at fracture.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">z</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;38.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">PERCENT</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Reduction of area Z&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Reduction of cross-sectional area after fracture.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">fm</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;24500.0&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">decimal</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">N</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Maximum force Fm&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Maximum force measured during tensile test.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+<span class="nv">ex</span>:<span class="nv">q</span><span class="o">-</span><span class="nv">test</span><span class="o">-</span><span class="nv">passed</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">sdata</span>:<span class="nv">AttributeQuantityValue</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdf</span>:<span class="nv">value</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="o">^^</span><span class="nv">xsd</span>:<span class="nv">boolean</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">qudt</span>:<span class="nv">unit</span><span class="w"> </span><span class="nv">unit</span>:<span class="nv">UNITLESS</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">rdfs</span>:<span class="nv">label</span><span class="w"> </span><span class="s2">&quot;Test passed&quot;</span>@<span class="nv">en</span><span class="w"> </span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">dcterms</span>:<span class="nv">description</span><span class="w"> </span><span class="s2">&quot;Boolean pass/fail outcome of quality criteria.&quot;</span>@<span class="nv">en</span><span class="w"> </span>.
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Zurück zum Seitenanfang
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.sections", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
