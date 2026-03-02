@@ -162,6 +162,6 @@ Wichtige Targets:
 
 - Lokale Doku: `mkdocs.yml` + `docs/`
 - GitHub Action: `.github/workflows/deploy-docs.yml`
-- Deploy-Ziel: `gh-pages` Branch
+- Deploy-Ziel: GitHub Pages ueber `actions/upload-pages-artifact` + `actions/deploy-pages`
 
-Voraussetzung im Repo: GitHub Pages auf `gh-pages` aktivieren.
+Voraussetzung im Repo: GitHub Pages auf `Source: GitHub Actions` aktivieren.

@@ -2,7 +2,9 @@
 
 ## Automatischer Docs-Deploy
 
-Die Dokumentation wird ueber GitHub Actions gebaut und nach `gh-pages` deployed.
+Die Dokumentation wird ueber GitHub Actions gebaut und mit dem offiziellen
+GitHub-Pages-Deploy (`actions/upload-pages-artifact` + `actions/deploy-pages`)
+veroeffentlicht.
 
 Workflow-Datei:
 
@@ -22,8 +24,9 @@ Der Workflow startet bei:
 3. Setup `uv`
 4. Install Docs-Dependencies
 5. `mkdocs build --strict`
-6. Publish von `site/` nach `gh-pages`
+6. Upload von `site/` als Pages-Artifact
+7. Deploy auf GitHub Pages
 
 ## GitHub Pages Einstellungen
 
-Im GitHub-Repository muss Pages auf den Branch `gh-pages` konfiguriert sein.
+Im GitHub-Repository muss Pages auf `Source: GitHub Actions` konfiguriert sein.
