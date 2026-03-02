@@ -1,6 +1,6 @@
 site_name: sdata-testdata
 site_description: Modulare Ontologien fuer mechanische Pruefdaten
-site_url: https://w3id.org/sdata/testdata/
+site_url: https://lepy.github.io/sdata-experiments/
 repo_name: sdata-testdata
 
 theme:
