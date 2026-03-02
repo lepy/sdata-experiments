@@ -4,7 +4,31 @@ site_url: https://w3id.org/sdata/testdata/
 repo_name: sdata-testdata
 
 theme:
-  name: mkdocs
+  name: material
+  language: de
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.instant
+    - navigation.sections
+    - toc.follow
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
 
 nav:
   - Home: index.md
@@ -14,6 +38,7 @@ nav:
   - Module:
       - Core: modules/core.md
       - Tensile Test: modules/tensiletest.md
+      - TensileTestResult: modules/tensiletest-result.md
       - Compression Test: modules/compressiontest.md
       - Bending Test: modules/bendingtest.md
       - Fatigue Test: modules/fatiguetest.md

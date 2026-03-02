@@ -16,3 +16,10 @@ Datei: `tensiletest/sdata-tensile.ttl`
 - `E`, `Z`, `Su`, `Fm`
 
 Legacy-Namen bleiben ueber `owl:equivalentProperty` abbildbar.
+
+## Detaildoku
+
+Eine vollstaendige Referenz fuer `TensileTestResult` inkl. SHACL-Pflichtfeldern und
+Legacy-Mapping steht hier:
+
+- [TensileTestResult](tensiletest-result.md)
