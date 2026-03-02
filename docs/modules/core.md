@@ -16,6 +16,9 @@ Gemeinsame Modellierung fuer alle Testarten:
 - Generischer Ergebnisanker: `TestResult`
 - Ergebnis-Provenance: `ResultGenerationActivity`, `SoftwareTool`, `ProcessingPipeline`
 
+`sdata-testdata.ttl` ist dabei explizit auf `sdata-core` ausgerichtet
+(z. B. `InformationArtifact`, `MaterialArtifact`, `MaterialProcess`, `InformationProcess`).
+
 ## Wichtige Beziehungen
 
 - `hasSeries`, `hasTest`, `partOfProgram`, `partOfSeries`

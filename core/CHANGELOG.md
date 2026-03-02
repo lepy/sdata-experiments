@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.0 - 2026-03-02
+- Aligned `sdata-testdata.ttl` class hierarchy with `sdata-core`:
+  - test programs/series/results/channels/methods/conditions as `sdata:InformationArtifact`
+  - tests as `sdata:MaterialProcess`
+  - specimens/machines as `sdata:MaterialArtifact`
+  - result generation as `sdata:InformationProcess`
+- Added generic core-property links:
+  - `maximumForce`, `testPassed` as subproperties of `sdata:hasQuantity`
+  - `remark` as subproperty of `sdata:description`
+
 ## 0.6.0 - 2026-03-02
 - Removed local `core/sdata-quantities.ttl`; quantities are now sourced from external `sdata-ontology` repo (`sdata-quantity` v0.1.0, namespace `https://w3id.org/sdata/quantities/`).
 

@@ -17,12 +17,15 @@
   owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> .
 
 sdt:TestProgram a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Test program"@en .
 
 sdt:TestSeries a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Test series"@en .
 
 sdt:MechanicalTest a owl:Class ;
+  rdfs:subClassOf sdata:MaterialProcess ;
   rdfs:label "Mechanical test"@en .
 
 sdt:QuasiStaticTest a owl:Class ;
@@ -34,46 +37,55 @@ sdt:CyclicTest a owl:Class ;
   rdfs:label "Cyclic test"@en .
 
 sdt:Specimen a owl:Class ;
+  rdfs:subClassOf sdata:MaterialArtifact ;
   rdfs:label "Specimen"@en .
 
 sdt:Material a owl:Class ;
+  rdfs:subClassOf sdata:Material ;
   rdfs:label "Material"@en .
 
 sdt:TestingMachine a owl:Class ;
+  rdfs:subClassOf sdata:MaterialArtifact ;
   rdfs:label "Testing machine"@en .
 
 sdt:Operator a owl:Class ;
-  rdfs:subClassOf prov:Agent ;
+  rdfs:subClassOf sdata:Agent, prov:Agent ;
   rdfs:label "Operator"@en .
 
 sdt:Laboratory a owl:Class ;
+  rdfs:subClassOf sdata:Agent ;
   rdfs:label "Laboratory"@en .
 
 sdt:TestMethod a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Test method"@en .
 
 sdt:TestCondition a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Test condition"@en .
 
 sdt:MeasurementSeries a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Measurement series"@en .
 
 sdt:MeasurementChannel a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Measurement channel"@en .
 
 sdt:TestResult a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Test result"@en .
 
 sdt:ResultGenerationActivity a owl:Class ;
-  rdfs:subClassOf prov:Activity ;
+  rdfs:subClassOf sdata:InformationProcess, prov:Activity ;
   rdfs:label "Result generation activity"@en .
 
 sdt:SoftwareTool a owl:Class ;
-  rdfs:subClassOf prov:SoftwareAgent ;
+  rdfs:subClassOf sdata:InformationArtifact, prov:SoftwareAgent ;
   rdfs:label "Software tool"@en .
 
 sdt:ProcessingPipeline a owl:Class ;
-  rdfs:subClassOf prov:Plan ;
+  rdfs:subClassOf sdata:InformationArtifact, prov:Plan ;
   rdfs:label "Processing pipeline"@en .
 
 sdt:hasSeries a owl:ObjectProperty ;
@@ -381,15 +393,18 @@ sdt:parameterSetHash a owl:DatatypeProperty ;
 
 sdt:maximumForce a owl:ObjectProperty ;
   owl:equivalentProperty sq:Fm ;
+  rdfs:subPropertyOf sdata:hasQuantity ;
   rdfs:domain sdt:TestResult ;
   rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "maximum force"@en .
 
 sdt:testPassed a owl:ObjectProperty ;
+  rdfs:subPropertyOf sdata:hasQuantity ;
   rdfs:domain sdt:TestResult ;
   rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "test passed"@en .
 
 sdt:remark a owl:DatatypeProperty ;
+  rdfs:subPropertyOf sdata:description ;
   rdfs:range xsd:string ;
   rdfs:label "remark"@en .
