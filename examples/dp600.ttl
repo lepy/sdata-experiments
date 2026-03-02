@@ -9,7 +9,7 @@
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
-@prefix vocss: <https://w3id.org/sdata/vocabularies/specimen-shapes/> .
+@prefix stsp: <https://w3id.org/sdata/tensile/specimens/> .
 @prefix vocts: <https://w3id.org/sdata/vocabularies/test-standards/> .
 
 # Program -> Series -> Test
@@ -30,7 +30,7 @@ ex:material-dp600 a sdt:Material ;
 ex:specimen-a1 a sdt:Specimen ;
   sdt:identifier "DP600-A1" ;
   sdt:hasMaterial ex:material-dp600 ;
-  sdt:specimenShape vocss:flat ;
+  sdt:specimenShape stsp:iso6892_b1_1 ;
   sdt:specimenThickness "1.20"^^xsd:decimal ;
   sdt:specimenWidth "20.00"^^xsd:decimal ;
   sdt:specimenLength "120.00"^^xsd:decimal .

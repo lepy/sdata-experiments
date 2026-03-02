@@ -1,0 +1,46 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix sfsp: <https://w3id.org/sdata/fatigue/specimens/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/sdata/fatigue/specimens/>
+  a owl:Ontology ;
+  rdfs:label "SData fatigue specimen geometries"@en ;
+  rdfs:comment "Controlled vocabulary for fatigue-test specimen geometries."@en ;
+  owl:imports <https://w3id.org/sdata/core/> .
+
+sfsp:ConceptScheme a skos:ConceptScheme ;
+  skos:prefLabel "Fatigue specimen geometries"@en .
+
+sfsp:flat a skos:Concept ;
+  skos:inScheme sfsp:ConceptScheme ;
+  skos:prefLabel "flat fatigue specimen"@en .
+
+sfsp:round a skos:Concept ;
+  skos:inScheme sfsp:ConceptScheme ;
+  skos:prefLabel "round fatigue specimen"@en .
+
+sfsp:notched a skos:Concept ;
+  skos:inScheme sfsp:ConceptScheme ;
+  skos:prefLabel "notched fatigue specimen"@en .
+
+sfsp:gaugeDiameter a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "gauge diameter"@en .
+
+sfsp:gaugeWidth a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "gauge width"@en .
+
+sfsp:gaugeLength a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "gauge length"@en .

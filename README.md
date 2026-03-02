@@ -39,17 +39,21 @@ sdata-testdata/
 │   └── CHANGELOG.md
 ├── tensiletest/
 │   ├── sdata-tensile.ttl
+│   ├── sdata-tensile-specimens.ttl
 │   ├── examples/
 │   └── CHANGELOG.md
 ├── compressiontest/
 │   ├── sdata-compression.ttl
+│   ├── sdata-compression-specimens.ttl
 │   └── CHANGELOG.md
 ├── bendingtest/
 │   ├── sdata-bending.ttl
+│   ├── sdata-bending-specimens.ttl
 │   ├── examples/
 │   └── CHANGELOG.md
 ├── fatiguetest/
 │   ├── sdata-fatigue.ttl
+│   ├── sdata-fatigue-specimens.ttl
 │   └── CHANGELOG.md
 ├── shapes/
 │   ├── sdata-shapes.ttl
@@ -61,10 +65,12 @@ sdata-testdata/
 │   └── CHANGELOG.md
 ├── vocabularies/
 │   ├── iso6892-1-skos.ttl
-│   ├── specimen-shapes.ttl
 │   ├── material-models.ttl
 │   ├── test-standards.ttl
 │   └── CHANGELOG.md
+├── src/
+│   ├── query_flat_tensile_specimens.py
+│   └── list_din50125_specimens.py
 ├── docs/
 │   ├── index.md
 │   ├── getting-started.md
@@ -80,9 +86,13 @@ sdata-testdata/
 - `core/sdata-testdata.ttl` -> `https://w3id.org/sdata/testdata/`
 - `core/sdata-quantities.ttl` -> `https://w3id.org/sdata/quantities/`
 - `tensiletest/sdata-tensile.ttl` -> `https://w3id.org/sdata/tensile/`
+- `tensiletest/sdata-tensile-specimens.ttl` -> `https://w3id.org/sdata/tensile/specimens/`
 - `compressiontest/sdata-compression.ttl` -> `https://w3id.org/sdata/compression/`
+- `compressiontest/sdata-compression-specimens.ttl` -> `https://w3id.org/sdata/compression/specimens/`
 - `bendingtest/sdata-bending.ttl` -> `https://w3id.org/sdata/bending/`
+- `bendingtest/sdata-bending-specimens.ttl` -> `https://w3id.org/sdata/bending/specimens/`
 - `fatiguetest/sdata-fatigue.ttl` -> `https://w3id.org/sdata/fatigue/`
+- `fatiguetest/sdata-fatigue-specimens.ttl` -> `https://w3id.org/sdata/fatigue/specimens/`
 - `shapes/sdata-core-shapes.ttl` -> `https://w3id.org/sdata/shapes/core/`
 - `shapes/sdata-tensile-shapes.ttl` -> `https://w3id.org/sdata/shapes/tensile/`
 - `shapes/sdata-compression-shapes.ttl` -> `https://w3id.org/sdata/shapes/compression/`
@@ -114,6 +124,9 @@ Alle `.ttl`-Dateien im Repo importieren `https://w3id.org/sdata/core/` direkt.
 - Ergebnisanker: `TestResult`
 
 Die Testmodule (`tensiletest`, `compressiontest`, `bendingtest`, `fatiguetest`) erweitern darauf fachspezifisch.
+Probekoerpergeometrien werden je Testtyp in separaten Dateien verwaltet:
+`sdata-tensile-specimens.ttl`, `sdata-compression-specimens.ttl`,
+`sdata-bending-specimens.ttl`, `sdata-fatigue-specimens.ttl`.
 
 `core/sdata-quantities.ttl` definiert zentrale, wiederverwendbare Kennwert-Properties.
 Die Result-Properties in den Testmodulen sind darauf per `owl:equivalentProperty` gemappt.

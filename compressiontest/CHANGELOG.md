@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.0 - 2026-03-02
+- Added dedicated compression specimen geometry vocabulary `sdata-compression-specimens.ttl` (`https://w3id.org/sdata/compression/specimens/`).
+
 ## 0.4.0 - 2026-03-02
 - Added import of `https://w3id.org/sdata/quantities/`.
 - Mapped compression result properties to `sdata-quantities.ttl` via `owl:equivalentProperty`.

@@ -1,0 +1,46 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix sbsp: <https://w3id.org/sdata/bending/specimens/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/sdata/bending/specimens/>
+  a owl:Ontology ;
+  rdfs:label "SData bending specimen geometries"@en ;
+  rdfs:comment "Controlled vocabulary for bending-test specimen geometries."@en ;
+  owl:imports <https://w3id.org/sdata/core/> .
+
+sbsp:ConceptScheme a skos:ConceptScheme ;
+  skos:prefLabel "Bending specimen geometries"@en .
+
+sbsp:rectangularBar a skos:Concept ;
+  skos:inScheme sbsp:ConceptScheme ;
+  skos:prefLabel "rectangular bending bar"@en .
+
+sbsp:roundBar a skos:Concept ;
+  skos:inScheme sbsp:ConceptScheme ;
+  skos:prefLabel "round bending bar"@en .
+
+sbsp:notchedBar a skos:Concept ;
+  skos:inScheme sbsp:ConceptScheme ;
+  skos:prefLabel "notched bending specimen"@en .
+
+sbsp:width a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "width"@en .
+
+sbsp:thickness a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "thickness"@en .
+
+sbsp:length a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "length"@en .

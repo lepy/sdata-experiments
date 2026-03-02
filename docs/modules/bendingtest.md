@@ -2,6 +2,8 @@
 
 Datei: `bendingtest/sdata-bending.ttl`
 
+Zugehoerige Probengeometrien: `bendingtest/sdata-bending-specimens.ttl`
+
 ## Klassen
 
 - `BendingTest` (Subklasse von `QuasiStaticTest`)

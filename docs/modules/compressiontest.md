@@ -2,6 +2,8 @@
 
 Datei: `compressiontest/sdata-compression.ttl`
 
+Zugehoerige Probengeometrien: `compressiontest/sdata-compression-specimens.ttl`
+
 ## Klassen
 
 - `CompressionTest` (Subklasse von `QuasiStaticTest`)

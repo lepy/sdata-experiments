@@ -11,6 +11,7 @@
   rdfs:label "SData Bending"@en ;
   rdfs:comment "Bending-test specific extensions."@en ;
   owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/bending/specimens/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> .
 

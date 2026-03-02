@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.0 - 2026-03-02
+- Added dedicated fatigue specimen geometry vocabulary `sdata-fatigue-specimens.ttl` (`https://w3id.org/sdata/fatigue/specimens/`).
+
 ## 0.4.0 - 2026-03-02
 - Added import of `https://w3id.org/sdata/quantities/`.
 - Mapped fatigue properties to `sdata-quantities.ttl` via `owl:equivalentProperty`.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0 - 2026-03-02
+- Removed centralized specimen-geometry vocabulary from `vocabularies/`; specimen geometries are now managed per test module.
+- Kept vocabularies module focused on shared SKOS resources (`material-models`, `test-standards`, `iso6892-1-skos`).
+
+## 0.4.0 - 2026-03-02
+- Clarified legacy centralized specimen-geometry scope as tensile-specimen vocabulary.
+- Updated specimen-form labels to tensile-specific terms (`flat`, `round`, `tubular`, `hexa` in tensile context).
+
 ## 0.2.0 - 2026-03-02
 - Extended specimen shapes vocabulary with `hexa`.
 - Extended test standards vocabulary with `ISO 6892-2` and `VDA 238-100`.

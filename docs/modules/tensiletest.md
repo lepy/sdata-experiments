@@ -2,6 +2,8 @@
 
 Datei: `tensiletest/sdata-tensile.ttl`
 
+Zugehoerige Probengeometrien: `tensiletest/sdata-tensile-specimens.ttl`
+
 ## Klassen
 
 - `TensileTest` (Subklasse von `QuasiStaticTest`)

@@ -13,6 +13,7 @@
   rdfs:label "SData Tensile"@en ;
   rdfs:comment "Tensile-test specific extensions."@en ;
   owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/tensile/specimens/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <http://example.org/vocab/iso6892-1/> .

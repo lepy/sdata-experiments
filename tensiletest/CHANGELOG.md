@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0 - 2026-03-02
+- Added dedicated tensile specimen geometry vocabulary `sdata-tensile-specimens.ttl` (`https://w3id.org/sdata/tensile/specimens/`).
+- Moved standardized tensile profile definitions (ISO/DIN/ASTM/JIS etc.) to tensile module scope.
+
 ## 0.5.0 - 2026-03-02
 - Added import of `https://w3id.org/sdata/quantities/`.
 - Mapped tensile result KPIs to `sdata-quantities.ttl` via `owl:equivalentProperty`.

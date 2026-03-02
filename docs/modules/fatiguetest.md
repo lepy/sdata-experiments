@@ -2,6 +2,8 @@
 
 Datei: `fatiguetest/sdata-fatigue.ttl`
 
+Zugehoerige Probengeometrien: `fatiguetest/sdata-fatigue-specimens.ttl`
+
 ## Klassen
 
 - `FatigueTest` (Subklasse von `CyclicTest`)

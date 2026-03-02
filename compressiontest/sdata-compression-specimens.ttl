@@ -1,0 +1,46 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix scsp: <https://w3id.org/sdata/compression/specimens/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/sdata/compression/specimens/>
+  a owl:Ontology ;
+  rdfs:label "SData compression specimen geometries"@en ;
+  rdfs:comment "Controlled vocabulary for compression-test specimen geometries."@en ;
+  owl:imports <https://w3id.org/sdata/core/> .
+
+scsp:ConceptScheme a skos:ConceptScheme ;
+  skos:prefLabel "Compression specimen geometries"@en .
+
+scsp:cylindrical a skos:Concept ;
+  skos:inScheme scsp:ConceptScheme ;
+  skos:prefLabel "cylindrical compression specimen"@en .
+
+scsp:cubic a skos:Concept ;
+  skos:inScheme scsp:ConceptScheme ;
+  skos:prefLabel "cubic compression specimen"@en .
+
+scsp:prismatic a skos:Concept ;
+  skos:inScheme scsp:ConceptScheme ;
+  skos:prefLabel "prismatic compression specimen"@en .
+
+scsp:diameter a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "diameter"@en .
+
+scsp:edgeLength a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "edge length"@en .
+
+scsp:height a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "height"@en .

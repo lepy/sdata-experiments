@@ -12,7 +12,6 @@
   rdfs:comment "Shared, test-type agnostic classes for mechanical test domains."@en ;
   owl:imports <https://w3id.org/sdata/core/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
-  owl:imports <https://w3id.org/sdata/vocabularies/specimen-shapes/> ;
   owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> .
 
 sdt:TestProgram a owl:Class ;
