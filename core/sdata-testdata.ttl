@@ -29,11 +29,11 @@ sdt:MechanicalTest a owl:Class ;
   rdfs:label "Mechanical test"@en .
 
 sdt:QuasiStaticTest a owl:Class ;
-  rdfs:subClassOf sdt:MechanicalTest ;
+  rdfs:subClassOf sdata:MaterialProcess ;
   rdfs:label "Quasi-static test"@en .
 
 sdt:CyclicTest a owl:Class ;
-  rdfs:subClassOf sdt:MechanicalTest ;
+  rdfs:subClassOf sdata:MaterialProcess ;
   rdfs:label "Cyclic test"@en .
 
 sdt:Specimen a owl:Class ;
@@ -49,7 +49,7 @@ sdt:TestingMachine a owl:Class ;
   rdfs:label "Testing machine"@en .
 
 sdt:Operator a owl:Class ;
-  rdfs:subClassOf sdata:Agent, prov:Agent ;
+  rdfs:subClassOf sdata:Agent ;
   rdfs:label "Operator"@en .
 
 sdt:Laboratory a owl:Class ;
@@ -77,15 +77,15 @@ sdt:TestResult a owl:Class ;
   rdfs:label "Test result"@en .
 
 sdt:ResultGenerationActivity a owl:Class ;
-  rdfs:subClassOf sdata:InformationProcess, prov:Activity ;
+  rdfs:subClassOf sdata:InformationProcess ;
   rdfs:label "Result generation activity"@en .
 
 sdt:SoftwareTool a owl:Class ;
-  rdfs:subClassOf sdata:InformationArtifact, prov:SoftwareAgent ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Software tool"@en .
 
 sdt:ProcessingPipeline a owl:Class ;
-  rdfs:subClassOf sdata:InformationArtifact, prov:Plan ;
+  rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Processing pipeline"@en .
 
 sdt:hasSeries a owl:ObjectProperty ;
