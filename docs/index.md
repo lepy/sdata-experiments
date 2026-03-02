@@ -22,3 +22,8 @@
 ## Einstieg
 
 Siehe [Getting Started](getting-started.md) fuer `uv`-Kommandos und lokale Doku-Builds.
+
+## Deployment
+
+- Build und Deploy laufen ueber GitHub Actions
+- Details: [Deployment](deployment.md)
