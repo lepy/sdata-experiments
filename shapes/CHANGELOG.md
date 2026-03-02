@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0 - 2026-03-02
+- Added `sdata-core-shapes.ttl` with reusable constraints for core process, specimen, conditions, measurements, and results.
+- Added `sdata-compression-shapes.ttl` and `sdata-fatigue-shapes.ttl`.
+- Added `sdata-shapes.ttl` as aggregate imports entrypoint for all shape graphs.
+- Strengthened tensile and bending shapes with cardinality, datatype, and numeric range constraints.
+
 ## 0.5.0 - 2026-03-02
 - Added `sdata-bending-shapes.ttl` with base constraints for `BendingTest` and `BendingTestResult`.
 

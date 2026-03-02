@@ -1,0 +1,211 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+
+<https://w3id.org/sdata/shapes/core/>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/testdata/> .
+
+sdt:TestProgramShape a sh:NodeShape ;
+  sh:targetClass sdt:TestProgram ;
+  sh:property [
+    sh:path sdt:programId ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:hasSeries ;
+    sh:class sdt:TestSeries ;
+    sh:minCount 1
+  ] .
+
+sdt:TestSeriesShape a sh:NodeShape ;
+  sh:targetClass sdt:TestSeries ;
+  sh:property [
+    sh:path sdt:seriesId ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:partOfProgram ;
+    sh:class sdt:TestProgram ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:hasTest ;
+    sh:class sdt:MechanicalTest ;
+    sh:minCount 1
+  ] .
+
+sdt:MechanicalTestShape a sh:NodeShape ;
+  sh:targetClass sdt:MechanicalTest ;
+  sh:property [
+    sh:path sdt:testId ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:partOfSeries ;
+    sh:class sdt:TestSeries ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:hasSpecimen ;
+    sh:class sdt:Specimen ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:usesMachine ;
+    sh:class sdt:TestingMachine ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:testDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:testStartTime ;
+    sh:datatype xsd:dateTime ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:testEndTime ;
+    sh:datatype xsd:dateTime ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:actualStrainRate ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] ;
+  sh:property [
+    sh:path sdt:actualTestingSpeed ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] ;
+  sh:property [
+    sh:path sdt:actualTestingTemperature ;
+    sh:datatype xsd:decimal
+  ] ;
+  sh:property [
+    sh:path sdt:actualPreDeformation ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] ;
+  sh:property [
+    sh:path sdt:actualGaugeLength ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] ;
+  sh:property [
+    sh:path sdt:actualCrossSectionArea ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] .
+
+sdt:SpecimenShape a sh:NodeShape ;
+  sh:targetClass sdt:Specimen ;
+  sh:property [
+    sh:path sdt:identifier ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:hasMaterial ;
+    sh:class sdt:Material ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:specimenThickness ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] ;
+  sh:property [
+    sh:path sdt:specimenWidth ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] ;
+  sh:property [
+    sh:path sdt:specimenDiameter ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] ;
+  sh:property [
+    sh:path sdt:specimenLength ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0
+  ] .
+
+sdt:TestConditionShape a sh:NodeShape ;
+  sh:targetClass sdt:TestCondition ;
+  sh:property [
+    sh:path sdt:testTemperature ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:testHumidity ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:maxInclusive 100 ;
+    sh:maxCount 1
+  ] .
+
+sdt:MeasurementSeriesShape a sh:NodeShape ;
+  sh:targetClass sdt:MeasurementSeries ;
+  sh:property [
+    sh:path sdt:samplingFrequency ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:hasChannel ;
+    sh:class sdt:MeasurementChannel ;
+    sh:minCount 1
+  ] .
+
+sdt:MeasurementChannelShape a sh:NodeShape ;
+  sh:targetClass sdt:MeasurementChannel ;
+  sh:property [
+    sh:path sdt:channelName ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:channelUnit ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:channelDatatype ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1
+  ] .
+
+sdt:TestResultShape a sh:NodeShape ;
+  sh:targetClass sdt:TestResult ;
+  sh:property [
+    sh:path sdt:maximumForce ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:testPassed ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1
+  ] .

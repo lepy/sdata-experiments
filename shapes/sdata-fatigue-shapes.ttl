@@ -1,0 +1,50 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sdf: <https://w3id.org/sdata/fatigue/> .
+
+<https://w3id.org/sdata/shapes/fatigue/>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/testdata/> ;
+  owl:imports <https://w3id.org/sdata/fatigue/> .
+
+sdf:FatigueTestShape a sh:NodeShape ;
+  sh:targetClass sdf:FatigueTest ;
+  sh:property [
+    sh:path sdt:hasSpecimen ;
+    sh:class sdt:Specimen ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:usesMachine ;
+    sh:class sdt:TestingMachine ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdf:hasFatigueResult ;
+    sh:class sdf:FatigueTestResult ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdf:CycleFrequency ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdf:StressRatio ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1
+  ] .
+
+sdf:FatigueTestResultShape a sh:NodeShape ;
+  sh:targetClass sdf:FatigueTestResult ;
+  sh:property [
+    sh:path sdf:NumberOfCyclesToFailure ;
+    sh:datatype xsd:integer ;
+    sh:minInclusive 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .

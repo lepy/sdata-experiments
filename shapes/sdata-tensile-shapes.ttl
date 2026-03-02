@@ -12,17 +12,26 @@
 sdn:TensileTestShape a sh:NodeShape ;
   sh:targetClass sdn:TensileTest ;
   sh:property [
+    sh:path sdt:testId ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
     sh:path sdt:hasSpecimen ;
+    sh:class sdt:Specimen ;
     sh:minCount 1
   ] ;
   sh:property [
     sh:path sdt:usesMachine ;
+    sh:class sdt:TestingMachine ;
     sh:minCount 1
   ] ;
   sh:property [
     sh:path sdn:hasTensileResult ;
     sh:class sdn:TensileTestResult ;
-    sh:minCount 1
+    sh:minCount 1 ;
+    sh:maxCount 1
   ] .
 
 sdn:TensileTestResultShape a sh:NodeShape ;
@@ -30,15 +39,27 @@ sdn:TensileTestResultShape a sh:NodeShape ;
   sh:property [
     sh:path sdn:Rm ;
     sh:datatype xsd:decimal ;
-    sh:minCount 1
+    sh:minInclusive 0 ;
+    sh:minCount 1 ;
+    sh:maxCount 1
   ] ;
   sh:property [
     sh:path sdn:Rp ;
     sh:datatype xsd:decimal ;
-    sh:minCount 1
+    sh:minInclusive 0 ;
+    sh:minCount 1 ;
+    sh:maxCount 1
   ] ;
   sh:property [
     sh:path sdn:A ;
     sh:datatype xsd:decimal ;
-    sh:minCount 1
+    sh:minInclusive 0 ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdn:Fm ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:maxCount 1
   ] .

@@ -2,21 +2,15 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
-@prefix sdb: <https://w3id.org/sdata/bending/> .
+@prefix sdc: <https://w3id.org/sdata/compression/> .
 
-<https://w3id.org/sdata/shapes/bending/>
+<https://w3id.org/sdata/shapes/compression/>
   a owl:Ontology ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
-  owl:imports <https://w3id.org/sdata/bending/> .
+  owl:imports <https://w3id.org/sdata/compression/> .
 
-sdb:BendingTestShape a sh:NodeShape ;
-  sh:targetClass sdb:BendingTest ;
-  sh:property [
-    sh:path sdt:testId ;
-    sh:datatype xsd:string ;
-    sh:minCount 1 ;
-    sh:maxCount 1
-  ] ;
+sdc:CompressionTestShape a sh:NodeShape ;
+  sh:targetClass sdc:CompressionTest ;
   sh:property [
     sh:path sdt:hasSpecimen ;
     sh:class sdt:Specimen ;
@@ -28,37 +22,30 @@ sdb:BendingTestShape a sh:NodeShape ;
     sh:minCount 1
   ] ;
   sh:property [
-    sh:path sdb:SupportSpanLength ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
-    sh:minCount 1 ;
-    sh:maxCount 1
-  ] ;
-  sh:property [
-    sh:path sdb:hasBendingResult ;
-    sh:class sdb:BendingTestResult ;
+    sh:path sdc:hasCompressionResult ;
+    sh:class sdc:CompressionTestResult ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] .
 
-sdb:BendingTestResultShape a sh:NodeShape ;
-  sh:targetClass sdb:BendingTestResult ;
+sdc:CompressionTestResultShape a sh:NodeShape ;
+  sh:targetClass sdc:CompressionTestResult ;
   sh:property [
-    sh:path sdb:FlexuralStrength ;
+    sh:path sdc:CompressiveStrength ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdb:FlexuralModulus ;
+    sh:path sdc:CompressionModulus ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdb:MaximumDeflectionAtFailure ;
+    sh:path sdc:StrainAtCompressiveStrength ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:maxCount 1
