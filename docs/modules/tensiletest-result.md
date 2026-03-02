@@ -4,6 +4,9 @@ Datei: `tensiletest/sdata-tensile.ttl`
 
 Klasse: `sdn:TensileTestResult` (Subklasse von `sdt:TestResult`)
 
+Hinweis: `sdn:TensileTestResult` ist der Ergebnis-Container und **nicht**
+`sdata:AttributeQuantityValue`. Die einzelnen Kennwerte am Result sind AQV-Knoten.
+
 ## Zweck
 
 `TensileTestResult` fasst die berechneten bzw. berichteten Kennwerte eines Zugversuchs zusammen.

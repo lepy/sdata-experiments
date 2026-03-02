@@ -20,9 +20,17 @@ Legacy-Namen bleiben ueber `owl:equivalentProperty` abbildbar.
 Alle Result-Kennwerte sind zusaetzlich auf `sdata-quantities.ttl` gemappt
 (z. B. `sdn:Rm -> sq:Rm`).
 
+## Wichtige Modellregel
+
+`TensileTestResult` ist **kein** `sdata:AttributeQuantityValue`, sondern die
+Container-Klasse fuer den Versuchsausgang.
+Die einzelnen Result-Properties (`Rm`, `Rp`, `A`, `Fm`, ...) zeigen jeweils auf
+eigene Knoten vom Typ `sdata:AttributeQuantityValue`.
+
 ## Detaildoku
 
 Eine vollstaendige Referenz fuer `TensileTestResult` inkl. SHACL-Pflichtfeldern und
 Legacy-Mapping steht hier:
 
 - [TensileTestResult](tensiletest-result.md)
+- [DP600 Tensile Beispiel](tensiletest-dp600.md)
