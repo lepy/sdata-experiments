@@ -1,0 +1,76 @@
+@prefix ex: <https://example.org/data/dp600/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sdn: <https://w3id.org/sdata/tensile/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
+@prefix vocss: <https://w3id.org/sdata/vocabularies/specimen-shapes/> .
+@prefix vocts: <https://w3id.org/sdata/vocabularies/test-standards/> .
+
+# Program -> Series -> Test
+ex:program-dp600 a sdt:TestProgram ;
+  sdt:programId "PRG-DP600-2026" ;
+  sdt:hasSeries ex:series-dp600-tensile .
+
+ex:series-dp600-tensile a sdt:TestSeries ;
+  sdt:seriesId "SER-DP600-TEN-01" ;
+  sdt:partOfProgram ex:program-dp600 ;
+  sdt:hasTest ex:tensile-test-001 .
+
+# Core resources
+ex:material-dp600 a sdt:Material ;
+  sdt:identifier "DP600" ;
+  sdt:remark "Dual phase steel" .
+
+ex:specimen-a1 a sdt:Specimen ;
+  sdt:identifier "DP600-A1" ;
+  sdt:hasMaterial ex:material-dp600 ;
+  sdt:specimenShape vocss:flat ;
+  sdt:specimenThickness "1.20"^^xsd:decimal ;
+  sdt:specimenWidth "20.00"^^xsd:decimal ;
+  sdt:specimenLength "120.00"^^xsd:decimal .
+
+ex:machine-zwick-01 a sdt:TestingMachine ;
+  sdt:identifier "ZWICK-Z250-01" .
+
+ex:operator-anna a sdt:Operator ;
+  sdt:identifier "anna.m" .
+
+ex:lab-berlin a sdt:Laboratory ;
+  sdt:identifier "LAB-BERLIN-01" .
+
+ex:method-iso6892-a a sdt:TestMethod ;
+  sdt:identifier "ISO6892-1-METHOD-A" .
+
+ex:condition-rt a sdt:TestCondition ;
+  sdt:testTemperature "23.0"^^xsd:decimal ;
+  sdt:testHumidity "45.0"^^xsd:decimal .
+
+# Tensile test + result
+ex:tensile-test-001 a sdn:TensileTest ;
+  sdt:testId "TEN-DP600-001" ;
+  sdt:partOfSeries ex:series-dp600-tensile ;
+  sdt:hasSpecimen ex:specimen-a1 ;
+  sdt:usesMachine ex:machine-zwick-01 ;
+  sdt:performedBy ex:operator-anna ;
+  sdt:performedAt ex:lab-berlin ;
+  sdt:usesMethod ex:method-iso6892-a ;
+  sdt:usesStandard vocts:ISO6892_1 ;
+  sdt:hasCondition ex:condition-rt ;
+  sdt:testDate "2026-03-02"^^xsd:date ;
+  sdt:testStartTime "2026-03-02T09:00:00Z"^^xsd:dateTime ;
+  sdt:testEndTime "2026-03-02T09:12:00Z"^^xsd:dateTime ;
+  sdn:hasTensileResult ex:tensile-result-001 ;
+  sdt:hasResult ex:tensile-result-001 .
+
+ex:tensile-result-001 a sdn:TensileTestResult ;
+  sq:Rm "612.0"^^xsd:decimal ;
+  sq:Rp "402.0"^^xsd:decimal ;
+  sq:A "18.5"^^xsd:decimal ;
+  sq:ReH "410.0"^^xsd:decimal ;
+  sq:ReL "396.0"^^xsd:decimal ;
+  sq:Agt "11.4"^^xsd:decimal ;
+  sq:At "19.2"^^xsd:decimal ;
+  sq:Z "38.0"^^xsd:decimal ;
+  sq:Fm "24500.0"^^xsd:decimal ;
+  sdt:testPassed "true"^^xsd:boolean ;
+  sdt:remark "DP600 tensile sample, room temperature." .
