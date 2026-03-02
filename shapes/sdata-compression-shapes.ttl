@@ -3,9 +3,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdc: <https://w3id.org/sdata/compression/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
 
 <https://w3id.org/sdata/shapes/compression/>
   a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <https://w3id.org/sdata/compression/> .
 
@@ -31,21 +34,21 @@ sdc:CompressionTestShape a sh:NodeShape ;
 sdc:CompressionTestResultShape a sh:NodeShape ;
   sh:targetClass sdc:CompressionTestResult ;
   sh:property [
-    sh:path sdc:CompressiveStrength ;
+    sh:path sq:CompressiveStrength ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdc:CompressionModulus ;
+    sh:path sq:CompressionModulus ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdc:StrainAtCompressiveStrength ;
+    sh:path sq:StrainAtCompressiveStrength ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:maxCount 1

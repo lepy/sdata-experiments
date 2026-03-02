@@ -37,6 +37,7 @@ nav:
   - Deployment: deployment.md
   - Module:
       - Core: modules/core.md
+      - Quantities: modules/quantities.md
       - Tensile Test: modules/tensiletest.md
       - TensileTestResult: modules/tensiletest-result.md
       - Compression Test: modules/compressiontest.md

@@ -12,3 +12,6 @@ Datei: `fatiguetest/sdata-fatigue.ttl`
 - `NumberOfCyclesToFailure`
 - `StressRatio`
 - `CycleFrequency`
+
+Die Kennwerte sind auf `sdata-quantities.ttl` gemappt
+(`sq:NumberOfCyclesToFailure`, `sq:StressRatio`, `sq:CycleFrequency`).

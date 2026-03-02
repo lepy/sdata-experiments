@@ -3,9 +3,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdf: <https://w3id.org/sdata/fatigue/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
 
 <https://w3id.org/sdata/shapes/fatigue/>
   a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <https://w3id.org/sdata/fatigue/> .
 
@@ -28,13 +31,13 @@ sdf:FatigueTestShape a sh:NodeShape ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdf:CycleFrequency ;
+    sh:path sq:CycleFrequency ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdf:StressRatio ;
+    sh:path sq:StressRatio ;
     sh:datatype xsd:decimal ;
     sh:maxCount 1
   ] .
@@ -42,7 +45,7 @@ sdf:FatigueTestShape a sh:NodeShape ;
 sdf:FatigueTestResultShape a sh:NodeShape ;
   sh:targetClass sdf:FatigueTestResult ;
   sh:property [
-    sh:path sdf:NumberOfCyclesToFailure ;
+    sh:path sq:NumberOfCyclesToFailure ;
     sh:datatype xsd:integer ;
     sh:minInclusive 1 ;
     sh:minCount 1 ;

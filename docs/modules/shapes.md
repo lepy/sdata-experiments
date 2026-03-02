@@ -16,8 +16,8 @@ SHACL-Validierung fuer Instanzdaten.
 ## Aktueller Fokus
 
 - Core: Prozessstruktur (`TestProgram -> TestSeries -> MechanicalTest`), IDs, Datentypen
-- Tensile: Mindestset `Rm`, `Rp`, `A` plus Kardinalitaeten/Datentypen
-- Compression: `CompressiveStrength`, `CompressionModulus`
-- Bending: Resultatwerte plus `SupportSpanLength`
-- Fatigue: `NumberOfCyclesToFailure`, `CycleFrequency`, `StressRatio`
+- Tensile: Mindestset `sq:Rm`, `sq:Rp`, `sq:A` plus Kardinalitaeten/Datentypen
+- Compression: `sq:CompressiveStrength`, `sq:CompressionModulus`
+- Bending: Resultatwerte plus `sq:SupportSpanLength`
+- Fatigue: `sq:NumberOfCyclesToFailure`, `sq:CycleFrequency`, `sq:StressRatio`
 - Aggregation: `sdata-shapes.ttl` importiert alle Shape-Module

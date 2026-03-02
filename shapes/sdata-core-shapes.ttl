@@ -2,9 +2,12 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
 
 <https://w3id.org/sdata/shapes/core/>
   a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> .
 
 sdt:TestProgramShape a sh:NodeShape ;
@@ -199,7 +202,7 @@ sdt:MeasurementChannelShape a sh:NodeShape ;
 sdt:TestResultShape a sh:NodeShape ;
   sh:targetClass sdt:TestResult ;
   sh:property [
-    sh:path sdt:maximumForce ;
+    sh:path sq:Fm ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:maxCount 1

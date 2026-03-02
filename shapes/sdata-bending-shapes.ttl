@@ -3,9 +3,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdb: <https://w3id.org/sdata/bending/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
 
 <https://w3id.org/sdata/shapes/bending/>
   a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <https://w3id.org/sdata/bending/> .
 
@@ -28,7 +31,7 @@ sdb:BendingTestShape a sh:NodeShape ;
     sh:minCount 1
   ] ;
   sh:property [
-    sh:path sdb:SupportSpanLength ;
+    sh:path sq:SupportSpanLength ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
@@ -44,21 +47,21 @@ sdb:BendingTestShape a sh:NodeShape ;
 sdb:BendingTestResultShape a sh:NodeShape ;
   sh:targetClass sdb:BendingTestResult ;
   sh:property [
-    sh:path sdb:FlexuralStrength ;
+    sh:path sq:FlexuralStrength ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdb:FlexuralModulus ;
+    sh:path sq:FlexuralModulus ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdb:MaximumDeflectionAtFailure ;
+    sh:path sq:MaximumDeflectionAtFailure ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:maxCount 1

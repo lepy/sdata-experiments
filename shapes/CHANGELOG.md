@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.0 - 2026-03-02
+- Switched result-value SHACL paths to shared `sq:*` quantity properties from `sdata-quantities.ttl`.
+- Added `sdata-quantities` imports to core and test-type shape graphs.
+
 ## 0.6.0 - 2026-03-02
 - Added `sdata-core-shapes.ttl` with reusable constraints for core process, specimen, conditions, measurements, and results.
 - Added `sdata-compression-shapes.ttl` and `sdata-fatigue-shapes.ttl`.

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 - 2026-03-02
+- Added `sdata-quantities.ttl` as shared quantities ontology.
+- Added import of `https://w3id.org/sdata/quantities/` in `sdata-testdata.ttl`.
+- Linked `sdt:maximumForce` to `sq:Fm` via `owl:equivalentProperty`.
+
 ## 0.3.0 - 2026-03-02
 - Reworked `sdata-testdata` using legacy tensile metadata as source for cross-test concepts.
 - Added process hierarchy classes: `TestProgram`, `TestSeries`, `MechanicalTest`.

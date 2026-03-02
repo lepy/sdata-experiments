@@ -34,6 +34,7 @@ sdata-testdata/
 ├── scripts/
 │   └── check_ttl.py
 ├── core/
+│   ├── sdata-quantities.ttl
 │   ├── sdata-testdata.ttl
 │   └── CHANGELOG.md
 ├── tensiletest/
@@ -77,6 +78,7 @@ sdata-testdata/
 ## Namespaces
 
 - `core/sdata-testdata.ttl` -> `https://w3id.org/sdata/testdata/`
+- `core/sdata-quantities.ttl` -> `https://w3id.org/sdata/quantities/`
 - `tensiletest/sdata-tensile.ttl` -> `https://w3id.org/sdata/tensile/`
 - `compressiontest/sdata-compression.ttl` -> `https://w3id.org/sdata/compression/`
 - `bendingtest/sdata-bending.ttl` -> `https://w3id.org/sdata/bending/`
@@ -91,13 +93,15 @@ sdata-testdata/
 ## Import-Kette
 
 ```text
-MIN -> sdata-core -> sdata-testdata -> sdata-tensile
+MIN -> sdata-core -> sdata-quantities
+                 -> sdata-testdata -> sdata-tensile
                                   -> sdata-compression
                                   -> sdata-bending
                                   -> sdata-fatigue
 ```
 
 Hinweis: `sdata-core` ist extern und wird in `core/sdata-testdata.ttl` als Import referenziert.
+Alle `.ttl`-Dateien im Repo importieren `https://w3id.org/sdata/core/` direkt.
 
 ## Modellprinzip
 
@@ -111,6 +115,9 @@ Hinweis: `sdata-core` ist extern und wird in `core/sdata-testdata.ttl` als Impor
 
 Die Testmodule (`tensiletest`, `compressiontest`, `bendingtest`, `fatiguetest`) erweitern darauf fachspezifisch.
 
+`core/sdata-quantities.ttl` definiert zentrale, wiederverwendbare Kennwert-Properties.
+Die Result-Properties in den Testmodulen sind darauf per `owl:equivalentProperty` gemappt.
+
 ## Tensile / ISO 6892-1
 
 `tensiletest/sdata-tensile.ttl` ist auf notation-nahe ISO-Kennwerte ausgerichtet (`Rm`, `ReH`, `ReL`, `Rp`, `Rt`, `Rr`, `A`, `Ae`, `Ag`, `Agt`, `At`, `E`, `Z`, `Su`, `Fm`) und mit `iso6892-1-skos.ttl` verknuepft.
@@ -120,6 +127,7 @@ Die Testmodule (`tensiletest`, `compressiontest`, `bendingtest`, `fatiguetest`) 
 - `shapes/sdata-core-shapes.ttl`: Basiskonsistenz (IDs, Kardinalitaeten, Datentypen)
 - `shapes/sdata-*-shapes.ttl`: testtypspezifische KPI-Regeln
 - `shapes/sdata-shapes.ttl`: Sammelgraph fuer alle Shape-Module
+- Result-KPI-Regeln validieren `sq:*`-Properties aus `core/sdata-quantities.ttl`
 
 TTL-Validation mit Parser:
 

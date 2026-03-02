@@ -1,5 +1,10 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix voc: <https://w3id.org/sdata/vocabularies/material-models/> .
+
+<https://w3id.org/sdata/vocabularies/material-models/>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/core/> .
 
 voc:ConceptScheme a skos:ConceptScheme ;
   skos:prefLabel "Material models"@en .

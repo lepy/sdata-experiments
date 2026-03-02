@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 - 2026-03-02
+- Added import of `https://w3id.org/sdata/quantities/`.
+- Mapped tensile result KPIs to `sdata-quantities.ttl` via `owl:equivalentProperty`.
+
 ## 0.4.0 - 2026-03-02
 - Aligned `TensileTestResult` with ISO 6892-1 notation-based KPIs (`Rm`, `ReH`, `ReL`, `Rp`, `Rt`, `Rr`, `A`, `Ae`, `Ag`, `Agt`, `At`, `E`, `Z`, `Su`, `Fm`).
 - Added explicit mappings from legacy property names to ISO-style properties via `owl:equivalentProperty`.

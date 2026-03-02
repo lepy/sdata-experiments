@@ -2,6 +2,7 @@
 
 <https://w3id.org/sdata/shapes/>
   a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/core/> ;
   owl:imports <https://w3id.org/sdata/shapes/core/> ;
   owl:imports <https://w3id.org/sdata/shapes/tensile/> ;
   owl:imports <https://w3id.org/sdata/shapes/compression/> ;

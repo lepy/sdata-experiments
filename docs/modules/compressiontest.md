@@ -12,3 +12,6 @@ Datei: `compressiontest/sdata-compression.ttl`
 - `CompressiveStrength`
 - `CompressionModulus`
 - `StrainAtCompressiveStrength`
+
+Die Result-Kennwerte sind auf `sdata-quantities.ttl` gemappt
+(`sq:CompressiveStrength`, `sq:CompressionModulus`, `sq:StrainAtCompressiveStrength`).

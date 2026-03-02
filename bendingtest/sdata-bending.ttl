@@ -3,11 +3,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdb: <https://w3id.org/sdata/bending/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
 
 <https://w3id.org/sdata/bending/>
   a owl:Ontology ;
   rdfs:label "SData Bending"@en ;
   rdfs:comment "Bending-test specific extensions."@en ;
+  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> .
 
 sdb:BendingTest a owl:Class ;
@@ -24,21 +27,25 @@ sdb:hasBendingResult a owl:ObjectProperty ;
   rdfs:label "has bending result"@en .
 
 sdb:FlexuralStrength a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:FlexuralStrength ;
   rdfs:domain sdb:BendingTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "flexural strength"@en .
 
 sdb:FlexuralModulus a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:FlexuralModulus ;
   rdfs:domain sdb:BendingTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "flexural modulus"@en .
 
 sdb:MaximumDeflectionAtFailure a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:MaximumDeflectionAtFailure ;
   rdfs:domain sdb:BendingTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "maximum deflection at failure"@en .
 
 sdb:SupportSpanLength a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:SupportSpanLength ;
   rdfs:domain sdb:BendingTest ;
   rdfs:range xsd:decimal ;
   rdfs:label "support span length"@en .

@@ -1,0 +1,110 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
+
+<https://w3id.org/sdata/quantities/>
+  a owl:Ontology ;
+  rdfs:label "SData Quantities"@en ;
+  rdfs:comment "Shared quantity properties for test result values."@en ;
+  owl:imports <https://w3id.org/sdata/core/> .
+
+sq:Rm a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "tensile strength Rm"@en .
+
+sq:ReH a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "upper yield strength ReH"@en .
+
+sq:ReL a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "lower yield strength ReL"@en .
+
+sq:Rp a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "proof strength Rp"@en .
+
+sq:Rt a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "proof strength Rt"@en .
+
+sq:Rr a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "permanent set strength Rr"@en .
+
+sq:A a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "percentage elongation after fracture A"@en .
+
+sq:Ae a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "percentage yield point extension Ae"@en .
+
+sq:Ag a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "percentage plastic extension at maximum force Ag"@en .
+
+sq:Agt a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "percentage total extension at maximum force Agt"@en .
+
+sq:At a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "percentage total extension at fracture At"@en .
+
+sq:E a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "modulus of elasticity E"@en .
+
+sq:Z a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "percentage reduction of area Z"@en .
+
+sq:Su a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "minimum cross-sectional area after fracture Su"@en .
+
+sq:Fm a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "maximum force Fm"@en .
+
+sq:CompressiveStrength a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "compressive strength"@en .
+
+sq:CompressionModulus a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "compression modulus"@en .
+
+sq:StrainAtCompressiveStrength a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "strain at compressive strength"@en .
+
+sq:FlexuralStrength a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "flexural strength"@en .
+
+sq:FlexuralModulus a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "flexural modulus"@en .
+
+sq:MaximumDeflectionAtFailure a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "maximum deflection at failure"@en .
+
+sq:SupportSpanLength a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "support span length"@en .
+
+sq:NumberOfCyclesToFailure a owl:DatatypeProperty ;
+  rdfs:range xsd:integer ;
+  rdfs:label "number of cycles to failure"@en .
+
+sq:StressRatio a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "stress ratio"@en .
+
+sq:CycleFrequency a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "cycle frequency"@en .

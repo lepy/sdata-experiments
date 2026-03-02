@@ -56,6 +56,9 @@ Alle Datentyp-Properties sind auf `xsd:decimal` modelliert (ausgenommen keine).
 Viele Properties sind per `rdfs:seeAlso` mit Konzepten aus `iso6892-1-skos.ttl` verbunden,
 z. B. `sdn:Rm -> iso6892:Rm`, `sdn:A -> iso6892:A`, `sdn:Z -> iso6892:ReductionOfArea`.
 
+Parallel sind die Properties auf das gemeinsame Quantities-Modul gemappt,
+z. B. `sdn:Rm -> sq:Rm`, `sdn:Rp -> sq:Rp`, `sdn:Fm -> sq:Fm`.
+
 Zusatzrelation:
 
 - `sdn:reportsIso6892Property` (Range: `skos:Concept`)

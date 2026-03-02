@@ -1,6 +1,9 @@
 # Core
 
-Datei: `core/sdata-testdata.ttl`
+Dateien:
+
+- `core/sdata-testdata.ttl`
+- `core/sdata-quantities.ttl`
 
 ## Zweck
 
@@ -17,3 +20,9 @@ Gemeinsame Modellierung fuer alle Testarten:
 - `hasSeries`, `hasTest`, `partOfProgram`, `partOfSeries`
 - `hasSpecimen`, `usesMachine`, `usesStandard`, `hasCondition`
 - `hasResult`, `hasMeasurementSeries`, `hasChannel`
+
+## Quantities
+
+`sdata-quantities.ttl` bietet zentrale Kennwert-Properties (z. B. `sq:Rm`, `sq:CompressiveStrength`,
+`sq:FlexuralStrength`, `sq:NumberOfCyclesToFailure`), die in Result-Modulen per `owl:equivalentProperty`
+genutzt werden.

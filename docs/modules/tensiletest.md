@@ -17,6 +17,9 @@ Datei: `tensiletest/sdata-tensile.ttl`
 
 Legacy-Namen bleiben ueber `owl:equivalentProperty` abbildbar.
 
+Alle Result-Kennwerte sind zusaetzlich auf `sdata-quantities.ttl` gemappt
+(z. B. `sdn:Rm -> sq:Rm`).
+
 ## Detaildoku
 
 Eine vollstaendige Referenz fuer `TensileTestResult` inkl. SHACL-Pflichtfeldern und

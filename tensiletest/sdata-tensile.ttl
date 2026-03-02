@@ -4,12 +4,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
 @prefix iso6892: <http://example.org/vocab/iso6892-1/> .
 
 <https://w3id.org/sdata/tensile/>
   a owl:Ontology ;
   rdfs:label "SData Tensile"@en ;
   rdfs:comment "Tensile-test specific extensions."@en ;
+  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <http://example.org/vocab/iso6892-1/> .
 
@@ -32,90 +35,105 @@ sdn:reportsIso6892Property a owl:ObjectProperty ;
   rdfs:label "reports ISO 6892-1 property"@en .
 
 sdn:Rm a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Rm ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "tensile strength Rm"@en ;
   rdfs:seeAlso iso6892:Rm .
 
 sdn:ReH a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:ReH ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "upper yield strength ReH"@en ;
   rdfs:seeAlso iso6892:ReH .
 
 sdn:ReL a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:ReL ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "lower yield strength ReL"@en ;
   rdfs:seeAlso iso6892:ReL .
 
 sdn:Rp a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Rp ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "proof strength Rp"@en ;
   rdfs:seeAlso iso6892:Rp .
 
 sdn:Rt a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Rt ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "proof strength Rt"@en ;
   rdfs:seeAlso iso6892:Rt .
 
 sdn:Rr a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Rr ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "permanent set strength Rr"@en ;
   rdfs:seeAlso iso6892:Rr .
 
 sdn:A a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:A ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "percentage elongation after fracture A"@en ;
   rdfs:seeAlso iso6892:A .
 
 sdn:Ae a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Ae ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "percentage yield point extension Ae"@en ;
   rdfs:seeAlso iso6892:Ae .
 
 sdn:Ag a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Ag ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "percentage plastic extension at maximum force Ag"@en ;
   rdfs:seeAlso iso6892:Ag .
 
 sdn:Agt a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Agt ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "percentage total extension at maximum force Agt"@en ;
   rdfs:seeAlso iso6892:Agt .
 
 sdn:At a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:At ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "percentage total extension at fracture At"@en ;
   rdfs:seeAlso iso6892:At .
 
 sdn:E a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:E ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "modulus of elasticity E"@en ;
   rdfs:seeAlso iso6892:E .
 
 sdn:Z a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Z ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "percentage reduction of area Z"@en ;
   rdfs:seeAlso iso6892:ReductionOfArea .
 
 sdn:Su a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Su ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "minimum cross-sectional area after fracture Su"@en ;
   rdfs:seeAlso iso6892:Su .
 
 sdn:Fm a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Fm ;
   owl:equivalentProperty sdt:maximumForce ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range xsd:decimal ;

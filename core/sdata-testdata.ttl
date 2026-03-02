@@ -3,12 +3,14 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
 
 <https://w3id.org/sdata/testdata/>
   a owl:Ontology ;
   rdfs:label "SData Testdata Core"@en ;
   rdfs:comment "Shared, test-type agnostic classes for mechanical test domains."@en ;
   owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/vocabularies/specimen-shapes/> ;
   owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> .
 
@@ -299,6 +301,7 @@ sdt:channelDatatype a owl:DatatypeProperty ;
   rdfs:label "channel datatype"@en .
 
 sdt:maximumForce a owl:DatatypeProperty ;
+  owl:equivalentProperty sq:Fm ;
   rdfs:domain sdt:TestResult ;
   rdfs:range xsd:decimal ;
   rdfs:label "maximum force"@en .

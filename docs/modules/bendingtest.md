@@ -13,3 +13,6 @@ Datei: `bendingtest/sdata-bending.ttl`
 - `FlexuralModulus`
 - `MaximumDeflectionAtFailure`
 - `SupportSpanLength`
+
+Die Result-Kennwerte sind auf `sdata-quantities.ttl` gemappt
+(`sq:FlexuralStrength`, `sq:FlexuralModulus`, `sq:MaximumDeflectionAtFailure`).

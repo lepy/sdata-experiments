@@ -3,9 +3,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
 
 <https://w3id.org/sdata/shapes/tensile/>
   a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <https://w3id.org/sdata/tensile/> .
 
@@ -37,28 +40,28 @@ sdn:TensileTestShape a sh:NodeShape ;
 sdn:TensileTestResultShape a sh:NodeShape ;
   sh:targetClass sdn:TensileTestResult ;
   sh:property [
-    sh:path sdn:Rm ;
+    sh:path sq:Rm ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdn:Rp ;
+    sh:path sq:Rp ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdn:A ;
+    sh:path sq:A ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
-    sh:path sdn:Fm ;
+    sh:path sq:Fm ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
     sh:maxCount 1
