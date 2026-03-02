@@ -19,6 +19,21 @@ Gemeinsame Modellierung fuer alle Testarten:
 `sdata-testdata.ttl` ist dabei explizit auf `sdata-core` ausgerichtet
 (z. B. `InformationArtifact`, `MaterialArtifact`, `MaterialProcess`, `InformationProcess`).
 
+## MIN FORMA (exemplarisch)
+
+Zusätzlich nutzt das Core-Modul exemplarisch den FORMA-Zweig aus MIN:
+
+- `TestFormalModel` als `min:Structura` (z. B. Auswerte-/Identifikationsmodell)
+- `TestAcceptanceCriterion` als `min:Norma` (Soll-/Grenzkriterium)
+- `TestGoverningLaw` als `min:Lex` (naturgesetzliche Regularität)
+
+Brueckenrelationen:
+
+- `methodEncodesFormalModel` `rdfs:subPropertyOf min:encodes`
+- `formalModelFormalizesTest` `rdfs:subPropertyOf min:formalizes`
+- `acceptanceCriterionEvaluatesResult` `rdfs:subPropertyOf min:evaluates`
+- `governingLawGovernsTest` `rdfs:subPropertyOf min:governs`
+
 ## Wichtige Beziehungen
 
 - `hasSeries`, `hasTest`, `partOfProgram`, `partOfSeries`

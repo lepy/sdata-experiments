@@ -1,4 +1,5 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix min: <https://w3id.org/min#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -10,6 +11,7 @@
   a owl:Ontology ;
   rdfs:label "SData Testdata Core"@en ;
   rdfs:comment "Shared, test-type agnostic classes for mechanical test domains."@en ;
+  owl:imports <https://w3id.org/min> ;
   owl:imports <https://w3id.org/sdata/core/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> .
@@ -85,6 +87,21 @@ sdt:SoftwareTool a owl:Class ;
 sdt:ProcessingPipeline a owl:Class ;
   rdfs:subClassOf sdata:InformationArtifact ;
   rdfs:label "Processing pipeline"@en .
+
+sdt:TestFormalModel a owl:Class ;
+  rdfs:subClassOf min:Structura ;
+  rdfs:label "Test formal model"@en ;
+  rdfs:comment "Formal model used for deriving or interpreting test outcomes."@en .
+
+sdt:TestAcceptanceCriterion a owl:Class ;
+  rdfs:subClassOf min:Norma ;
+  rdfs:label "Test acceptance criterion"@en ;
+  rdfs:comment "Normative criterion used to evaluate test results."@en .
+
+sdt:TestGoverningLaw a owl:Class ;
+  rdfs:subClassOf min:Lex ;
+  rdfs:label "Test governing law"@en ;
+  rdfs:comment "Physical law or regularity governing a test process."@en .
 
 sdt:hasSeries a owl:ObjectProperty ;
   rdfs:domain sdt:TestProgram ;
@@ -190,6 +207,30 @@ sdt:responsibleOperator a owl:ObjectProperty ;
   rdfs:domain sdt:ResultGenerationActivity ;
   rdfs:range sdt:Operator ;
   rdfs:label "responsible operator"@en .
+
+sdt:methodEncodesFormalModel a owl:ObjectProperty ;
+  rdfs:subPropertyOf min:encodes ;
+  rdfs:domain sdt:TestMethod ;
+  rdfs:range sdt:TestFormalModel ;
+  rdfs:label "method encodes formal model"@en .
+
+sdt:formalModelFormalizesTest a owl:ObjectProperty ;
+  rdfs:subPropertyOf min:formalizes ;
+  rdfs:domain sdt:TestFormalModel ;
+  rdfs:range sdt:MechanicalTest ;
+  rdfs:label "formal model formalizes test"@en .
+
+sdt:acceptanceCriterionEvaluatesResult a owl:ObjectProperty ;
+  rdfs:subPropertyOf min:evaluates ;
+  rdfs:domain sdt:TestAcceptanceCriterion ;
+  rdfs:range sdt:TestResult ;
+  rdfs:label "acceptance criterion evaluates result"@en .
+
+sdt:governingLawGovernsTest a owl:ObjectProperty ;
+  rdfs:subPropertyOf min:governs ;
+  rdfs:domain sdt:TestGoverningLaw ;
+  rdfs:range sdt:MechanicalTest ;
+  rdfs:label "governing law governs test"@en .
 
 sdt:specimenShape a owl:ObjectProperty ;
   rdfs:domain sdt:Specimen ;

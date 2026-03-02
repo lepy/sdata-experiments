@@ -20,3 +20,19 @@ Alle TTL-Module und Shape-/Vokabular-Graphen importieren zusaetzlich direkt `htt
 - Resultatklassen liegen in den fachlichen Testmodulen
 - Resultatkennwerte sind ueber `https://w3id.org/sdata/quantities/` (externes `sdata-quantity`) vereinheitlicht
 - SHACL in `shapes/` bleibt von OWL-Modellen getrennt
+- MIN/FORMA wird im Core exemplarisch genutzt (Structura/Norma/Lex) fuer Modell, Kriterium und Gesetz im Versuchskontext
+
+## MIN FORMA im Core
+
+In `core/sdata-testdata.ttl` sind folgende FORMA-Elemente angebunden:
+
+- `sdt:TestFormalModel` `rdfs:subClassOf min:Structura`
+- `sdt:TestAcceptanceCriterion` `rdfs:subClassOf min:Norma`
+- `sdt:TestGoverningLaw` `rdfs:subClassOf min:Lex`
+
+Und als Brueckenrelationen:
+
+- `sdt:methodEncodesFormalModel` `rdfs:subPropertyOf min:encodes`
+- `sdt:formalModelFormalizesTest` `rdfs:subPropertyOf min:formalizes`
+- `sdt:acceptanceCriterionEvaluatesResult` `rdfs:subPropertyOf min:evaluates`
+- `sdt:governingLawGovernsTest` `rdfs:subPropertyOf min:governs`

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.8.0 - 2026-03-03
+- Added explicit MIN import (`https://w3id.org/min`) in `sdata-testdata.ttl`.
+- Added exemplaric FORMA-aligned classes for test semantics:
+  - `TestFormalModel` (`min:Structura`)
+  - `TestAcceptanceCriterion` (`min:Norma`)
+  - `TestGoverningLaw` (`min:Lex`)
+- Added FORMA bridge properties:
+  - `methodEncodesFormalModel` subPropertyOf `min:encodes`
+  - `formalModelFormalizesTest` subPropertyOf `min:formalizes`
+  - `acceptanceCriterionEvaluatesResult` subPropertyOf `min:evaluates`
+  - `governingLawGovernsTest` subPropertyOf `min:governs`
+
 ## 0.7.0 - 2026-03-02
 - Aligned `sdata-testdata.ttl` class hierarchy with `sdata-core`:
   - test programs/series/results/channels/methods/conditions as `sdata:InformationArtifact`

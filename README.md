@@ -130,6 +130,22 @@ Probekoerpergeometrien werden je Testtyp in separaten Dateien verwaltet:
 `sdata-quantity` wird extern im `sdata-ontology`-Repo gepflegt.
 Die Result-Properties in den Testmodulen sind darauf per `owl:equivalentProperty` gemappt.
 
+## MIN FORMA (exemplarisch im Core)
+
+`core/sdata-testdata.ttl` importiert zusaetzlich `https://w3id.org/min` und nutzt den
+FORMA-Zweig fuer versuchsrelevante Semantik:
+
+- `sdt:TestFormalModel` als `min:Structura`
+- `sdt:TestAcceptanceCriterion` als `min:Norma`
+- `sdt:TestGoverningLaw` als `min:Lex`
+
+Brueckenrelationen zu MIN:
+
+- `sdt:methodEncodesFormalModel` `rdfs:subPropertyOf min:encodes`
+- `sdt:formalModelFormalizesTest` `rdfs:subPropertyOf min:formalizes`
+- `sdt:acceptanceCriterionEvaluatesResult` `rdfs:subPropertyOf min:evaluates`
+- `sdt:governingLawGovernsTest` `rdfs:subPropertyOf min:governs`
+
 ## Tensile / ISO 6892-1
 
 `tensiletest/sdata-tensile.ttl` ist auf notation-nahe ISO-Kennwerte ausgerichtet (`Rm`, `ReH`, `ReL`, `Rp`, `Rt`, `Rr`, `A`, `Ae`, `Ag`, `Agt`, `At`, `E`, `Z`, `Su`, `Fm`) und mit `iso6892-1-skos.ttl` verknuepft.
