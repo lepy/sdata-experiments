@@ -49,7 +49,8 @@ Weitere Kennwerte:
 - `sdn:Su`
 - `sdn:Fm`
 
-Alle Datentyp-Properties sind auf `xsd:decimal` modelliert (ausgenommen keine).
+Alle Result-Properties sind als `owl:ObjectProperty` modelliert und erwarten
+`sdata:AttributeQuantityValue` als Range.
 
 ## Verknuepfung zu ISO-SKOS
 
@@ -59,9 +60,9 @@ z. B. `sdn:Rm -> iso6892:Rm`, `sdn:A -> iso6892:A`, `sdn:Z -> iso6892:ReductionO
 Parallel sind die Properties auf das gemeinsame Quantities-Modul gemappt,
 z. B. `sdn:Rm -> sq:Rm`, `sdn:Rp -> sq:Rp`, `sdn:Fm -> sq:Fm`.
 
-Zusatzrelation:
+Zusatzrelation auf AQV-Knoten:
 
-- `sdn:reportsIso6892Property` (Range: `skos:Concept`)
+- `sdn:reportsIso6892Property` (Domain: `sdata:AttributeQuantityValue`, Range: `skos:Concept`)
 
 ## Legacy-Mapping
 
@@ -88,13 +89,20 @@ Zusatz:
 ```ttl
 @prefix ex: <https://example.org/data/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
+@prefix sdata: <https://w3id.org/sdata/core/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:result-001 a sdn:TensileTestResult ;
-  sdn:Rm "512.0"^^xsd:decimal ;
-  sdn:Rp "355.0"^^xsd:decimal ;
-  sdn:A "23.4"^^xsd:decimal ;
-  sdn:Fm "25200.0"^^xsd:decimal .
+  sdn:Rm ex:q-rm ;
+  sdn:Rp ex:q-rp ;
+  sdn:A ex:q-a ;
+  sdn:Fm ex:q-fm .
+
+ex:q-rm a sdata:AttributeQuantityValue ; rdf:value "512.0"^^xsd:decimal .
+ex:q-rp a sdata:AttributeQuantityValue ; rdf:value "355.0"^^xsd:decimal .
+ex:q-a  a sdata:AttributeQuantityValue ; rdf:value "23.4"^^xsd:decimal .
+ex:q-fm a sdata:AttributeQuantityValue ; rdf:value "25200.0"^^xsd:decimal .
 ```
 
 ## Empfehlung fuer Instanzdaten

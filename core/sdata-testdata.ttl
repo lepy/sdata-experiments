@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
 
@@ -300,15 +301,15 @@ sdt:channelDatatype a owl:DatatypeProperty ;
   rdfs:range xsd:string ;
   rdfs:label "channel datatype"@en .
 
-sdt:maximumForce a owl:DatatypeProperty ;
+sdt:maximumForce a owl:ObjectProperty ;
   owl:equivalentProperty sq:Fm ;
   rdfs:domain sdt:TestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "maximum force"@en .
 
-sdt:testPassed a owl:DatatypeProperty ;
+sdt:testPassed a owl:ObjectProperty ;
   rdfs:domain sdt:TestResult ;
-  rdfs:range xsd:boolean ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "test passed"@en .
 
 sdt:remark a owl:DatatypeProperty ;

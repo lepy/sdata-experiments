@@ -1,6 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
@@ -8,6 +9,7 @@
 <https://w3id.org/sdata/shapes/tensile/>
   a owl:Ontology ;
   owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/shapes/core/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <https://w3id.org/sdata/tensile/> .
@@ -41,28 +43,28 @@ sdn:TensileTestResultShape a sh:NodeShape ;
   sh:targetClass sdn:TensileTestResult ;
   sh:property [
     sh:path sq:Rm ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
     sh:path sq:Rp ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
     sh:path sq:A ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
     sh:path sq:Fm ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:maxCount 1
   ] .

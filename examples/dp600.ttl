@@ -1,5 +1,7 @@
 @prefix ex: <https://example.org/data/dp600/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
@@ -63,14 +65,25 @@ ex:tensile-test-001 a sdn:TensileTest ;
   sdt:hasResult ex:tensile-result-001 .
 
 ex:tensile-result-001 a sdn:TensileTestResult ;
-  sq:Rm "612.0"^^xsd:decimal ;
-  sq:Rp "402.0"^^xsd:decimal ;
-  sq:A "18.5"^^xsd:decimal ;
-  sq:ReH "410.0"^^xsd:decimal ;
-  sq:ReL "396.0"^^xsd:decimal ;
-  sq:Agt "11.4"^^xsd:decimal ;
-  sq:At "19.2"^^xsd:decimal ;
-  sq:Z "38.0"^^xsd:decimal ;
-  sq:Fm "24500.0"^^xsd:decimal ;
-  sdt:testPassed "true"^^xsd:boolean ;
+  sq:Rm ex:q-rm ;
+  sq:Rp ex:q-rp ;
+  sq:A ex:q-a ;
+  sq:ReH ex:q-reh ;
+  sq:ReL ex:q-rel ;
+  sq:Agt ex:q-agt ;
+  sq:At ex:q-at ;
+  sq:Z ex:q-z ;
+  sq:Fm ex:q-fm ;
+  sdt:testPassed ex:q-test-passed ;
   sdt:remark "DP600 tensile sample, room temperature." .
+
+ex:q-rm a sdata:AttributeQuantityValue ; rdf:value "612.0"^^xsd:decimal .
+ex:q-rp a sdata:AttributeQuantityValue ; rdf:value "402.0"^^xsd:decimal .
+ex:q-a a sdata:AttributeQuantityValue ; rdf:value "18.5"^^xsd:decimal .
+ex:q-reh a sdata:AttributeQuantityValue ; rdf:value "410.0"^^xsd:decimal .
+ex:q-rel a sdata:AttributeQuantityValue ; rdf:value "396.0"^^xsd:decimal .
+ex:q-agt a sdata:AttributeQuantityValue ; rdf:value "11.4"^^xsd:decimal .
+ex:q-at a sdata:AttributeQuantityValue ; rdf:value "19.2"^^xsd:decimal .
+ex:q-z a sdata:AttributeQuantityValue ; rdf:value "38.0"^^xsd:decimal .
+ex:q-fm a sdata:AttributeQuantityValue ; rdf:value "24500.0"^^xsd:decimal .
+ex:q-test-passed a sdata:AttributeQuantityValue ; rdf:value "true"^^xsd:boolean .

@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
+@prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
 @prefix iso6892: <http://example.org/vocab/iso6892-1/> .
 
@@ -30,171 +31,171 @@ sdn:hasTensileResult a owl:ObjectProperty ;
   rdfs:label "has tensile result"@en .
 
 sdn:reportsIso6892Property a owl:ObjectProperty ;
-  rdfs:domain sdn:TensileTestResult ;
+  rdfs:domain sdata:AttributeQuantityValue ;
   rdfs:range skos:Concept ;
   rdfs:label "reports ISO 6892-1 property"@en .
 
-sdn:Rm a owl:DatatypeProperty ;
+sdn:Rm a owl:ObjectProperty ;
   owl:equivalentProperty sq:Rm ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "tensile strength Rm"@en ;
   rdfs:seeAlso iso6892:Rm .
 
-sdn:ReH a owl:DatatypeProperty ;
+sdn:ReH a owl:ObjectProperty ;
   owl:equivalentProperty sq:ReH ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "upper yield strength ReH"@en ;
   rdfs:seeAlso iso6892:ReH .
 
-sdn:ReL a owl:DatatypeProperty ;
+sdn:ReL a owl:ObjectProperty ;
   owl:equivalentProperty sq:ReL ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "lower yield strength ReL"@en ;
   rdfs:seeAlso iso6892:ReL .
 
-sdn:Rp a owl:DatatypeProperty ;
+sdn:Rp a owl:ObjectProperty ;
   owl:equivalentProperty sq:Rp ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "proof strength Rp"@en ;
   rdfs:seeAlso iso6892:Rp .
 
-sdn:Rt a owl:DatatypeProperty ;
+sdn:Rt a owl:ObjectProperty ;
   owl:equivalentProperty sq:Rt ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "proof strength Rt"@en ;
   rdfs:seeAlso iso6892:Rt .
 
-sdn:Rr a owl:DatatypeProperty ;
+sdn:Rr a owl:ObjectProperty ;
   owl:equivalentProperty sq:Rr ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "permanent set strength Rr"@en ;
   rdfs:seeAlso iso6892:Rr .
 
-sdn:A a owl:DatatypeProperty ;
+sdn:A a owl:ObjectProperty ;
   owl:equivalentProperty sq:A ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "percentage elongation after fracture A"@en ;
   rdfs:seeAlso iso6892:A .
 
-sdn:Ae a owl:DatatypeProperty ;
+sdn:Ae a owl:ObjectProperty ;
   owl:equivalentProperty sq:Ae ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "percentage yield point extension Ae"@en ;
   rdfs:seeAlso iso6892:Ae .
 
-sdn:Ag a owl:DatatypeProperty ;
+sdn:Ag a owl:ObjectProperty ;
   owl:equivalentProperty sq:Ag ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "percentage plastic extension at maximum force Ag"@en ;
   rdfs:seeAlso iso6892:Ag .
 
-sdn:Agt a owl:DatatypeProperty ;
+sdn:Agt a owl:ObjectProperty ;
   owl:equivalentProperty sq:Agt ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "percentage total extension at maximum force Agt"@en ;
   rdfs:seeAlso iso6892:Agt .
 
-sdn:At a owl:DatatypeProperty ;
+sdn:At a owl:ObjectProperty ;
   owl:equivalentProperty sq:At ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "percentage total extension at fracture At"@en ;
   rdfs:seeAlso iso6892:At .
 
-sdn:E a owl:DatatypeProperty ;
+sdn:E a owl:ObjectProperty ;
   owl:equivalentProperty sq:E ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "modulus of elasticity E"@en ;
   rdfs:seeAlso iso6892:E .
 
-sdn:Z a owl:DatatypeProperty ;
+sdn:Z a owl:ObjectProperty ;
   owl:equivalentProperty sq:Z ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "percentage reduction of area Z"@en ;
   rdfs:seeAlso iso6892:ReductionOfArea .
 
-sdn:Su a owl:DatatypeProperty ;
+sdn:Su a owl:ObjectProperty ;
   owl:equivalentProperty sq:Su ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "minimum cross-sectional area after fracture Su"@en ;
   rdfs:seeAlso iso6892:Su .
 
-sdn:Fm a owl:DatatypeProperty ;
+sdn:Fm a owl:ObjectProperty ;
   owl:equivalentProperty sq:Fm ;
   owl:equivalentProperty sdt:maximumForce ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "maximum force Fm"@en .
 
-sdn:YieldStrength a owl:DatatypeProperty ;
+sdn:YieldStrength a owl:ObjectProperty ;
   owl:equivalentProperty sdn:Rp ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "yield strength (legacy; mapped to Rp)"@en .
 
-sdn:UpperYieldStrength a owl:DatatypeProperty ;
+sdn:UpperYieldStrength a owl:ObjectProperty ;
   owl:equivalentProperty sdn:ReH ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "upper yield strength (legacy; mapped to ReH)"@en .
 
-sdn:LowerYieldStrength a owl:DatatypeProperty ;
+sdn:LowerYieldStrength a owl:ObjectProperty ;
   owl:equivalentProperty sdn:ReL ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "lower yield strength (legacy; mapped to ReL)"@en .
 
-sdn:UltimateTensileStrength a owl:DatatypeProperty ;
+sdn:UltimateTensileStrength a owl:ObjectProperty ;
   owl:equivalentProperty sdn:Rm ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "ultimate tensile strength (legacy; mapped to Rm)"@en .
 
-sdn:ElongationAtBreak a owl:DatatypeProperty ;
+sdn:ElongationAtBreak a owl:ObjectProperty ;
   owl:equivalentProperty sdn:A ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "elongation at break (legacy; mapped to A)"@en .
 
-sdn:PlasticExtensionAtMaximumForce a owl:DatatypeProperty ;
+sdn:PlasticExtensionAtMaximumForce a owl:ObjectProperty ;
   owl:equivalentProperty sdn:Ag ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "plastic extension at maximum force (legacy; mapped to Ag)"@en .
 
-sdn:TotalExtensionAtMaximumForce a owl:DatatypeProperty ;
+sdn:TotalExtensionAtMaximumForce a owl:ObjectProperty ;
   owl:equivalentProperty sdn:Agt ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "total extension at maximum force (legacy; mapped to Agt)"@en .
 
-sdn:TotalExtensionAtFracture a owl:DatatypeProperty ;
+sdn:TotalExtensionAtFracture a owl:ObjectProperty ;
   owl:equivalentProperty sdn:At ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "total extension at fracture (legacy; mapped to At)"@en .
 
-sdn:MinimumCrossSectionAfterFracture a owl:DatatypeProperty ;
+sdn:MinimumCrossSectionAfterFracture a owl:ObjectProperty ;
   owl:equivalentProperty sdn:Su ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "minimum cross-section after fracture (legacy; mapped to Su)"@en .
 
-sdn:ReductionOfArea a owl:DatatypeProperty ;
+sdn:ReductionOfArea a owl:ObjectProperty ;
   owl:equivalentProperty sdn:Z ;
   rdfs:domain sdn:TensileTestResult ;
-  rdfs:range xsd:decimal ;
+  rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "reduction of area (legacy; mapped to Z)"@en .

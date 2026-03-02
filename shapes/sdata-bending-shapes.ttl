@@ -1,6 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdb: <https://w3id.org/sdata/bending/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
@@ -8,6 +9,7 @@
 <https://w3id.org/sdata/shapes/bending/>
   a owl:Ontology ;
   owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/shapes/core/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <https://w3id.org/sdata/bending/> .
@@ -32,8 +34,8 @@ sdb:BendingTestShape a sh:NodeShape ;
   ] ;
   sh:property [
     sh:path sq:SupportSpanLength ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
@@ -48,21 +50,21 @@ sdb:BendingTestResultShape a sh:NodeShape ;
   sh:targetClass sdb:BendingTestResult ;
   sh:property [
     sh:path sq:FlexuralStrength ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
     sh:path sq:FlexuralModulus ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
     sh:path sq:MaximumDeflectionAtFailure ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:maxCount 1
   ] .

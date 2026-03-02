@@ -1,6 +1,8 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
 
@@ -9,6 +11,50 @@
   owl:imports <https://w3id.org/sdata/core/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> .
+
+sdt:AttributeQuantityValueShape a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:value ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .
+
+sdt:DecimalQuantityValueShape a sh:NodeShape ;
+  sh:class sdata:AttributeQuantityValue ;
+  sh:property [
+    sh:path rdf:value ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .
+
+sdt:IntegerQuantityValueShape a sh:NodeShape ;
+  sh:class sdata:AttributeQuantityValue ;
+  sh:property [
+    sh:path rdf:value ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .
+
+sdt:PositiveIntegerQuantityValueShape a sh:NodeShape ;
+  sh:class sdata:AttributeQuantityValue ;
+  sh:property [
+    sh:path rdf:value ;
+    sh:datatype xsd:integer ;
+    sh:minInclusive 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .
+
+sdt:BooleanQuantityValueShape a sh:NodeShape ;
+  sh:class sdata:AttributeQuantityValue ;
+  sh:property [
+    sh:path rdf:value ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .
 
 sdt:TestProgramShape a sh:NodeShape ;
   sh:targetClass sdt:TestProgram ;
@@ -203,12 +249,13 @@ sdt:TestResultShape a sh:NodeShape ;
   sh:targetClass sdt:TestResult ;
   sh:property [
     sh:path sq:Fm ;
-    sh:datatype xsd:decimal ;
-    sh:minInclusive 0 ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
     sh:maxCount 1
   ] ;
   sh:property [
     sh:path sdt:testPassed ;
-    sh:datatype xsd:boolean ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:BooleanQuantityValueShape ;
     sh:maxCount 1
   ] .
