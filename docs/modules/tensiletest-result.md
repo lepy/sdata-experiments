@@ -51,6 +51,8 @@ Weitere Kennwerte:
 
 Alle Result-Properties sind als `owl:ObjectProperty` modelliert und erwarten
 `sdata:AttributeQuantityValue` als Range.
+Fuer vollstaendige AQV-Knoten sollten pro Kennwert mindestens `rdf:value`,
+`qudt:unit`, `rdfs:label` und `dcterms:description` gesetzt werden.
 
 ## Verknuepfung zu ISO-SKOS
 
@@ -88,10 +90,14 @@ Zusatz:
 
 ```ttl
 @prefix ex: <https://example.org/data/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
 @prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
 
 ex:result-001 a sdn:TensileTestResult ;
   sdn:Rm ex:q-rm ;
@@ -99,10 +105,26 @@ ex:result-001 a sdn:TensileTestResult ;
   sdn:A ex:q-a ;
   sdn:Fm ex:q-fm .
 
-ex:q-rm a sdata:AttributeQuantityValue ; rdf:value "512.0"^^xsd:decimal .
-ex:q-rp a sdata:AttributeQuantityValue ; rdf:value "355.0"^^xsd:decimal .
-ex:q-a  a sdata:AttributeQuantityValue ; rdf:value "23.4"^^xsd:decimal .
-ex:q-fm a sdata:AttributeQuantityValue ; rdf:value "25200.0"^^xsd:decimal .
+ex:q-rm a sdata:AttributeQuantityValue ;
+  rdf:value "512.0"^^xsd:decimal ;
+  qudt:unit unit:MPa ;
+  rdfs:label "Tensile strength Rm"@en ;
+  dcterms:description "Maximum tensile stress according to ISO 6892-1."@en .
+ex:q-rp a sdata:AttributeQuantityValue ;
+  rdf:value "355.0"^^xsd:decimal ;
+  qudt:unit unit:MPa ;
+  rdfs:label "Proof strength Rp"@en ;
+  dcterms:description "Proof strength (0.2% plastic strain)."@en .
+ex:q-a a sdata:AttributeQuantityValue ;
+  rdf:value "23.4"^^xsd:decimal ;
+  qudt:unit unit:PERCENT ;
+  rdfs:label "Percentage elongation after fracture A"@en ;
+  dcterms:description "Elongation after fracture."@en .
+ex:q-fm a sdata:AttributeQuantityValue ;
+  rdf:value "25200.0"^^xsd:decimal ;
+  qudt:unit unit:N ;
+  rdfs:label "Maximum force Fm"@en ;
+  dcterms:description "Maximum force measured during tensile test."@en .
 ```
 
 ## Empfehlung fuer Instanzdaten

@@ -1,5 +1,8 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdata: <https://w3id.org/sdata/core/> .
@@ -17,9 +20,28 @@ sdt:AttributeQuantityValueShape a sh:NodeShape ;
     sh:path rdf:value ;
     sh:minCount 1 ;
     sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path qudt:unit ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path rdfs:label ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path dcterms:description ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1
   ] .
 
 sdt:DecimalQuantityValueShape a sh:NodeShape ;
+  sh:node sdt:AttributeQuantityValueShape ;
   sh:class sdata:AttributeQuantityValue ;
   sh:property [
     sh:path rdf:value ;
@@ -29,6 +51,7 @@ sdt:DecimalQuantityValueShape a sh:NodeShape ;
   ] .
 
 sdt:IntegerQuantityValueShape a sh:NodeShape ;
+  sh:node sdt:AttributeQuantityValueShape ;
   sh:class sdata:AttributeQuantityValue ;
   sh:property [
     sh:path rdf:value ;
@@ -38,6 +61,7 @@ sdt:IntegerQuantityValueShape a sh:NodeShape ;
   ] .
 
 sdt:PositiveIntegerQuantityValueShape a sh:NodeShape ;
+  sh:node sdt:AttributeQuantityValueShape ;
   sh:class sdata:AttributeQuantityValue ;
   sh:property [
     sh:path rdf:value ;
@@ -48,6 +72,7 @@ sdt:PositiveIntegerQuantityValueShape a sh:NodeShape ;
   ] .
 
 sdt:BooleanQuantityValueShape a sh:NodeShape ;
+  sh:node sdt:AttributeQuantityValueShape ;
   sh:class sdata:AttributeQuantityValue ;
   sh:property [
     sh:path rdf:value ;
