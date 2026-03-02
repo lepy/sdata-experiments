@@ -1,0 +1,313 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+
+<https://w3id.org/sdata/testdata/>
+  a owl:Ontology ;
+  rdfs:label "SData Testdata Core"@en ;
+  rdfs:comment "Shared, test-type agnostic classes for mechanical test domains."@en ;
+  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/vocabularies/specimen-shapes/> ;
+  owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> .
+
+sdt:TestProgram a owl:Class ;
+  rdfs:label "Test program"@en .
+
+sdt:TestSeries a owl:Class ;
+  rdfs:label "Test series"@en .
+
+sdt:MechanicalTest a owl:Class ;
+  rdfs:label "Mechanical test"@en .
+
+sdt:QuasiStaticTest a owl:Class ;
+  rdfs:subClassOf sdt:MechanicalTest ;
+  rdfs:label "Quasi-static test"@en .
+
+sdt:CyclicTest a owl:Class ;
+  rdfs:subClassOf sdt:MechanicalTest ;
+  rdfs:label "Cyclic test"@en .
+
+sdt:Specimen a owl:Class ;
+  rdfs:label "Specimen"@en .
+
+sdt:Material a owl:Class ;
+  rdfs:label "Material"@en .
+
+sdt:TestingMachine a owl:Class ;
+  rdfs:label "Testing machine"@en .
+
+sdt:Operator a owl:Class ;
+  rdfs:label "Operator"@en .
+
+sdt:Laboratory a owl:Class ;
+  rdfs:label "Laboratory"@en .
+
+sdt:TestMethod a owl:Class ;
+  rdfs:label "Test method"@en .
+
+sdt:TestCondition a owl:Class ;
+  rdfs:label "Test condition"@en .
+
+sdt:MeasurementSeries a owl:Class ;
+  rdfs:label "Measurement series"@en .
+
+sdt:MeasurementChannel a owl:Class ;
+  rdfs:label "Measurement channel"@en .
+
+sdt:TestResult a owl:Class ;
+  rdfs:label "Test result"@en .
+
+sdt:hasSeries a owl:ObjectProperty ;
+  rdfs:domain sdt:TestProgram ;
+  rdfs:range sdt:TestSeries ;
+  rdfs:label "has series"@en .
+
+sdt:hasTest a owl:ObjectProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range sdt:MechanicalTest ;
+  rdfs:label "has test"@en .
+
+sdt:partOfProgram a owl:ObjectProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range sdt:TestProgram ;
+  rdfs:label "part of program"@en .
+
+sdt:partOfSeries a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:TestSeries ;
+  rdfs:label "part of series"@en .
+
+sdt:hasSpecimen a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:Specimen ;
+  rdfs:label "has specimen"@en .
+
+sdt:hasMaterial a owl:ObjectProperty ;
+  rdfs:domain sdt:Specimen ;
+  rdfs:range sdt:Material ;
+  rdfs:label "has material"@en .
+
+sdt:usesMachine a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:TestingMachine ;
+  rdfs:label "uses machine"@en .
+
+sdt:performedBy a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:Operator ;
+  rdfs:label "performed by"@en .
+
+sdt:performedAt a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:Laboratory ;
+  rdfs:label "performed at"@en .
+
+sdt:usesMethod a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:TestMethod ;
+  rdfs:label "uses method"@en .
+
+sdt:usesStandard a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range skos:Concept ;
+  rdfs:label "uses standard"@en .
+
+sdt:hasCondition a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:TestCondition ;
+  rdfs:label "has condition"@en .
+
+sdt:hasResult a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:TestResult ;
+  rdfs:label "has result"@en .
+
+sdt:hasMeasurementSeries a owl:ObjectProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range sdt:MeasurementSeries ;
+  rdfs:label "has measurement series"@en .
+
+sdt:hasChannel a owl:ObjectProperty ;
+  rdfs:domain sdt:MeasurementSeries ;
+  rdfs:range sdt:MeasurementChannel ;
+  rdfs:label "has channel"@en .
+
+sdt:specimenShape a owl:ObjectProperty ;
+  rdfs:domain sdt:Specimen ;
+  rdfs:range skos:Concept ;
+  rdfs:label "specimen shape"@en .
+
+sdt:identifier a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:label "identifier"@en .
+
+sdt:testId a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:string ;
+  rdfs:label "test id"@en .
+
+sdt:seriesId a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range xsd:string ;
+  rdfs:label "series id"@en .
+
+sdt:programId a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestProgram ;
+  rdfs:range xsd:string ;
+  rdfs:label "program id"@en .
+
+sdt:testDate a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:date ;
+  rdfs:label "test date"@en .
+
+sdt:testStartTime a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:dateTime ;
+  rdfs:label "test start time"@en .
+
+sdt:testEndTime a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:dateTime ;
+  rdfs:label "test end time"@en .
+
+sdt:testDirection a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:string ;
+  rdfs:label "test direction"@en .
+
+sdt:testTemperature a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestCondition ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "test temperature"@en .
+
+sdt:testHumidity a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestCondition ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "test humidity"@en .
+
+sdt:nominalStrainRate a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "nominal strain rate"@en .
+
+sdt:actualStrainRate a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "actual strain rate"@en .
+
+sdt:nominalTestingSpeed a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "nominal testing speed"@en .
+
+sdt:actualTestingSpeed a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "actual testing speed"@en .
+
+sdt:nominalTestingTemperature a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "nominal testing temperature"@en .
+
+sdt:actualTestingTemperature a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "actual testing temperature"@en .
+
+sdt:nominalPreDeformation a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "nominal pre-deformation"@en .
+
+sdt:actualPreDeformation a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "actual pre-deformation"@en .
+
+sdt:preDeformationDirection a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:string ;
+  rdfs:label "pre-deformation direction"@en .
+
+sdt:nominalGaugeLength a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "nominal gauge length"@en .
+
+sdt:actualGaugeLength a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "actual gauge length"@en .
+
+sdt:nominalCrossSectionArea a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestSeries ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "nominal cross-section area"@en .
+
+sdt:actualCrossSectionArea a owl:DatatypeProperty ;
+  rdfs:domain sdt:MechanicalTest ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "actual cross-section area"@en .
+
+sdt:specimenThickness a owl:DatatypeProperty ;
+  rdfs:domain sdt:Specimen ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "specimen thickness"@en .
+
+sdt:specimenWidth a owl:DatatypeProperty ;
+  rdfs:domain sdt:Specimen ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "specimen width"@en .
+
+sdt:specimenDiameter a owl:DatatypeProperty ;
+  rdfs:domain sdt:Specimen ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "specimen diameter"@en .
+
+sdt:specimenLength a owl:DatatypeProperty ;
+  rdfs:domain sdt:Specimen ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "specimen length"@en .
+
+sdt:specimenTreatment a owl:DatatypeProperty ;
+  rdfs:domain sdt:Specimen ;
+  rdfs:range xsd:string ;
+  rdfs:label "specimen treatment"@en .
+
+sdt:samplingFrequency a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementSeries ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "sampling frequency"@en .
+
+sdt:channelName a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementChannel ;
+  rdfs:range xsd:string ;
+  rdfs:label "channel name"@en .
+
+sdt:channelUnit a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementChannel ;
+  rdfs:range xsd:string ;
+  rdfs:label "channel unit"@en .
+
+sdt:channelDatatype a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementChannel ;
+  rdfs:range xsd:string ;
+  rdfs:label "channel datatype"@en .
+
+sdt:maximumForce a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestResult ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "maximum force"@en .
+
+sdt:testPassed a owl:DatatypeProperty ;
+  rdfs:domain sdt:TestResult ;
+  rdfs:range xsd:boolean ;
+  rdfs:label "test passed"@en .
+
+sdt:remark a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:label "remark"@en .

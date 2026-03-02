@@ -1,0 +1,39 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sdb: <https://w3id.org/sdata/bending/> .
+
+<https://w3id.org/sdata/shapes/bending/>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/testdata/> ;
+  owl:imports <https://w3id.org/sdata/bending/> .
+
+sdb:BendingTestShape a sh:NodeShape ;
+  sh:targetClass sdb:BendingTest ;
+  sh:property [
+    sh:path sdt:hasSpecimen ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:usesMachine ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdb:hasBendingResult ;
+    sh:class sdb:BendingTestResult ;
+    sh:minCount 1
+  ] .
+
+sdb:BendingTestResultShape a sh:NodeShape ;
+  sh:targetClass sdb:BendingTestResult ;
+  sh:property [
+    sh:path sdb:FlexuralStrength ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdb:FlexuralModulus ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1
+  ] .

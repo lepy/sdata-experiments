@@ -1,0 +1,13 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voc: <https://w3id.org/sdata/vocabularies/material-models/> .
+
+voc:ConceptScheme a skos:ConceptScheme ;
+  skos:prefLabel "Material models"@en .
+
+voc:vonMises a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "von Mises"@en .
+
+voc:Hill48 a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "Hill 48"@en .

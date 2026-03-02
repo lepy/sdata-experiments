@@ -1,0 +1,21 @@
+site_name: sdata-testdata
+site_description: Modulare Ontologien fuer mechanische Pruefdaten
+site_url: https://w3id.org/sdata/testdata/
+repo_name: sdata-testdata
+
+theme:
+  name: mkdocs
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Architektur: architecture.md
+  - Module:
+      - Core: modules/core.md
+      - Tensile Test: modules/tensiletest.md
+      - Compression Test: modules/compressiontest.md
+      - Bending Test: modules/bendingtest.md
+      - Fatigue Test: modules/fatiguetest.md
+      - Shapes: modules/shapes.md
+      - Vocabularies: modules/vocabularies.md
+  - Validation: validation.md

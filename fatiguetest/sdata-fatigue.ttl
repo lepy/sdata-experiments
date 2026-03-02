@@ -1,0 +1,39 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sdf: <https://w3id.org/sdata/fatigue/> .
+
+<https://w3id.org/sdata/fatigue/>
+  a owl:Ontology ;
+  rdfs:label "SData Fatigue"@en ;
+  rdfs:comment "Fatigue-test specific extensions."@en ;
+  owl:imports <https://w3id.org/sdata/testdata/> .
+
+sdf:FatigueTest a owl:Class ;
+  rdfs:subClassOf sdt:CyclicTest ;
+  rdfs:label "Fatigue test"@en .
+
+sdf:FatigueTestResult a owl:Class ;
+  rdfs:subClassOf sdt:TestResult ;
+  rdfs:label "Fatigue test result"@en .
+
+sdf:hasFatigueResult a owl:ObjectProperty ;
+  rdfs:domain sdf:FatigueTest ;
+  rdfs:range sdf:FatigueTestResult ;
+  rdfs:label "has fatigue result"@en .
+
+sdf:NumberOfCyclesToFailure a owl:DatatypeProperty ;
+  rdfs:domain sdf:FatigueTestResult ;
+  rdfs:range xsd:integer ;
+  rdfs:label "number of cycles to failure"@en .
+
+sdf:StressRatio a owl:DatatypeProperty ;
+  rdfs:domain sdf:FatigueTest ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "stress ratio"@en .
+
+sdf:CycleFrequency a owl:DatatypeProperty ;
+  rdfs:domain sdf:FatigueTest ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "cycle frequency"@en .

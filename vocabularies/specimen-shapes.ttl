@@ -1,0 +1,21 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voc: <https://w3id.org/sdata/vocabularies/specimen-shapes/> .
+
+voc:ConceptScheme a skos:ConceptScheme ;
+  skos:prefLabel "Specimen shapes"@en .
+
+voc:flat a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "flat"@en .
+
+voc:round a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "round"@en .
+
+voc:tubular a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "tubular"@en .
+
+voc:hexa a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "hexa"@en .

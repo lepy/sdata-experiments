@@ -1,0 +1,25 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voc: <https://w3id.org/sdata/vocabularies/test-standards/> .
+
+voc:ConceptScheme a skos:ConceptScheme ;
+  skos:prefLabel "Test standards"@en .
+
+voc:ISO6892_1 a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "ISO 6892-1"@en .
+
+voc:ASTME8 a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "ASTM E8"@en .
+
+voc:ISO6892_2 a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "ISO 6892-2"@en .
+
+voc:VDA238_100 a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "VDA 238-100"@en .
+
+voc:ISO178 a skos:Concept ;
+  skos:inScheme voc:ConceptScheme ;
+  skos:prefLabel "ISO 178"@en .

@@ -1,0 +1,44 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sdn: <https://w3id.org/sdata/tensile/> .
+
+<https://w3id.org/sdata/shapes/tensile/>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sdata/testdata/> ;
+  owl:imports <https://w3id.org/sdata/tensile/> .
+
+sdn:TensileTestShape a sh:NodeShape ;
+  sh:targetClass sdn:TensileTest ;
+  sh:property [
+    sh:path sdt:hasSpecimen ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:usesMachine ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdn:hasTensileResult ;
+    sh:class sdn:TensileTestResult ;
+    sh:minCount 1
+  ] .
+
+sdn:TensileTestResultShape a sh:NodeShape ;
+  sh:targetClass sdn:TensileTestResult ;
+  sh:property [
+    sh:path sdn:Rm ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdn:Rp ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdn:A ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1
+  ] .

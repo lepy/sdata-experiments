@@ -1,0 +1,39 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sdc: <https://w3id.org/sdata/compression/> .
+
+<https://w3id.org/sdata/compression/>
+  a owl:Ontology ;
+  rdfs:label "SData Compression"@en ;
+  rdfs:comment "Compression-test specific extensions."@en ;
+  owl:imports <https://w3id.org/sdata/testdata/> .
+
+sdc:CompressionTest a owl:Class ;
+  rdfs:subClassOf sdt:QuasiStaticTest ;
+  rdfs:label "Compression test"@en .
+
+sdc:CompressionTestResult a owl:Class ;
+  rdfs:subClassOf sdt:TestResult ;
+  rdfs:label "Compression test result"@en .
+
+sdc:hasCompressionResult a owl:ObjectProperty ;
+  rdfs:domain sdc:CompressionTest ;
+  rdfs:range sdc:CompressionTestResult ;
+  rdfs:label "has compression result"@en .
+
+sdc:CompressiveStrength a owl:DatatypeProperty ;
+  rdfs:domain sdc:CompressionTestResult ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "compressive strength"@en .
+
+sdc:CompressionModulus a owl:DatatypeProperty ;
+  rdfs:domain sdc:CompressionTestResult ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "compression modulus"@en .
+
+sdc:StrainAtCompressiveStrength a owl:DatatypeProperty ;
+  rdfs:domain sdc:CompressionTestResult ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "strain at compressive strength"@en .

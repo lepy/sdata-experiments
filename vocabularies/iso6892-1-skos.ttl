@@ -1,0 +1,585 @@
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix iso6892: <http://example.org/vocab/iso6892-1/> .
+
+# ============================================================
+# 1) ConceptScheme: Mechanische Kennwerte
+# ============================================================
+
+iso6892:MechanicalProperties a skos:ConceptScheme ;
+    skos:prefLabel "Mechanische Kennwerte nach ISO 6892-1"@de ;
+    skos:prefLabel "Mechanical Properties per ISO 6892-1"@en ;
+    dct:source "DIN EN ISO 6892-1:2019" ;
+    skos:hasTopConcept iso6892:StrengthProperty ,
+                       iso6892:StrainProperty ,
+                       iso6892:ModulusProperty ,
+                       iso6892:ReductionOfArea .
+
+# --- Festigkeitskennwerte ---
+
+iso6892:StrengthProperty a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:topConceptOf iso6892:MechanicalProperties ;
+    skos:prefLabel "Festigkeitskennwert"@de ;
+    skos:prefLabel "Strength property"@en .
+
+iso6892:Rm a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrengthProperty ;
+    skos:prefLabel "Zugfestigkeit"@de ;
+    skos:prefLabel "Tensile strength"@en ;
+    skos:altLabel "Rm"@de ;
+    skos:notation "R_m" ;
+    skos:definition "Spannung, die der Höchstkraft entspricht."@de ;
+    skos:scopeNote "Einheit: MPa. Gerundet auf die nächste ganze Zahl."@de .
+
+iso6892:ReH a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrengthProperty ;
+    skos:prefLabel "Obere Streckgrenze"@de ;
+    skos:prefLabel "Upper yield strength"@en ;
+    skos:altLabel "ReH"@de ;
+    skos:notation "R_eH" ;
+    skos:definition "Höchste Spannung, bevor der erste Kraftabfall auftritt."@de ;
+    skos:related iso6892:ReL .
+
+iso6892:ReL a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrengthProperty ;
+    skos:prefLabel "Untere Streckgrenze"@de ;
+    skos:prefLabel "Lower yield strength"@en ;
+    skos:altLabel "ReL"@de ;
+    skos:notation "R_eL" ;
+    skos:definition "Kleinste Spannung während des plastischen Fließens, wobei Einschwingerscheinungen nicht berücksichtigt werden."@de ;
+    skos:related iso6892:ReH .
+
+iso6892:Rp a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrengthProperty ;
+    skos:prefLabel "Dehngrenze bei plastischer Extensometer-Dehnung"@de ;
+    skos:prefLabel "Proof strength, plastic extension"@en ;
+    skos:altLabel "Rp0,2"@de ;
+    skos:notation "R_p" ;
+    skos:definition "Spannung, bei der die plastische Extensometer-Dehnung einem vorgegebenen Prozentanteil der Extensometer-Messlänge entspricht."@de ;
+    skos:scopeNote "Häufigster Wert: Rp0,2 (0,2 % plastische Dehnung)."@de .
+
+iso6892:Rt a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrengthProperty ;
+    skos:prefLabel "Dehngrenze bei gesamter Extensometer-Dehnung"@de ;
+    skos:prefLabel "Proof strength, total extension"@en ;
+    skos:notation "R_t" ;
+    skos:definition "Spannung, bei der die gesamte Extensometer-Dehnung einem vorgegebenen Prozentanteil der Extensometer-Messlänge entspricht."@de ;
+    skos:related iso6892:Rp .
+
+iso6892:Rr a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrengthProperty ;
+    skos:prefLabel "Grenzwert der Spannung für bleibende Dehnung"@de ;
+    skos:prefLabel "Permanent set strength"@en ;
+    skos:notation "R_r" ;
+    skos:definition "Spannung, bei der nach Wegnahme der Kraft eine vorgegebene bleibende Dehnung nicht überschritten wurde."@de .
+
+# --- Dehnungskennwerte ---
+
+iso6892:StrainProperty a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:topConceptOf iso6892:MechanicalProperties ;
+    skos:prefLabel "Dehnungskennwert"@de ;
+    skos:prefLabel "Strain property"@en .
+
+iso6892:A a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrainProperty ;
+    skos:prefLabel "Bruchdehnung"@de ;
+    skos:prefLabel "Percentage elongation after fracture"@en ;
+    skos:notation "A" ;
+    skos:definition "Bleibende Verlängerung der Messlänge nach dem Bruch (Lu − L0), angegeben in Prozent, bezogen auf die Anfangsmesslänge."@de ;
+    skos:scopeNote "Index gibt Proportionalitätsfaktor oder Messlänge an, z.B. A, A_11,3, A_50mm, A_80mm."@de .
+
+iso6892:Ae a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrainProperty ;
+    skos:prefLabel "Streckgrenzen-Extensometer-Dehnung"@de ;
+    skos:prefLabel "Percentage yield point extension"@en ;
+    skos:notation "A_e" ;
+    skos:definition "Verlängerung der Extensometer-Messlänge zwischen dem Beginn örtlichen Fließens und dem Einsetzen gleichmäßiger Verfestigung."@de .
+
+iso6892:Ag a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrainProperty ;
+    skos:prefLabel "Plastische Extensometer-Dehnung bei Höchstkraft"@de ;
+    skos:prefLabel "Percentage plastic extension at maximum force"@en ;
+    skos:notation "A_g" ;
+    skos:related iso6892:Agt .
+
+iso6892:Agt a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrainProperty ;
+    skos:prefLabel "Gesamte Extensometer-Dehnung bei Höchstkraft"@de ;
+    skos:prefLabel "Percentage total extension at maximum force"@en ;
+    skos:notation "A_gt" ;
+    skos:related iso6892:Ag .
+
+iso6892:At a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:StrainProperty ;
+    skos:prefLabel "Gesamte Extensometer-Dehnung beim Bruch"@de ;
+    skos:prefLabel "Percentage total extension at fracture"@en ;
+    skos:notation "A_t" .
+
+# --- Elastizitätsmodul ---
+
+iso6892:ModulusProperty a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:topConceptOf iso6892:MechanicalProperties ;
+    skos:prefLabel "Steifigkeitskennwert"@de ;
+    skos:prefLabel "Stiffness property"@en .
+
+iso6892:E a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:broader iso6892:ModulusProperty ;
+    skos:prefLabel "Elastizitätsmodul"@de ;
+    skos:prefLabel "Modulus of elasticity"@en ;
+    skos:altLabel "E-Modul"@de ;
+    skos:altLabel "Young's modulus"@en ;
+    skos:notation "E" ;
+    skos:definition "Quotient der Änderung der Spannung und Änderung der prozentualen Dehnung im untersuchten Bereich."@de ;
+    skos:scopeNote "Einheit: GPa, gerundet auf 0,1 GPa. Bestimmung nach Anhang G."@de .
+
+# --- Brucheinschnürung ---
+
+iso6892:ReductionOfArea a skos:Concept ;
+    skos:inScheme iso6892:MechanicalProperties ;
+    skos:topConceptOf iso6892:MechanicalProperties ;
+    skos:prefLabel "Brucheinschnürung"@de ;
+    skos:prefLabel "Percentage reduction of area"@en ;
+    skos:notation "Z" ;
+    skos:definition "Größte während des Versuchs aufgetretene Änderung des Querschnitts (So − Su), angegeben in Prozent, bezogen auf den Anfangsquerschnitt So."@de .
+
+
+# ============================================================
+# 2) ConceptScheme: Prüfverfahren / Geschwindigkeitsregelung
+# ============================================================
+
+iso6892:TestMethods a skos:ConceptScheme ;
+    skos:prefLabel "Prüfverfahren nach ISO 6892-1"@de ;
+    skos:prefLabel "Test Methods per ISO 6892-1"@en ;
+    dct:source "DIN EN ISO 6892-1:2019" ;
+    skos:hasTopConcept iso6892:MethodA , iso6892:MethodB .
+
+iso6892:MethodA a skos:Concept ;
+    skos:inScheme iso6892:TestMethods ;
+    skos:topConceptOf iso6892:TestMethods ;
+    skos:prefLabel "Verfahren A — Dehngeschwindigkeitsbasiert"@de ;
+    skos:prefLabel "Method A — Strain rate controlled"@en ;
+    skos:notation "A" ;
+    skos:definition "Prüfgeschwindigkeit basierend auf Dehngeschwindigkeiten."@de ;
+    skos:scopeNote "Empfohlen zur Minimierung von Unterschieden bei dehngeschwindigkeitsabhängigen Kennwerten."@de .
+
+iso6892:MethodA1 a skos:Concept ;
+    skos:inScheme iso6892:TestMethods ;
+    skos:broader iso6892:MethodA ;
+    skos:prefLabel "Verfahren A1 — Geschlossener Regelkreis"@de ;
+    skos:prefLabel "Method A1 — Closed loop"@en ;
+    skos:notation "A1" ;
+    skos:definition "Regelung der Dehngeschwindigkeit basierend auf dem Extensometer-Signal."@de .
+
+iso6892:MethodA2 a skos:Concept ;
+    skos:inScheme iso6892:TestMethods ;
+    skos:broader iso6892:MethodA ;
+    skos:prefLabel "Verfahren A2 — Offener Regelkreis"@de ;
+    skos:prefLabel "Method A2 — Open loop"@en ;
+    skos:notation "A2" ;
+    skos:definition "Regelung der abgeschätzten Dehngeschwindigkeit über die parallele Länge mittels Traversengeschwindigkeit."@de .
+
+iso6892:MethodB a skos:Concept ;
+    skos:inScheme iso6892:TestMethods ;
+    skos:topConceptOf iso6892:TestMethods ;
+    skos:prefLabel "Verfahren B — Spannungsgeschwindigkeitsbasiert"@de ;
+    skos:prefLabel "Method B — Stress rate controlled"@en ;
+    skos:notation "B" ;
+    skos:definition "Prüfgeschwindigkeit basierend auf Spannungsgeschwindigkeiten im elastischen Bereich."@de .
+
+# --- Dehngeschwindigkeitsbereiche ---
+
+iso6892:StrainRateRange1 a skos:Concept ;
+    skos:inScheme iso6892:TestMethods ;
+    skos:broader iso6892:MethodA ;
+    skos:prefLabel "Bereich 1: ė = 0,00007 s⁻¹"@de ;
+    skos:prefLabel "Range 1: ė = 0.00007 s⁻¹"@en ;
+    skos:notation "Range1" ;
+    skos:definition "Dehngeschwindigkeit 0,00007 s⁻¹ mit relativer Toleranz ±20 %."@de .
+
+iso6892:StrainRateRange2 a skos:Concept ;
+    skos:inScheme iso6892:TestMethods ;
+    skos:broader iso6892:MethodA ;
+    skos:prefLabel "Bereich 2: ė = 0,00025 s⁻¹"@de ;
+    skos:prefLabel "Range 2: ė = 0.00025 s⁻¹"@en ;
+    skos:notation "Range2" ;
+    skos:definition "Dehngeschwindigkeit 0,00025 s⁻¹ mit relativer Toleranz ±20 %. Empfohlen für ReH, Rp, Rt."@de .
+
+iso6892:StrainRateRange3 a skos:Concept ;
+    skos:inScheme iso6892:TestMethods ;
+    skos:broader iso6892:MethodA ;
+    skos:prefLabel "Bereich 3: ė = 0,002 s⁻¹"@de ;
+    skos:prefLabel "Range 3: ė = 0.002 s⁻¹"@en ;
+    skos:notation "Range3" ;
+    skos:definition "Dehngeschwindigkeit 0,002 s⁻¹ mit relativer Toleranz ±20 %."@de .
+
+iso6892:StrainRateRange4 a skos:Concept ;
+    skos:inScheme iso6892:TestMethods ;
+    skos:broader iso6892:MethodA ;
+    skos:prefLabel "Bereich 4: ė = 0,0067 s⁻¹"@de ;
+    skos:prefLabel "Range 4: ė = 0.0067 s⁻¹"@en ;
+    skos:notation "Range4" ;
+    skos:definition "Dehngeschwindigkeit 0,0067 s⁻¹ (0,4 min⁻¹) mit relativer Toleranz ±20 %. Empfohlen für Rm, A."@de .
+
+
+# ============================================================
+# 3) ConceptScheme: Probenarten
+# ============================================================
+
+iso6892:SpecimenTypes a skos:ConceptScheme ;
+    skos:prefLabel "Probenarten nach ISO 6892-1"@de ;
+    skos:prefLabel "Specimen Types per ISO 6892-1"@en ;
+    dct:source "DIN EN ISO 6892-1:2019" ;
+    skos:hasTopConcept iso6892:MachinedSpecimen , iso6892:UnmachinedSpecimen .
+
+iso6892:MachinedSpecimen a skos:Concept ;
+    skos:inScheme iso6892:SpecimenTypes ;
+    skos:topConceptOf iso6892:SpecimenTypes ;
+    skos:prefLabel "Bearbeitete Probe"@de ;
+    skos:prefLabel "Machined specimen"@en .
+
+iso6892:UnmachinedSpecimen a skos:Concept ;
+    skos:inScheme iso6892:SpecimenTypes ;
+    skos:topConceptOf iso6892:SpecimenTypes ;
+    skos:prefLabel "Unbearbeitete Probe"@de ;
+    skos:prefLabel "Unmachined specimen"@en .
+
+iso6892:FlatSpecimen a skos:Concept ;
+    skos:inScheme iso6892:SpecimenTypes ;
+    skos:broader iso6892:MachinedSpecimen ;
+    skos:prefLabel "Flachprobe"@de ;
+    skos:prefLabel "Flat specimen"@en ;
+    skos:scopeNote "Anhang B: Dicke 0,1–3 mm. Anhang D: Dicke ≥ 3 mm."@de .
+
+iso6892:RoundSpecimen a skos:Concept ;
+    skos:inScheme iso6892:SpecimenTypes ;
+    skos:broader iso6892:MachinedSpecimen ;
+    skos:prefLabel "Rundprobe"@de ;
+    skos:prefLabel "Round specimen"@en ;
+    skos:scopeNote "Anhang D. Durchmesser ≥ 3 mm. Proportionalitätsfaktor k = 5,65."@de .
+
+iso6892:TubeSpecimen a skos:Concept ;
+    skos:inScheme iso6892:SpecimenTypes ;
+    skos:broader iso6892:UnmachinedSpecimen ;
+    skos:prefLabel "Rohrabschnittsprobe"@de ;
+    skos:prefLabel "Tube section specimen"@en ;
+    skos:scopeNote "Anhang E. Vollständiger Rohrabschnitt."@de .
+
+iso6892:TubeStripSpecimen a skos:Concept ;
+    skos:inScheme iso6892:SpecimenTypes ;
+    skos:broader iso6892:MachinedSpecimen ;
+    skos:prefLabel "Rohrstreifenprobe"@de ;
+    skos:prefLabel "Tube strip specimen"@en ;
+    skos:scopeNote "Anhang E. Längs- oder Querstreifen mit voller Wanddicke."@de ;
+    skos:related iso6892:TubeSpecimen .
+
+iso6892:WireSpecimen a skos:Concept ;
+    skos:inScheme iso6892:SpecimenTypes ;
+    skos:broader iso6892:UnmachinedSpecimen ;
+    skos:prefLabel "Drahtprobe"@de ;
+    skos:prefLabel "Wire specimen"@en ;
+    skos:scopeNote "Anhang C. Durchmesser < 4 mm. L0 = 200 mm oder 100 mm."@de .
+
+iso6892:StripSpecimen a skos:Concept ;
+    skos:inScheme iso6892:SpecimenTypes ;
+    skos:broader iso6892:UnmachinedSpecimen ;
+    skos:prefLabel "Streifenprobe"@de ;
+    skos:prefLabel "Strip specimen"@en ;
+    skos:scopeNote "Streifen mit parallelen Seiten, ohne bearbeitete Probenköpfe."@de .
+
+
+# ============================================================
+# 4) ConceptScheme: Probengeometrie-Parameter
+# ============================================================
+
+iso6892:GeometryParameters a skos:ConceptScheme ;
+    skos:prefLabel "Geometrieparameter der Zugprobe"@de ;
+    skos:prefLabel "Specimen Geometry Parameters"@en ;
+    dct:source "DIN EN ISO 6892-1:2019" ;
+    skos:hasTopConcept iso6892:LengthParam , iso6892:CrossSectionParam .
+
+iso6892:LengthParam a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:topConceptOf iso6892:GeometryParameters ;
+    skos:prefLabel "Längenparameter"@de ;
+    skos:prefLabel "Length parameter"@en .
+
+iso6892:L0 a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:LengthParam ;
+    skos:prefLabel "Anfangsmesslänge"@de ;
+    skos:prefLabel "Original gauge length"@en ;
+    skos:notation "L_0" ;
+    skos:definition "Länge zwischen den Messmarken auf der Probe, gemessen vor dem Versuch bei Raumtemperatur."@de .
+
+iso6892:Lu a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:LengthParam ;
+    skos:prefLabel "Messlänge nach dem Bruch"@de ;
+    skos:prefLabel "Final gauge length"@en ;
+    skos:notation "L_u" ;
+    skos:definition "Länge zwischen den Messmarken auf der Probe, gemessen nach dem Bruch bei Raumtemperatur."@de .
+
+iso6892:Lc a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:LengthParam ;
+    skos:prefLabel "Parallele Länge"@de ;
+    skos:prefLabel "Parallel length"@en ;
+    skos:notation "L_c" ;
+    skos:definition "Länge des parallelen reduzierten Querschnitts der Probe."@de .
+
+iso6892:Le a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:LengthParam ;
+    skos:prefLabel "Extensometer-Messlänge"@de ;
+    skos:prefLabel "Extensometer gauge length"@en ;
+    skos:notation "L_e" ;
+    skos:definition "Anfangsmesslänge des Extensometers, die zum Messen der Verlängerung benutzt wird."@de ;
+    skos:scopeNote "Sollte idealerweise zwischen 0,50 Lc und 0,9 Lc liegen."@de .
+
+iso6892:Lt a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:LengthParam ;
+    skos:prefLabel "Gesamtlänge der Probe"@de ;
+    skos:prefLabel "Total length of specimen"@en ;
+    skos:notation "L_t" .
+
+iso6892:CrossSectionParam a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:topConceptOf iso6892:GeometryParameters ;
+    skos:prefLabel "Querschnittsparameter"@de ;
+    skos:prefLabel "Cross-section parameter"@en .
+
+iso6892:S0 a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:CrossSectionParam ;
+    skos:prefLabel "Anfangsquerschnitt"@de ;
+    skos:prefLabel "Original cross-sectional area"@en ;
+    skos:notation "S_0" ;
+    skos:definition "Anfangsquerschnitt innerhalb der parallelen Länge."@de .
+
+iso6892:Su a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:CrossSectionParam ;
+    skos:prefLabel "Kleinster Querschnitt nach dem Bruch"@de ;
+    skos:prefLabel "Minimum cross-sectional area after fracture"@en ;
+    skos:notation "S_u" .
+
+iso6892:d0 a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:CrossSectionParam ;
+    skos:prefLabel "Anfangsdurchmesser"@de ;
+    skos:prefLabel "Original diameter"@en ;
+    skos:notation "d_0" .
+
+iso6892:b0 a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:CrossSectionParam ;
+    skos:prefLabel "Anfangsbreite"@de ;
+    skos:prefLabel "Original width"@en ;
+    skos:notation "b_0" .
+
+iso6892:a0 a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:CrossSectionParam ;
+    skos:prefLabel "Anfangsdicke / Wanddicke"@de ;
+    skos:prefLabel "Original thickness / wall thickness"@en ;
+    skos:notation "a_0" .
+
+iso6892:D0 a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:CrossSectionParam ;
+    skos:prefLabel "Außendurchmesser eines Rohres"@de ;
+    skos:prefLabel "Outside diameter of a tube"@en ;
+    skos:notation "D_0" .
+
+iso6892:k a skos:Concept ;
+    skos:inScheme iso6892:GeometryParameters ;
+    skos:broader iso6892:LengthParam ;
+    skos:prefLabel "Proportionalitätsfaktor"@de ;
+    skos:prefLabel "Proportionality factor"@en ;
+    skos:notation "k" ;
+    skos:definition "Faktor in L0 = k × √S0. International festgelegter Wert: 5,65."@de ;
+    skos:scopeNote "Alternativ darf k = 11,3 verwendet werden."@de .
+
+
+# ============================================================
+# 5) ConceptScheme: Geschwindigkeitsparameter
+# ============================================================
+
+iso6892:SpeedParameters a skos:ConceptScheme ;
+    skos:prefLabel "Geschwindigkeitsparameter nach ISO 6892-1"@de ;
+    skos:prefLabel "Speed Parameters per ISO 6892-1"@en ;
+    dct:source "DIN EN ISO 6892-1:2019" .
+
+iso6892:StrainRate a skos:Concept ;
+    skos:inScheme iso6892:SpeedParameters ;
+    skos:prefLabel "Dehngeschwindigkeit"@de ;
+    skos:prefLabel "Strain rate"@en ;
+    skos:notation "ė_Le" ;
+    skos:definition "Zunahme der mit einem Extensometer gemessenen Dehnung je Zeiteinheit."@de .
+
+iso6892:EstimatedStrainRate a skos:Concept ;
+    skos:inScheme iso6892:SpeedParameters ;
+    skos:prefLabel "Abgeschätzte Dehngeschwindigkeit über die parallele Länge"@de ;
+    skos:prefLabel "Estimated strain rate over parallel length"@en ;
+    skos:notation "ė_Lc" ;
+    skos:definition "Zunahme der Dehnung über die parallele Länge je Zeiteinheit, basierend auf Traversengeschwindigkeit und paralleler Länge."@de ;
+    skos:related iso6892:StrainRate .
+
+iso6892:CrossheadSpeed a skos:Concept ;
+    skos:inScheme iso6892:SpeedParameters ;
+    skos:prefLabel "Traversengeschwindigkeit"@de ;
+    skos:prefLabel "Crosshead speed"@en ;
+    skos:notation "v_c" ;
+    skos:definition "Traversenweg je Zeiteinheit."@de .
+
+iso6892:StressRate a skos:Concept ;
+    skos:inScheme iso6892:SpeedParameters ;
+    skos:prefLabel "Spannungsgeschwindigkeit"@de ;
+    skos:prefLabel "Stress rate"@en ;
+    skos:notation "Ṙ" ;
+    skos:definition "Zunahme der Spannung je Zeiteinheit. Nur im elastischen Bereich (Verfahren B)."@de .
+
+
+# ============================================================
+# 6) ConceptScheme: Normative Verweisungen
+# ============================================================
+
+iso6892:NormativeReferences a skos:ConceptScheme ;
+    skos:prefLabel "Normative Verweisungen in ISO 6892-1"@de ;
+    skos:prefLabel "Normative References in ISO 6892-1"@en ;
+    dct:source "DIN EN ISO 6892-1:2019" .
+
+iso6892:ISO7500-1 a skos:Concept ;
+    skos:inScheme iso6892:NormativeReferences ;
+    skos:prefLabel "ISO 7500-1 — Kalibrierung Zugprüfmaschinen"@de ;
+    skos:prefLabel "ISO 7500-1 — Calibration of testing machines"@en ;
+    skos:notation "ISO 7500-1" ;
+    skos:definition "Kalibrierung und Überprüfung von statischen einachsigen Prüfmaschinen — Kraftmesseinrichtung."@de ;
+    skos:related iso6892:ISO9513 .
+
+iso6892:ISO9513 a skos:Concept ;
+    skos:inScheme iso6892:NormativeReferences ;
+    skos:prefLabel "ISO 9513 — Kalibrierung Extensometer"@de ;
+    skos:prefLabel "ISO 9513 — Calibration of extensometers"@en ;
+    skos:notation "ISO 9513" ;
+    skos:definition "Kalibrierung von Längenänderungs-Messeinrichtungen für die Prüfung mit einachsiger Beanspruchung."@de .
+
+iso6892:ISO377 a skos:Concept ;
+    skos:inScheme iso6892:NormativeReferences ;
+    skos:prefLabel "ISO 377 — Probenentnahme"@de ;
+    skos:prefLabel "ISO 377 — Sample preparation"@en ;
+    skos:notation "ISO 377" ;
+    skos:definition "Stahl und Stahlerzeugnisse — Lage und Vorbereitung von Probenabschnitten und Proben für mechanische Prüfungen."@de .
+
+iso6892:ISO2566-1 a skos:Concept ;
+    skos:inScheme iso6892:NormativeReferences ;
+    skos:prefLabel "ISO 2566-1 — Umrechnung Bruchdehnung (unlegierte Stähle)"@de ;
+    skos:notation "ISO 2566-1" ;
+    skos:related iso6892:ISO2566-2 .
+
+iso6892:ISO2566-2 a skos:Concept ;
+    skos:inScheme iso6892:NormativeReferences ;
+    skos:prefLabel "ISO 2566-2 — Umrechnung Bruchdehnung (austenitische Stähle)"@de ;
+    skos:notation "ISO 2566-2" ;
+    skos:related iso6892:ISO2566-1 .
+
+iso6892:ISO80000-1 a skos:Concept ;
+    skos:inScheme iso6892:NormativeReferences ;
+    skos:prefLabel "ISO 80000-1 — Größen und Einheiten"@de ;
+    skos:notation "ISO 80000-1" .
+
+
+# ============================================================
+# 7) ConceptScheme: Bruchdehnungsindizierung
+# ============================================================
+
+iso6892:ElongationIndexing a skos:ConceptScheme ;
+    skos:prefLabel "Bruchdehnungsindizierung nach ISO 6892-1"@de ;
+    skos:prefLabel "Elongation Indexing per ISO 6892-1"@en ;
+    dct:source "DIN EN ISO 6892-1:2019, Nationaler Anhang NA" ;
+    skos:hasTopConcept iso6892:ProportionalElongation , iso6892:NonProportionalElongation .
+
+iso6892:ProportionalElongation a skos:Concept ;
+    skos:inScheme iso6892:ElongationIndexing ;
+    skos:topConceptOf iso6892:ElongationIndexing ;
+    skos:prefLabel "Bruchdehnung proportionaler Proben"@de ;
+    skos:definition "Messlänge L0 proportional zur Quadratwurzel des Anfangsquerschnitts: L0 = k × √S0."@de .
+
+iso6892:A_k565 a skos:Concept ;
+    skos:inScheme iso6892:ElongationIndexing ;
+    skos:broader iso6892:ProportionalElongation ;
+    skos:prefLabel "A (k = 5,65)"@de ;
+    skos:notation "A" ;
+    skos:definition "Bruchdehnung mit Proportionalitätsfaktor k = 5,65 (international festgelegt). Kein Index."@de ;
+    skos:historyNote "Entspricht A_5 nach DIN 50145:1975-04."@de .
+
+iso6892:A_k113 a skos:Concept ;
+    skos:inScheme iso6892:ElongationIndexing ;
+    skos:broader iso6892:ProportionalElongation ;
+    skos:prefLabel "A_11,3 (k = 11,3)"@de ;
+    skos:notation "A_11,3" ;
+    skos:definition "Bruchdehnung mit Proportionalitätsfaktor k = 11,3."@de ;
+    skos:historyNote "Entspricht A_10 nach DIN 50145:1975-04."@de .
+
+iso6892:NonProportionalElongation a skos:Concept ;
+    skos:inScheme iso6892:ElongationIndexing ;
+    skos:topConceptOf iso6892:ElongationIndexing ;
+    skos:prefLabel "Bruchdehnung nichtproportionaler Proben"@de ;
+    skos:definition "Messlänge L0 unabhängig vom Anfangsquerschnitt."@de .
+
+iso6892:A_50mm a skos:Concept ;
+    skos:inScheme iso6892:ElongationIndexing ;
+    skos:broader iso6892:NonProportionalElongation ;
+    skos:prefLabel "A_50mm (L0 = 50 mm)"@de ;
+    skos:notation "A_50mm" ;
+    skos:definition "Bruchdehnung bei Anfangsmesslänge 50 mm."@de ;
+    skos:historyNote "Entspricht A_L=50 nach DIN 50114:1981-08."@de .
+
+iso6892:A_80mm a skos:Concept ;
+    skos:inScheme iso6892:ElongationIndexing ;
+    skos:broader iso6892:NonProportionalElongation ;
+    skos:prefLabel "A_80mm (L0 = 80 mm)"@de ;
+    skos:notation "A_80mm" ;
+    skos:definition "Bruchdehnung bei Anfangsmesslänge 80 mm."@de ;
+    skos:historyNote "Entspricht A_L=80 nach DIN 50114:1981-08."@de .
+
+
+# ============================================================
+# 8) Collections: Projektspezifische Gruppierungen
+# ============================================================
+
+iso6892:TypicalReportProperties a skos:Collection ;
+    skos:prefLabel "Typischer Kennwertsatz im Prüfbericht"@de ;
+    skos:prefLabel "Typical test report property set"@en ;
+    skos:member iso6892:Rm ,
+               iso6892:ReH ,
+               iso6892:ReL ,
+               iso6892:Rp ,
+               iso6892:A ,
+               iso6892:Ag ,
+               iso6892:Agt ,
+               iso6892:Z ,
+               iso6892:E .
+
+iso6892:MinimalReportProperties a skos:Collection ;
+    skos:prefLabel "Minimaler Kennwertsatz (Rm, Rp, A)"@de ;
+    skos:member iso6892:Rm ,
+               iso6892:Rp ,
+               iso6892:A .
