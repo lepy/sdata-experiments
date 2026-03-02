@@ -14,12 +14,15 @@ Gemeinsame Modellierung fuer alle Testarten:
 - Kontext: Methode, Standard, Bedingungen, Zeitstempel
 - Messstruktur: `MeasurementSeries`, `MeasurementChannel`
 - Generischer Ergebnisanker: `TestResult`
+- Ergebnis-Provenance: `ResultGenerationActivity`, `SoftwareTool`, `ProcessingPipeline`
 
 ## Wichtige Beziehungen
 
 - `hasSeries`, `hasTest`, `partOfProgram`, `partOfSeries`
 - `hasSpecimen`, `usesMachine`, `usesStandard`, `hasCondition`
 - `hasResult`, `hasMeasurementSeries`, `hasChannel`
+- `resultGenerationActivity`, `resultGeneratedAt`
+- `usedMeasurementSeries`, `usedTestMethod`, `usedSoftwareTool`, `usedProcessingPipeline`, `responsibleOperator`
 
 ## Quantities
 

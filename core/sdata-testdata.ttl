@@ -1,4 +1,5 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -11,6 +12,7 @@
   rdfs:label "SData Testdata Core"@en ;
   rdfs:comment "Shared, test-type agnostic classes for mechanical test domains."@en ;
   owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <http://www.w3.org/ns/prov-o#> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> .
 
@@ -41,6 +43,7 @@ sdt:TestingMachine a owl:Class ;
   rdfs:label "Testing machine"@en .
 
 sdt:Operator a owl:Class ;
+  rdfs:subClassOf prov:Agent ;
   rdfs:label "Operator"@en .
 
 sdt:Laboratory a owl:Class ;
@@ -60,6 +63,18 @@ sdt:MeasurementChannel a owl:Class ;
 
 sdt:TestResult a owl:Class ;
   rdfs:label "Test result"@en .
+
+sdt:ResultGenerationActivity a owl:Class ;
+  rdfs:subClassOf prov:Activity ;
+  rdfs:label "Result generation activity"@en .
+
+sdt:SoftwareTool a owl:Class ;
+  rdfs:subClassOf prov:SoftwareAgent ;
+  rdfs:label "Software tool"@en .
+
+sdt:ProcessingPipeline a owl:Class ;
+  rdfs:subClassOf prov:Plan ;
+  rdfs:label "Processing pipeline"@en .
 
 sdt:hasSeries a owl:ObjectProperty ;
   rdfs:domain sdt:TestProgram ;
@@ -136,6 +151,42 @@ sdt:hasChannel a owl:ObjectProperty ;
   rdfs:range sdt:MeasurementChannel ;
   rdfs:label "has channel"@en .
 
+sdt:resultGenerationActivity a owl:ObjectProperty ;
+  owl:equivalentProperty prov:wasGeneratedBy ;
+  rdfs:domain sdt:TestResult ;
+  rdfs:range sdt:ResultGenerationActivity ;
+  rdfs:label "result generation activity"@en .
+
+sdt:usedMeasurementSeries a owl:ObjectProperty ;
+  rdfs:subPropertyOf prov:used ;
+  rdfs:domain sdt:ResultGenerationActivity ;
+  rdfs:range sdt:MeasurementSeries ;
+  rdfs:label "used measurement series"@en .
+
+sdt:usedTestMethod a owl:ObjectProperty ;
+  rdfs:subPropertyOf prov:used ;
+  rdfs:domain sdt:ResultGenerationActivity ;
+  rdfs:range sdt:TestMethod ;
+  rdfs:label "used test method"@en .
+
+sdt:usedProcessingPipeline a owl:ObjectProperty ;
+  rdfs:subPropertyOf prov:hadPlan ;
+  rdfs:domain sdt:ResultGenerationActivity ;
+  rdfs:range sdt:ProcessingPipeline ;
+  rdfs:label "used processing pipeline"@en .
+
+sdt:usedSoftwareTool a owl:ObjectProperty ;
+  rdfs:subPropertyOf prov:wasAssociatedWith ;
+  rdfs:domain sdt:ResultGenerationActivity ;
+  rdfs:range sdt:SoftwareTool ;
+  rdfs:label "used software tool"@en .
+
+sdt:responsibleOperator a owl:ObjectProperty ;
+  rdfs:subPropertyOf prov:wasAssociatedWith ;
+  rdfs:domain sdt:ResultGenerationActivity ;
+  rdfs:range sdt:Operator ;
+  rdfs:label "responsible operator"@en .
+
 sdt:specimenShape a owl:ObjectProperty ;
   rdfs:domain sdt:Specimen ;
   rdfs:range skos:Concept ;
@@ -174,6 +225,24 @@ sdt:testEndTime a owl:DatatypeProperty ;
   rdfs:domain sdt:MechanicalTest ;
   rdfs:range xsd:dateTime ;
   rdfs:label "test end time"@en .
+
+sdt:resultGeneratedAt a owl:DatatypeProperty ;
+  owl:equivalentProperty prov:generatedAtTime ;
+  rdfs:domain sdt:TestResult ;
+  rdfs:range xsd:dateTime ;
+  rdfs:label "result generated at"@en .
+
+sdt:activityStartTime a owl:DatatypeProperty ;
+  owl:equivalentProperty prov:startedAtTime ;
+  rdfs:domain sdt:ResultGenerationActivity ;
+  rdfs:range xsd:dateTime ;
+  rdfs:label "activity start time"@en .
+
+sdt:activityEndTime a owl:DatatypeProperty ;
+  owl:equivalentProperty prov:endedAtTime ;
+  rdfs:domain sdt:ResultGenerationActivity ;
+  rdfs:range xsd:dateTime ;
+  rdfs:label "activity end time"@en .
 
 sdt:testDirection a owl:DatatypeProperty ;
   rdfs:domain sdt:MechanicalTest ;
@@ -299,6 +368,16 @@ sdt:channelDatatype a owl:DatatypeProperty ;
   rdfs:domain sdt:MeasurementChannel ;
   rdfs:range xsd:string ;
   rdfs:label "channel datatype"@en .
+
+sdt:softwareVersion a owl:DatatypeProperty ;
+  rdfs:domain sdt:SoftwareTool ;
+  rdfs:range xsd:string ;
+  rdfs:label "software version"@en .
+
+sdt:parameterSetHash a owl:DatatypeProperty ;
+  rdfs:domain sdt:ProcessingPipeline ;
+  rdfs:range xsd:string ;
+  rdfs:label "parameter set hash"@en .
 
 sdt:maximumForce a owl:ObjectProperty ;
   owl:equivalentProperty sq:Fm ;

@@ -42,6 +42,19 @@ sdn:TensileTestShape a sh:NodeShape ;
 sdn:TensileTestResultShape a sh:NodeShape ;
   sh:targetClass sdn:TensileTestResult ;
   sh:property [
+    sh:path sdt:resultGenerationActivity ;
+    sh:class sdt:ResultGenerationActivity ;
+    sh:node sdt:ResultGenerationActivityShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:resultGeneratedAt ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
     sh:path sq:Rm ;
     sh:class sdata:AttributeQuantityValue ;
     sh:node sdt:DecimalQuantityValueShape ;

@@ -270,8 +270,96 @@ sdt:MeasurementChannelShape a sh:NodeShape ;
     sh:maxCount 1
   ] .
 
+sdt:SoftwareToolShape a sh:NodeShape ;
+  sh:targetClass sdt:SoftwareTool ;
+  sh:property [
+    sh:path sdt:identifier ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:softwareVersion ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .
+
+sdt:ProcessingPipelineShape a sh:NodeShape ;
+  sh:targetClass sdt:ProcessingPipeline ;
+  sh:property [
+    sh:path sdt:identifier ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:parameterSetHash ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .
+
+sdt:ResultGenerationActivityShape a sh:NodeShape ;
+  sh:targetClass sdt:ResultGenerationActivity ;
+  sh:property [
+    sh:path sdt:activityStartTime ;
+    sh:datatype xsd:dateTime ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:activityEndTime ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:usedMeasurementSeries ;
+    sh:class sdt:MeasurementSeries ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:usedTestMethod ;
+    sh:class sdt:TestMethod ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:usedProcessingPipeline ;
+    sh:class sdt:ProcessingPipeline ;
+    sh:node sdt:ProcessingPipelineShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:usedSoftwareTool ;
+    sh:class sdt:SoftwareTool ;
+    sh:node sdt:SoftwareToolShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:responsibleOperator ;
+    sh:class sdt:Operator ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] .
+
 sdt:TestResultShape a sh:NodeShape ;
   sh:targetClass sdt:TestResult ;
+  sh:property [
+    sh:path sdt:resultGenerationActivity ;
+    sh:class sdt:ResultGenerationActivity ;
+    sh:node sdt:ResultGenerationActivityShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:resultGeneratedAt ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
   sh:property [
     sh:path sq:Fm ;
     sh:class sdata:AttributeQuantityValue ;

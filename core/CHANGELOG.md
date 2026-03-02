@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0 - 2026-03-02
+- Added provenance model for result generation:
+  - `ResultGenerationActivity`, `SoftwareTool`, `ProcessingPipeline`
+  - `resultGenerationActivity`, `resultGeneratedAt`
+  - `usedMeasurementSeries`, `usedTestMethod`, `usedSoftwareTool`, `usedProcessingPipeline`, `responsibleOperator`
+  - `activityStartTime`, `activityEndTime`, `softwareVersion`, `parameterSetHash`
+- Linked provenance semantics to PROV-O terms (`prov:*`) via imports/equivalent/subProperty relations.
+
 ## 0.4.0 - 2026-03-02
 - Added `sdata-quantities.ttl` as shared quantities ontology.
 - Added import of `https://w3id.org/sdata/quantities/` in `sdata-testdata.ttl`.

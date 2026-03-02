@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.0 - 2026-03-02
+- Elevated `TensileTestResult` to full traceable record by requiring provenance linkage (`resultGenerationActivity`, `resultGeneratedAt`) through shared core/shapes model.
+
 ## 0.6.0 - 2026-03-02
 - Added dedicated tensile specimen geometry vocabulary `sdata-tensile-specimens.ttl` (`https://w3id.org/sdata/tensile/specimens/`).
 - Moved standardized tensile profile definitions (ISO/DIN/ASTM/JIS etc.) to tensile module scope.

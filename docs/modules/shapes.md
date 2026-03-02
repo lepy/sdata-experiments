@@ -16,6 +16,7 @@ SHACL-Validierung fuer Instanzdaten.
 ## Aktueller Fokus
 
 - Core: Prozessstruktur (`TestProgram -> TestSeries -> MechanicalTest`), IDs, Datentypen
+- Core: Provenance-Pflicht fuer Ergebnisse (`resultGenerationActivity`, `resultGeneratedAt`, Operator/Tool/Pipeline/Rohdaten)
 - Tensile: Mindestset `sq:Rm`, `sq:Rp`, `sq:A` plus Kardinalitaeten/Datentypen
 - Compression: `sq:CompressiveStrength`, `sq:CompressionModulus`
 - Bending: Resultatwerte plus `sq:SupportSpanLength`

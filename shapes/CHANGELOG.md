@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0 - 2026-03-02
+- Added provenance SHACL constraints for result traceability:
+  - `ResultGenerationActivityShape`, `SoftwareToolShape`, `ProcessingPipelineShape`
+  - Required `resultGenerationActivity` and `resultGeneratedAt` for results
+  - Required who/when/how fields for generation activity (operator, method, software, pipeline, input measurement series, end time)
+
 ## 0.7.0 - 2026-03-02
 - Switched result-value SHACL paths to shared `sq:*` quantity properties from `sdata-quantities.ttl`.
 - Added `sdata-quantities` imports to core and test-type shape graphs.

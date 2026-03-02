@@ -51,6 +51,37 @@ ex:condition-rt a sdt:TestCondition ;
   sdt:testTemperature "23.0"^^xsd:decimal ;
   sdt:testHumidity "45.0"^^xsd:decimal .
 
+ex:channel-force a sdt:MeasurementChannel ;
+  sdt:channelName "Force" ;
+  sdt:channelUnit "N" ;
+  sdt:channelDatatype "xsd:decimal" .
+
+ex:channel-extension a sdt:MeasurementChannel ;
+  sdt:channelName "Extension" ;
+  sdt:channelUnit "mm" ;
+  sdt:channelDatatype "xsd:decimal" .
+
+ex:measurement-series-001 a sdt:MeasurementSeries ;
+  sdt:samplingFrequency "1000.0"^^xsd:decimal ;
+  sdt:hasChannel ex:channel-force, ex:channel-extension .
+
+ex:software-tool-001 a sdt:SoftwareTool ;
+  sdt:identifier "sdata-evaluator" ;
+  sdt:softwareVersion "2.4.1" .
+
+ex:pipeline-001 a sdt:ProcessingPipeline ;
+  sdt:identifier "iso6892-1-default-pipeline" ;
+  sdt:parameterSetHash "sha256:1f8b8e9d4ec7bc2a9d7b4efdd86ad6f8ab03d4a33739d4a4261f4b640df83d8f" .
+
+ex:result-generation-001 a sdt:ResultGenerationActivity ;
+  sdt:activityStartTime "2026-03-02T09:12:02Z"^^xsd:dateTime ;
+  sdt:activityEndTime "2026-03-02T09:12:20Z"^^xsd:dateTime ;
+  sdt:usedMeasurementSeries ex:measurement-series-001 ;
+  sdt:usedTestMethod ex:method-iso6892-a ;
+  sdt:usedSoftwareTool ex:software-tool-001 ;
+  sdt:usedProcessingPipeline ex:pipeline-001 ;
+  sdt:responsibleOperator ex:operator-anna .
+
 # Tensile test + result
 ex:tensile-test-001 a sdn:TensileTest ;
   sdt:testId "TEN-DP600-001" ;
@@ -62,6 +93,7 @@ ex:tensile-test-001 a sdn:TensileTest ;
   sdt:usesMethod ex:method-iso6892-a ;
   sdt:usesStandard vocts:ISO6892_1 ;
   sdt:hasCondition ex:condition-rt ;
+  sdt:hasMeasurementSeries ex:measurement-series-001 ;
   sdt:testDate "2026-03-02"^^xsd:date ;
   sdt:testStartTime "2026-03-02T09:00:00Z"^^xsd:dateTime ;
   sdt:testEndTime "2026-03-02T09:12:00Z"^^xsd:dateTime ;
@@ -79,6 +111,8 @@ ex:tensile-result-001 a sdn:TensileTestResult ;
   sq:Z ex:q-z ;
   sq:Fm ex:q-fm ;
   sdt:testPassed ex:q-test-passed ;
+  sdt:resultGenerationActivity ex:result-generation-001 ;
+  sdt:resultGeneratedAt "2026-03-02T09:12:20Z"^^xsd:dateTime ;
   sdt:remark "DP600 tensile sample, room temperature." .
 
 ex:q-rm a sdata:AttributeQuantityValue ;

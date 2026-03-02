@@ -14,6 +14,27 @@ Die Verknuepfung zum Versuch erfolgt ueber:
 
 - `sdn:hasTensileResult` (Domain: `sdn:TensileTest`, Range: `sdn:TensileTestResult`)
 
+## Provenance-Standard (Wer/Wann/Wie)
+
+Fuer einen vollstaendigen, revisionssicheren Ergebnisdatensatz sind am Result
+folgende Provenance-Felder vorgesehen:
+
+- `sdt:resultGenerationActivity` -> Aktivitaet, die Kennwerte erzeugt hat
+- `sdt:resultGeneratedAt` -> Zeitpunkt der Ergebniserzeugung
+
+Die `sdt:ResultGenerationActivity` selbst beschreibt:
+
+- **Wer**: `sdt:responsibleOperator` (verantwortliche Person)
+- **Wann**: `sdt:activityStartTime`, `sdt:activityEndTime`
+- **Wie**:
+  - `sdt:usedMeasurementSeries` (welche Rohdaten)
+  - `sdt:usedTestMethod` (welches Verfahren)
+  - `sdt:usedSoftwareTool` + `sdt:softwareVersion` (welches Tool)
+  - `sdt:usedProcessingPipeline` + `sdt:parameterSetHash` (welcher Auswerte-Workflow)
+
+Diese Felder sind in den Core-/Tensile-SHACL-Shapes als Pflicht- bzw.
+Kardinalitaetsregeln modelliert.
+
 ## Pflichtfelder (SHACL)
 
 Gem. `shapes/sdata-tensile-shapes.ttl` sind aktuell mindestens erforderlich:
@@ -99,6 +120,7 @@ Zusatz:
 @prefix ex: <https://example.org/data/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix sdn: <https://w3id.org/sdata/tensile/> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -110,7 +132,32 @@ ex:result-001 a sdn:TensileTestResult ;
   sdn:Rm ex:q-rm ;
   sdn:Rp ex:q-rp ;
   sdn:A ex:q-a ;
-  sdn:Fm ex:q-fm .
+  sdn:Fm ex:q-fm ;
+  sdt:resultGenerationActivity ex:gen-activity-001 ;
+  sdt:resultGeneratedAt "2026-03-02T09:12:20Z"^^xsd:dateTime .
+
+ex:gen-activity-001 a sdt:ResultGenerationActivity ;
+  sdt:activityEndTime "2026-03-02T09:12:20Z"^^xsd:dateTime ;
+  sdt:responsibleOperator ex:operator-anna ;
+  sdt:usedTestMethod ex:method-iso6892-a ;
+  sdt:usedMeasurementSeries ex:measurement-series-001 ;
+  sdt:usedSoftwareTool ex:software-tool-001 ;
+  sdt:usedProcessingPipeline ex:pipeline-001 .
+
+ex:operator-anna a sdt:Operator ; sdt:identifier "anna.m" .
+ex:method-iso6892-a a sdt:TestMethod ; sdt:identifier "ISO6892-1-METHOD-A" .
+ex:software-tool-001 a sdt:SoftwareTool ;
+  sdt:identifier "sdata-evaluator" ;
+  sdt:softwareVersion "2.4.1" .
+ex:pipeline-001 a sdt:ProcessingPipeline ;
+  sdt:identifier "iso6892-1-default-pipeline" ;
+  sdt:parameterSetHash "sha256:..." .
+ex:measurement-series-001 a sdt:MeasurementSeries ;
+  sdt:samplingFrequency "1000.0"^^xsd:decimal ;
+  sdt:hasChannel ex:channel-force .
+ex:channel-force a sdt:MeasurementChannel ;
+  sdt:channelName "Force" ;
+  sdt:channelUnit "N" .
 
 ex:q-rm a sdata:AttributeQuantityValue ;
   rdf:value "512.0"^^xsd:decimal ;

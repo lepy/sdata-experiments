@@ -22,6 +22,9 @@ Legacy-Namen bleiben ueber `owl:equivalentProperty` abbildbar.
 Alle Result-Kennwerte sind zusaetzlich auf `sdata-quantities.ttl` gemappt
 (z. B. `sdn:Rm -> sq:Rm`).
 
+Fuer standardisierte Ergebnisablage ist am `TensileTestResult` zusaetzlich
+Provenance verpflichtend (`sdt:resultGenerationActivity`, `sdt:resultGeneratedAt`).
+
 ## Wichtige Modellregel
 
 `TensileTestResult` ist **kein** `sdata:AttributeQuantityValue`, sondern die
