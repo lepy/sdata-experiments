@@ -19,7 +19,7 @@
   - `resultGenerationActivity`, `resultGeneratedAt`
   - `usedMeasurementSeries`, `usedTestMethod`, `usedSoftwareTool`, `usedProcessingPipeline`, `responsibleOperator`
   - `activityStartTime`, `activityEndTime`, `softwareVersion`, `parameterSetHash`
-- Linked provenance semantics to PROV-O terms (`prov:*`) via imports/equivalent/subProperty relations.
+- Added local provenance semantics in `sdata-testdata` for result-generation tracking.
 
 ## 0.4.0 - 2026-03-02
 - Added `sdata-quantities.ttl` as shared quantities ontology.
