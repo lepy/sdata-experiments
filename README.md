@@ -132,7 +132,7 @@ Die Result-Properties in den Testmodulen sind darauf per `owl:equivalentProperty
 
 ## MIN FORMA (exemplarisch im Core)
 
-`core/sdata-testdata.ttl` importiert zusaetzlich `https://w3id.org/min` und nutzt den
+`core/sdata-testdata.ttl` importiert zusaetzlich `https://w3id.org/min/3.2.0` (aktuelle Version) und nutzt den
 FORMA-Zweig fuer versuchsrelevante Semantik:
 
 - `sdt:TestFormalModel` als `min:Structura`

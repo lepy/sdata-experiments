@@ -11,7 +11,7 @@
   a owl:Ontology ;
   rdfs:label "SData Testdata Core"@en ;
   rdfs:comment "Shared, test-type agnostic classes for mechanical test domains."@en ;
-  owl:imports <https://w3id.org/min> ;
+  owl:imports <https://w3id.org/min/3.2.0> ;
   owl:imports <https://w3id.org/sdata/core/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> .

@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.8.0 - 2026-03-03
-- Added explicit MIN import (`https://w3id.org/min`) in `sdata-testdata.ttl`.
+- Added explicit MIN import in `sdata-testdata.ttl` and set it to `https://w3id.org/min/3.2.0`.
 - Added exemplaric FORMA-aligned classes for test semantics:
   - `TestFormalModel` (`min:Structura`)
   - `TestAcceptanceCriterion` (`min:Norma`)
