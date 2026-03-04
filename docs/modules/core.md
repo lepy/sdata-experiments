@@ -42,6 +42,13 @@ Brueckenrelationen:
 - `resultGenerationActivity`, `resultGeneratedAt`
 - `usedMeasurementSeries`, `usedTestMethod`, `usedSoftwareTool`, `usedProcessingPipeline`, `responsibleOperator`
 
+## Batches im Core
+
+- Batch = `TestSeries`
+- Batch-ID = `seriesId`
+- Tests innerhalb eines Batches = `hasTest` auf `MechanicalTest`
+- Material-/Specimen-Charge kann ueber `identifier` dokumentiert werden
+
 ## Quantities
 
 Die externe `sdata-quantity`-Ontologie (`https://w3id.org/sdata/quantities/`) bietet zentrale

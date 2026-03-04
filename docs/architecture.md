@@ -22,6 +22,13 @@ Alle TTL-Module und Shape-/Vokabular-Graphen importieren zusaetzlich direkt `htt
 - SHACL in `shapes/` bleibt von OWL-Modellen getrennt
 - MIN/FORMA wird im Core exemplarisch genutzt (Structura/Norma/Lex) fuer Modell, Kriterium und Gesetz im Versuchskontext
 
+## Batch-Modell
+
+- Ein Batch wird als `TestSeries` modelliert.
+- Mehrere `MechanicalTest`-Instanzen gehoeren ueber `hasTest` zur selben Serie.
+- `seriesId` ist die technische Batch-ID.
+- Material-/Schmelzchargen koennen zusaetzlich ueber `identifier` auf `Material` oder `Specimen` gefuehrt werden.
+
 ## MIN FORMA im Core
 
 In `core/sdata-testdata.ttl` sind folgende FORMA-Elemente angebunden:

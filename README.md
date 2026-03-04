@@ -130,6 +130,15 @@ Probekoerpergeometrien werden je Testtyp in separaten Dateien verwaltet:
 `sdata-quantity` wird extern im `sdata-ontology`-Repo gepflegt.
 Die Result-Properties in den Testmodulen sind darauf per `owl:equivalentProperty` gemappt.
 
+## Batches (Chargen)
+
+Fuer Batch-/Chargenorganisation im Versuchskontext gilt im aktuellen Modell:
+
+- `TestSeries` entspricht einem Batch (gemeinsame Rahmenbedingungen und Methodik)
+- einzelne Versuche im Batch sind `MechanicalTest`-Instanzen
+- Batch-ID wird ueber `seriesId` vergeben
+- optional kann die Materialcharge zusaetzlich ueber `identifier` am `Material`- oder `Specimen`-Knoten dokumentiert werden
+
 ## MIN FORMA (exemplarisch im Core)
 
 `core/sdata-testdata.ttl` importiert zusaetzlich `https://w3id.org/min/3.2.0` (aktuelle Version) und nutzt den
