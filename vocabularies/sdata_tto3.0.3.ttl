@@ -1,0 +1,341 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix sdata: <https://w3id.org/sdata/core/> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
+@prefix sdn: <https://w3id.org/sdata/tensile/> .
+@prefix sq: <https://w3id.org/sdata/quantities/> .
+@prefix vocts: <https://w3id.org/sdata/vocabularies/test-standards/> .
+@prefix tto: <https://gitlab.com/kupferdigital/process-graphs/tensile-test/> .
+
+# =============================================================================
+# Ontology Header
+# =============================================================================
+
+tto: a owl:Ontology ;
+  dcterms:title "Tensile Test Ontology (TTO) -- sdata mapping" ;
+  dcterms:created "2024-07-01" ;
+  dcterms:modified "2026-03-06" ;
+  dcterms:creator "Beygi Nasrabadi, Hossein (www.orcid.org/0000-0002-3092-0532)" ,
+    "Skrotzki, Birgit" ;
+  dcterms:licence "www.creativecommons.org/licenses/by/4.0/" ;
+  rdfs:comment """Tensile Test Ontology (TTO) re-expressed with sdata-core and sdata-tensile
+vocabularies. Original TTO 3.0.3 was built on BFO/PMDco/PROV (KupferDigital).
+This version removes all BFO, PMD* and PROV dependencies."""@en ;
+  owl:imports <https://w3id.org/sdata/tensile/> ;
+  owl:imports <https://w3id.org/sdata/testdata/> ;
+  owl:imports <https://w3id.org/sdata/core> ;
+  owl:imports <https://w3id.org/sdata/quantities/> ;
+  owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> ;
+  owl:versionInfo "3.0.3-sdata" .
+
+# =============================================================================
+# TTO-specific Annotation Properties
+# =============================================================================
+
+tto:definitionSource a owl:AnnotationProperty ;
+  rdfs:label "definition source"@en .
+
+# =============================================================================
+# TTO-specific Classes (with sdata superclasses)
+# =============================================================================
+
+tto:CalibrationProcess a owl:Class ;
+  rdfs:subClassOf sdata:InformationProcess ;
+  rdfs:label "Calibration process"@en ;
+  skos:definition "Process of determining the capacity of a tank, or the partial capacities corresponding to different levels."@en ;
+  tto:definitionSource "ISO 7507-1:2003" .
+
+tto:TestPiecePreparationProcess a owl:Class ;
+  rdfs:subClassOf sdata:MaterialProcess ;
+  rdfs:label "Test piece preparation process"@en ;
+  skos:definition "The processes in which a representative piece of material is extracted from a larger amount and readied for analysis."@en ;
+  tto:definitionSource "https://www.britannica.com/science/sample-preparation" .
+
+tto:ProportionalityCoefficient a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
+  rdfs:label "Proportionality coefficient"@en ;
+  skos:definition "Ratio between the original gauge length and its original cross-section area."@en ;
+  tto:definitionSource "ISO 6892-1:2019" .
+
+tto:FractureMode a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
+  rdfs:label "Fracture mode"@en ;
+  skos:definition "Classification of the fracture region and mode."@en .
+
+tto:Strain a owl:Class ;
+  rdfs:subClassOf sdata:InformationArtifact ;
+  rdfs:label "Strain"@en ;
+  skos:definition "Extension expressed as a percentage of the extensometer gauge length."@en ;
+  tto:definitionSource "ISO 6892-1:2019" .
+
+# =============================================================================
+# Original TTO Process Chain (documentation only)
+#
+# The original TTO 3.0.3 modelled two detailed process chains as individual
+# OWL named individuals connected via pmd:nextProcess. These are preserved
+# here as documentation.
+#
+# --- Measuring process chain ---
+#  1. AccuracyOfTestingApparatus (CalibrationProcess)
+#  2. SettingTheForceZeroPoint (MountingProcess)
+#  3. Gripping (GripsAlignment)
+#  4. ChoiceOfTheMethodAndRate (ConditioningProcess)
+#  5. Loading (GeometryChangingProcess)
+#  6. MeasuringFracturedTestPiece (MeasuringProcess)
+#  7. TemperatureRecording (MeasuringProcess)
+#  8. DeterminationOfOriginalCrossSectionArea (MeasuringProcess)
+#  9. MarkingTheOriginalGaugeLength (MeasuringProcess)
+#
+# --- Analysis process chain ---
+#  1.  StressCalculation
+#  2.  StrainCalculation
+#  3.  PlottingStressStrainCurve
+#  4.  DeterminationOfUpperYieldStrength
+#  5.  DeterminationOfLowerYieldStrength
+#  6.  DeterminationOfProofStrength
+#  7.  VarificationOfPermanentSetStrength
+#  8.  DeterminationOfThePercentageYieldPointExtension
+#  9.  DeterminationOfModulusOfElasticity
+#  10. DeterminationOfMaximumForce
+#  11. DeterminationOfTensileStrength
+#  12. DeterminationOfExtensionAtMaximumForce
+#  13. DeterminationOfFractureStrength
+#  14. DeterminationOfPercentageElongationAfterFracture
+#  15. DeterminationOfPercentageTotalExtensionAtFracture
+#  16. DeterminationOfPercentageReductionOfArea
+#  17. CalculateTensileTestUncertainity
+# =============================================================================
+
+# =============================================================================
+# Individuals -- Main entities
+# =============================================================================
+
+tto:TensileTestExperiment a sdn:TensileTest ;
+  sdt:testId "TensileTestExperiment"^^xsd:string ;
+  sdt:testDate "2024-07-01"^^xsd:date ;
+  sdt:hasSpecimen tto:TensileTestPiece ;
+  sdt:usesMachine tto:TensileTestingMachine ;
+  sdt:performedBy tto:TestOperator_ ;
+  sdt:performedAt tto:Laboratory_ ;
+  sdt:usesStandard vocts:ISO6892_1 ;
+  sdt:usesMethod tto:TestMethod_ ;
+  sdt:hasCondition tto:TestCondition_ ;
+  sdt:hasMeasurementSeries tto:MeasurementSeries_ ;
+  sdn:hasTensileResult tto:TensileTestResult_ ;
+  sdt:hasResult tto:TensileTestResult_ .
+
+tto:TensileTestPiece a sdt:Specimen ;
+  sdt:identifier "TestPieceIndenter"^^xsd:string ;
+  sdt:hasMaterial tto:Material_ ;
+  rdfs:comment "Original TTO characteristics: composition, cross-section shape, total length, parallel length, coefficient of proportionality, preparation, supplementary note."@en .
+
+tto:Material_ a sdt:Material ;
+  sdt:identifier "TestPieceComposition"^^xsd:string ;
+  rdfs:comment "Material provider and chemical composition from original TTO."@en .
+
+tto:TensileTestingMachine a sdt:TestingMachine ;
+  sdt:identifier "MachineName&Manufactore&ID"^^xsd:string ;
+  rdfs:comment "Original TTO components: LoadCell, Extensometer, Caliper, MicrometerGauge, MachineSoftware."@en .
+
+tto:TestOperator_ a sdt:Operator ;
+  sdt:identifier "TestOperator"^^xsd:string .
+
+tto:Laboratory_ a sdt:Laboratory ;
+  sdt:identifier "LaboratoryNameAndLocation"^^xsd:string .
+
+tto:TestCondition_ a sdt:TestCondition ;
+  sdt:testTemperature "20.0"^^xsd:decimal ;
+  sdt:testHumidity "50.0"^^xsd:decimal ;
+  rdfs:comment "Original TTO set points: CrossheadSeparationRate, EstimatedStrainRateOverTheParallelLength, StrainRate, StressRate, TestSpeed, SeparationPoint."@en .
+
+tto:TestMethod_ a sdt:TestMethod ;
+  sdt:identifier "TestStandardIdentifier"^^xsd:string ;
+  rdfs:comment "Corresponds to tto:TestStandard (pmd:Norm) in original TTO."@en .
+
+# =============================================================================
+# Individuals -- Measurement data
+# =============================================================================
+
+tto:ChannelForce a sdt:MeasurementChannel ;
+  sdt:channelName "Force" ;
+  sdt:channelDatatype "xsd:decimal" ;
+  sdt:channelUnit "N" ;
+  sdt:channelQuantityUnit unit:N ;
+  sdt:channelIndex 0 ;
+  sdt:channelDescription "Axial force (primary data)."@en ;
+  rdfs:label "Force channel"@en .
+
+tto:ChannelDisplacement a sdt:MeasurementChannel ;
+  sdt:channelName "Displacement" ;
+  sdt:channelDatatype "xsd:decimal" ;
+  sdt:channelUnit "mm" ;
+  sdt:channelQuantityUnit unit:MilliM ;
+  sdt:channelIndex 1 ;
+  sdt:channelDescription "Crosshead displacement (primary data)."@en ;
+  rdfs:label "Displacement channel"@en .
+
+tto:ChannelTime a sdt:MeasurementChannel ;
+  sdt:channelName "Time" ;
+  sdt:channelDatatype "xsd:decimal" ;
+  sdt:channelUnit "s" ;
+  sdt:channelQuantityUnit unit:SEC ;
+  sdt:channelIndex 2 ;
+  sdt:channelDescription "Test time (primary data)."@en ;
+  rdfs:label "Time channel"@en .
+
+tto:ChannelStress a sdt:MeasurementChannel ;
+  sdt:channelName "Stress" ;
+  sdt:channelDatatype "xsd:decimal" ;
+  sdt:channelUnit "MPa" ;
+  sdt:channelQuantityUnit unit:MegaPA ;
+  sdt:channelIndex 3 ;
+  sdt:channelDescription "Engineering stress (derived: Force / OriginalCrossSectionArea)."@en ;
+  rdfs:label "Stress channel"@en .
+
+tto:ChannelStrain a sdt:MeasurementChannel ;
+  sdt:channelName "Strain" ;
+  sdt:channelDatatype "xsd:decimal" ;
+  sdt:channelUnit "%" ;
+  sdt:channelQuantityUnit unit:PERCENT ;
+  sdt:channelIndex 4 ;
+  sdt:channelDescription "Engineering strain (derived: Displacement / OriginalGaugeLength)."@en ;
+  rdfs:label "Strain channel"@en .
+
+tto:MeasurementSeries_ a sdt:MeasurementSeries ;
+  sdt:hasChannel tto:ChannelForce ,
+    tto:ChannelDisplacement ,
+    tto:ChannelTime ,
+    tto:ChannelStress ,
+    tto:ChannelStrain ;
+  sdt:dataFileLocation "file:./row-data.csv"^^xsd:anyURI ;
+  sdt:dataFileFormat "text/csv" ;
+  sdt:numberOfDataPoints "0"^^xsd:integer ;
+  rdfs:comment "Corresponds to tto:RowDataTable_ (csvw:Table / pmd:Dataset) in original TTO."@en .
+
+# =============================================================================
+# Individuals -- Provenance
+# =============================================================================
+
+tto:MachineSoftware_ a sdt:SoftwareTool ;
+  sdt:identifier "SoftwareName&Manufactore&ID"^^xsd:string ;
+  sdt:softwareVersion "unknown"^^xsd:string ;
+  rdfs:comment "Original TTO: ns1:SoftwareAgent associated with TensileTestMeasurementAnalysis."@en .
+
+tto:ProcessingPipeline_ a sdt:ProcessingPipeline ;
+  rdfs:comment "Encapsulates the 17-step analysis chain from original TTO (StressCalculation through CalculateTensileTestUncertainity)."@en .
+
+tto:ResultGeneration_ a sdt:ResultGenerationActivity ;
+  sdt:usedMeasurementSeries tto:MeasurementSeries_ ;
+  sdt:usedTestMethod tto:TestMethod_ ;
+  sdt:usedSoftwareTool tto:MachineSoftware_ ;
+  sdt:usedProcessingPipeline tto:ProcessingPipeline_ ;
+  sdt:responsibleOperator tto:TestOperator_ ;
+  sdt:activityStartTime "2024-07-01T00:00:00Z"^^xsd:dateTime ;
+  sdt:activityEndTime "2024-07-01T00:10:00Z"^^xsd:dateTime ;
+  rdfs:comment "Corresponds to tto:TensileTestMeasurementAnalysis (pmd:AnalysingProcess) in original TTO."@en .
+
+# =============================================================================
+# Individuals -- Result (template: no rdf:value)
+# =============================================================================
+
+tto:TensileTestResult_ a sdn:TensileTestResult ;
+  sdt:resultGenerationActivity tto:ResultGeneration_ ;
+  sdt:resultGeneratedAt "2024-07-01T00:10:00Z"^^xsd:dateTime ;
+  sq:Rm tto:q-Rm ;
+  sq:ReH tto:q-ReH ;
+  sq:ReL tto:q-ReL ;
+  sq:Rp tto:q-Rp ;
+  sq:Rt tto:q-Rt ;
+  sq:Rr tto:q-Rr ;
+  sq:Su tto:q-Su ;
+  sq:E tto:q-E ;
+  sq:Fm tto:q-Fm ;
+  sq:A tto:q-A ;
+  sq:Ae tto:q-Ae ;
+  sq:Ag tto:q-Ag ;
+  sq:Agt tto:q-Agt ;
+  sq:At tto:q-At ;
+  sq:Z tto:q-Z .
+
+# --- 15 AttributeQuantityValue nodes (template, no rdf:value) ---
+
+tto:q-Rm a sdata:AttributeQuantityValue ;
+  qudt:unit unit:MegaPA ;
+  rdfs:label "Tensile strength Rm"@en ;
+  dcterms:description "Maximum stress during tensile test (ISO 6892-1)."@en .
+
+tto:q-ReH a sdata:AttributeQuantityValue ;
+  qudt:unit unit:MegaPA ;
+  rdfs:label "Upper yield strength ReH"@en ;
+  dcterms:description "Highest stress before first decrease in force (ISO 6892-1)."@en .
+
+tto:q-ReL a sdata:AttributeQuantityValue ;
+  qudt:unit unit:MegaPA ;
+  rdfs:label "Lower yield strength ReL"@en ;
+  dcterms:description "Lowest stress during yielding, ignoring transient effects (ISO 6892-1)."@en .
+
+tto:q-Rp a sdata:AttributeQuantityValue ;
+  qudt:unit unit:MegaPA ;
+  rdfs:label "Proof strength Rp0.2"@en ;
+  dcterms:description "Stress at 0.2% plastic extension (ISO 6892-1)."@en .
+
+tto:q-Rt a sdata:AttributeQuantityValue ;
+  qudt:unit unit:MegaPA ;
+  rdfs:label "Proof strength Rt (total extension)"@en ;
+  dcterms:description "Stress at specified total extension (ISO 6892-1)."@en .
+
+tto:q-Rr a sdata:AttributeQuantityValue ;
+  qudt:unit unit:MegaPA ;
+  rdfs:label "Permanent set strength Rr"@en ;
+  dcterms:description "Stress at which a specified permanent elongation has not been exceeded (ISO 6892-1)."@en .
+
+tto:q-Su a sdata:AttributeQuantityValue ;
+  qudt:unit unit:MegaPA ;
+  rdfs:label "Fracture strength Su"@en ;
+  dcterms:description "Stress at fracture (ISO 6892-1)."@en .
+
+tto:q-E a sdata:AttributeQuantityValue ;
+  qudt:unit unit:GigaPA ;
+  rdfs:label "Modulus of elasticity E"@en ;
+  dcterms:description "Slope of the elastic part of the stress-strain curve (ISO 6892-1)."@en .
+
+tto:q-Fm a sdata:AttributeQuantityValue ;
+  qudt:unit unit:N ;
+  rdfs:label "Maximum force Fm"@en ;
+  dcterms:description "Maximum force during tensile test (ISO 6892-1)."@en .
+
+tto:q-A a sdata:AttributeQuantityValue ;
+  qudt:unit unit:PERCENT ;
+  rdfs:label "Percentage elongation after fracture A"@en ;
+  dcterms:description "Permanent elongation of gauge length after fracture (ISO 6892-1)."@en .
+
+tto:q-Ae a sdata:AttributeQuantityValue ;
+  qudt:unit unit:PERCENT ;
+  rdfs:label "Percentage yield point extension Ae"@en ;
+  dcterms:description "Extension from start of yielding to start of uniform work hardening (ISO 6892-1)."@en .
+
+tto:q-Ag a sdata:AttributeQuantityValue ;
+  qudt:unit unit:PERCENT ;
+  rdfs:label "Percentage plastic extension at maximum force Ag"@en ;
+  dcterms:description "Plastic extension at maximum force (ISO 6892-1)."@en .
+
+tto:q-Agt a sdata:AttributeQuantityValue ;
+  qudt:unit unit:PERCENT ;
+  rdfs:label "Percentage total extension at maximum force Agt"@en ;
+  dcterms:description "Total extension at maximum force (ISO 6892-1)."@en .
+
+tto:q-At a sdata:AttributeQuantityValue ;
+  qudt:unit unit:PERCENT ;
+  rdfs:label "Percentage total extension at fracture At"@en ;
+  dcterms:description "Total extension at fracture (ISO 6892-1)."@en .
+
+tto:q-Z a sdata:AttributeQuantityValue ;
+  qudt:unit unit:PERCENT ;
+  rdfs:label "Percentage reduction of area Z"@en ;
+  dcterms:description "Reduction of cross-sectional area after fracture (ISO 6892-1)."@en .
