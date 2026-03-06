@@ -10,7 +10,7 @@
   a owl:Ontology ;
   rdfs:label "SData compression specimen geometries"@en ;
   rdfs:comment "Controlled vocabulary for compression-test specimen geometries."@en ;
-  owl:imports <https://w3id.org/sdata/core/> .
+  owl:imports <https://w3id.org/sdata/core> .
 
 scsp:ConceptScheme a skos:ConceptScheme ;
   skos:prefLabel "Compression specimen geometries"@en .

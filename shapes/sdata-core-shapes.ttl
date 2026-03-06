@@ -11,7 +11,7 @@
 
 <https://w3id.org/sdata/shapes/core/>
   a owl:Ontology ;
-  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/core> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> .
 
@@ -248,6 +248,27 @@ sdt:MeasurementSeriesShape a sh:NodeShape ;
     sh:path sdt:hasChannel ;
     sh:class sdt:MeasurementChannel ;
     sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:dataFileLocation ;
+    sh:datatype xsd:anyURI ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:dataFileFormat ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:dataFileHash ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:numberOfDataPoints ;
+    sh:datatype xsd:integer ;
+    sh:minInclusive 0 ;
+    sh:maxCount 1
   ] .
 
 sdt:MeasurementChannelShape a sh:NodeShape ;
@@ -267,6 +288,22 @@ sdt:MeasurementChannelShape a sh:NodeShape ;
   sh:property [
     sh:path sdt:channelDatatype ;
     sh:datatype xsd:string ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:channelQuantityUnit ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:channelDescription ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:channelIndex ;
+    sh:datatype xsd:integer ;
+    sh:minInclusive 0 ;
     sh:maxCount 1
   ] .
 

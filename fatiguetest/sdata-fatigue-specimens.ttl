@@ -10,7 +10,7 @@
   a owl:Ontology ;
   rdfs:label "SData fatigue specimen geometries"@en ;
   rdfs:comment "Controlled vocabulary for fatigue-test specimen geometries."@en ;
-  owl:imports <https://w3id.org/sdata/core/> .
+  owl:imports <https://w3id.org/sdata/core> .
 
 sfsp:ConceptScheme a skos:ConceptScheme ;
   skos:prefLabel "Fatigue specimen geometries"@en .

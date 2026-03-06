@@ -3,6 +3,7 @@
 Dateien:
 
 - `core/sdata-testdata.ttl`
+- extern: `https://w3id.org/sdata/core` (v0.14.0)
 - extern: `https://w3id.org/sdata/quantities/` (aus `sdata-ontology` repo, v0.1.0)
 
 ## Zweck

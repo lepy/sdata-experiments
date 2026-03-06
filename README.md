@@ -110,7 +110,7 @@ MIN -> sdata-core -> sdata-quantities
 ```
 
 Hinweis: `sdata-core` ist extern und wird in `core/sdata-testdata.ttl` als Import referenziert.
-Alle `.ttl`-Dateien im Repo importieren `https://w3id.org/sdata/core/` direkt.
+Alle `.ttl`-Dateien im Repo importieren `https://w3id.org/sdata/core` direkt (aktuell v0.14.0).
 
 ## Modellprinzip
 

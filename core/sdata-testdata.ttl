@@ -12,7 +12,7 @@
   rdfs:label "SData Testdata Core"@en ;
   rdfs:comment "Shared, test-type agnostic classes for mechanical test domains."@en ;
   owl:imports <https://w3id.org/min/3.2.0> ;
-  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/core> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/vocabularies/test-standards/> .
 
@@ -396,6 +396,30 @@ sdt:samplingFrequency a owl:DatatypeProperty ;
   rdfs:range xsd:decimal ;
   rdfs:label "sampling frequency"@en .
 
+sdt:dataFileLocation a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementSeries ;
+  rdfs:range xsd:anyURI ;
+  rdfs:label "data file location"@en ;
+  rdfs:comment "URI or path to the external data file containing measurement data."@en .
+
+sdt:dataFileFormat a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementSeries ;
+  rdfs:range xsd:string ;
+  rdfs:label "data file format"@en ;
+  rdfs:comment "MIME type of the data file (e.g. text/csv, application/x-parquet)."@en .
+
+sdt:dataFileHash a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementSeries ;
+  rdfs:range xsd:string ;
+  rdfs:label "data file hash"@en ;
+  rdfs:comment "Integrity hash of the data file (e.g. sha256:...)."@en .
+
+sdt:numberOfDataPoints a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementSeries ;
+  rdfs:range xsd:integer ;
+  rdfs:label "number of data points"@en ;
+  rdfs:comment "Number of rows/data points in the measurement data file."@en .
+
 sdt:channelName a owl:DatatypeProperty ;
   rdfs:domain sdt:MeasurementChannel ;
   rdfs:range xsd:string ;
@@ -410,6 +434,22 @@ sdt:channelDatatype a owl:DatatypeProperty ;
   rdfs:domain sdt:MeasurementChannel ;
   rdfs:range xsd:string ;
   rdfs:label "channel datatype"@en .
+
+sdt:channelQuantityUnit a owl:ObjectProperty ;
+  rdfs:domain sdt:MeasurementChannel ;
+  rdfs:label "channel quantity unit"@en ;
+  rdfs:comment "QUDT unit IRI for the channel (analogous to qudt:unit on AQV)."@en .
+
+sdt:channelDescription a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementChannel ;
+  rdfs:range xsd:string ;
+  rdfs:label "channel description"@en .
+
+sdt:channelIndex a owl:DatatypeProperty ;
+  rdfs:domain sdt:MeasurementChannel ;
+  rdfs:range xsd:integer ;
+  rdfs:label "channel index"@en ;
+  rdfs:comment "Zero-based column position of this channel in the data file."@en .
 
 sdt:softwareVersion a owl:DatatypeProperty ;
   rdfs:domain sdt:SoftwareTool ;

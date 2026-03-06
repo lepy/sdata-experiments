@@ -10,7 +10,7 @@
   a owl:Ontology ;
   rdfs:label "SData Compression"@en ;
   rdfs:comment "Compression-test specific extensions."@en ;
-  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/core> ;
   owl:imports <https://w3id.org/sdata/compression/specimens/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> .

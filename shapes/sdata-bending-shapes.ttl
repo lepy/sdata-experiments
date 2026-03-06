@@ -8,11 +8,15 @@
 
 <https://w3id.org/sdata/shapes/bending/>
   a owl:Ontology ;
-  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/core> ;
   owl:imports <https://w3id.org/sdata/shapes/core/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <https://w3id.org/sdata/bending/> .
+
+# ============================================================
+# BendingTestShape
+# ============================================================
 
 sdb:BendingTestShape a sh:NodeShape ;
   sh:targetClass sdb:BendingTest ;
@@ -33,37 +37,103 @@ sdb:BendingTestShape a sh:NodeShape ;
     sh:minCount 1
   ] ;
   sh:property [
+    sh:path sdb:hasBendingResult ;
+    sh:class sdb:BendingTestResult ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
     sh:path sq:SupportSpanLength ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sq:MandrelDiameter ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sq:InnerBendingRadius ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
+    sh:maxCount 1
+  ] .
+
+# ============================================================
+# BendingTestResultShape
+# ============================================================
+
+sdb:BendingTestResultShape a sh:NodeShape ;
+  sh:targetClass sdb:BendingTestResult ;
+  # --- Provenance (mandatory) ---
+  sh:property [
+    sh:path sdt:resultGenerationActivity ;
+    sh:class sdt:ResultGenerationActivity ;
+    sh:node sdt:ResultGenerationActivityShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sdt:resultGeneratedAt ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  # --- BendingAngle (mandatory -- central ISO 7438 parameter) ---
+  sh:property [
+    sh:path sq:BendingAngle ;
     sh:class sdata:AttributeQuantityValue ;
     sh:node sdt:DecimalQuantityValueShape ;
     sh:minCount 1 ;
     sh:maxCount 1
   ] ;
-  sh:property [
-    sh:path sdb:hasBendingResult ;
-    sh:class sdb:BendingTestResult ;
-    sh:minCount 1 ;
-    sh:maxCount 1
-  ] .
-
-sdb:BendingTestResultShape a sh:NodeShape ;
-  sh:targetClass sdb:BendingTestResult ;
+  # --- Optional validated properties ---
   sh:property [
     sh:path sq:FlexuralStrength ;
     sh:class sdata:AttributeQuantityValue ;
     sh:node sdt:DecimalQuantityValueShape ;
-    sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
     sh:path sq:FlexuralModulus ;
     sh:class sdata:AttributeQuantityValue ;
     sh:node sdt:DecimalQuantityValueShape ;
-    sh:minCount 1 ;
     sh:maxCount 1
   ] ;
   sh:property [
     sh:path sq:MaximumDeflectionAtFailure ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sq:BendingYieldStrength ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sq:BendingProofStress ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sq:MaximumBendingForce ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sq:ElasticDeflection ;
+    sh:class sdata:AttributeQuantityValue ;
+    sh:node sdt:DecimalQuantityValueShape ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    sh:path sq:SpringBendingLimit ;
     sh:class sdata:AttributeQuantityValue ;
     sh:node sdt:DecimalQuantityValueShape ;
     sh:maxCount 1

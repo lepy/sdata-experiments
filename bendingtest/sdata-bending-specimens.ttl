@@ -9,23 +9,49 @@
 <https://w3id.org/sdata/bending/specimens/>
   a owl:Ontology ;
   rdfs:label "SData bending specimen geometries"@en ;
-  rdfs:comment "Controlled vocabulary for bending-test specimen geometries."@en ;
-  owl:imports <https://w3id.org/sdata/core/> .
+  rdfs:comment "Controlled vocabulary for bending-test specimen geometries and standardized profiles."@en ;
+  owl:imports <https://w3id.org/sdata/core> .
+
+# ============================================================
+# General ConceptScheme
+# ============================================================
 
 sbsp:ConceptScheme a skos:ConceptScheme ;
   skos:prefLabel "Bending specimen geometries"@en .
 
 sbsp:rectangularBar a skos:Concept ;
   skos:inScheme sbsp:ConceptScheme ;
-  skos:prefLabel "rectangular bending bar"@en .
+  skos:prefLabel "rectangular bending bar"@en ;
+  skos:prefLabel "Rechteck-Biegestab"@de .
 
 sbsp:roundBar a skos:Concept ;
   skos:inScheme sbsp:ConceptScheme ;
-  skos:prefLabel "round bending bar"@en .
+  skos:prefLabel "round bending bar"@en ;
+  skos:prefLabel "Rund-Biegestab"@de .
+
+sbsp:squareBar a skos:Concept ;
+  skos:inScheme sbsp:ConceptScheme ;
+  skos:prefLabel "square bending bar"@en ;
+  skos:prefLabel "Quadrat-Biegestab"@de .
+
+sbsp:polygonalBar a skos:Concept ;
+  skos:inScheme sbsp:ConceptScheme ;
+  skos:prefLabel "polygonal bending bar"@en ;
+  skos:prefLabel "Polygon-Biegestab"@de .
+
+sbsp:stripSpecimen a skos:Concept ;
+  skos:inScheme sbsp:ConceptScheme ;
+  skos:prefLabel "strip specimen"@en ;
+  skos:prefLabel "Bandprobe"@de .
 
 sbsp:notchedBar a skos:Concept ;
   skos:inScheme sbsp:ConceptScheme ;
-  skos:prefLabel "notched bending specimen"@en .
+  skos:prefLabel "notched bending specimen"@en ;
+  skos:prefLabel "Kerb-Biegeprobe"@de .
+
+# ============================================================
+# Properties
+# ============================================================
 
 sbsp:width a owl:DatatypeProperty ;
   rdfs:domain skos:Concept ;
@@ -44,3 +70,229 @@ sbsp:length a owl:DatatypeProperty ;
   rdfs:range xsd:decimal ;
   qudt:unit unit:MilliM ;
   rdfs:label "length"@en .
+
+sbsp:diameter a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "diameter"@en .
+
+sbsp:supportSpan a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "support span"@en .
+
+sbsp:mandrelDiameter a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:decimal ;
+  qudt:unit unit:MilliM ;
+  rdfs:label "mandrel diameter"@en .
+
+sbsp:profileClass a owl:DatatypeProperty ;
+  rdfs:domain skos:Concept ;
+  rdfs:range xsd:string ;
+  rdfs:label "profile class"@en .
+
+# ============================================================
+# ISO 7438 Specimen Profiles
+# ============================================================
+
+sbsp:ISO7438SpecimenProfiles a skos:ConceptScheme ;
+  skos:prefLabel "ISO 7438 bending specimen profiles"@en ;
+  skos:prefLabel "Biegeproben nach ISO 7438"@de .
+
+# --- Rectangular bars ---
+
+sbsp:iso7438_rect_20x3x100 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:rectangularBar ;
+  skos:notation "iso7438_rect_20x3x100" ;
+  skos:prefLabel "ISO 7438 Rect 20x3, L=100 mm"@en ;
+  sbsp:profileClass "BendingRectBar" ;
+  sbsp:width "20.0"^^xsd:decimal ;
+  sbsp:thickness "3.0"^^xsd:decimal ;
+  sbsp:length "100.0"^^xsd:decimal .
+
+sbsp:iso7438_rect_20x5x120 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:rectangularBar ;
+  skos:notation "iso7438_rect_20x5x120" ;
+  skos:prefLabel "ISO 7438 Rect 20x5, L=120 mm"@en ;
+  sbsp:profileClass "BendingRectBar" ;
+  sbsp:width "20.0"^^xsd:decimal ;
+  sbsp:thickness "5.0"^^xsd:decimal ;
+  sbsp:length "120.0"^^xsd:decimal .
+
+sbsp:iso7438_rect_20x8x150 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:rectangularBar ;
+  skos:notation "iso7438_rect_20x8x150" ;
+  skos:prefLabel "ISO 7438 Rect 20x8, L=150 mm"@en ;
+  sbsp:profileClass "BendingRectBar" ;
+  sbsp:width "20.0"^^xsd:decimal ;
+  sbsp:thickness "8.0"^^xsd:decimal ;
+  sbsp:length "150.0"^^xsd:decimal .
+
+sbsp:iso7438_rect_20x10x180 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:rectangularBar ;
+  skos:notation "iso7438_rect_20x10x180" ;
+  skos:prefLabel "ISO 7438 Rect 20x10, L=180 mm"@en ;
+  sbsp:profileClass "BendingRectBar" ;
+  sbsp:width "20.0"^^xsd:decimal ;
+  sbsp:thickness "10.0"^^xsd:decimal ;
+  sbsp:length "180.0"^^xsd:decimal .
+
+sbsp:iso7438_rect_25x12x200 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:rectangularBar ;
+  skos:notation "iso7438_rect_25x12x200" ;
+  skos:prefLabel "ISO 7438 Rect 25x12, L=200 mm"@en ;
+  sbsp:profileClass "BendingRectBar" ;
+  sbsp:width "25.0"^^xsd:decimal ;
+  sbsp:thickness "12.0"^^xsd:decimal ;
+  sbsp:length "200.0"^^xsd:decimal .
+
+sbsp:iso7438_rect_30x15x250 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:rectangularBar ;
+  skos:notation "iso7438_rect_30x15x250" ;
+  skos:prefLabel "ISO 7438 Rect 30x15, L=250 mm"@en ;
+  sbsp:profileClass "BendingRectBar" ;
+  sbsp:width "30.0"^^xsd:decimal ;
+  sbsp:thickness "15.0"^^xsd:decimal ;
+  sbsp:length "250.0"^^xsd:decimal .
+
+sbsp:iso7438_rect_30x20x300 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:rectangularBar ;
+  skos:notation "iso7438_rect_30x20x300" ;
+  skos:prefLabel "ISO 7438 Rect 30x20, L=300 mm"@en ;
+  sbsp:profileClass "BendingRectBar" ;
+  sbsp:width "30.0"^^xsd:decimal ;
+  sbsp:thickness "20.0"^^xsd:decimal ;
+  sbsp:length "300.0"^^xsd:decimal .
+
+# --- Round bars ---
+
+sbsp:iso7438_round_d6x80 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:roundBar ;
+  skos:notation "iso7438_round_d6x80" ;
+  skos:prefLabel "ISO 7438 Round d=6, L=80 mm"@en ;
+  sbsp:profileClass "BendingRoundBar" ;
+  sbsp:diameter "6.0"^^xsd:decimal ;
+  sbsp:length "80.0"^^xsd:decimal .
+
+sbsp:iso7438_round_d8x100 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:roundBar ;
+  skos:notation "iso7438_round_d8x100" ;
+  skos:prefLabel "ISO 7438 Round d=8, L=100 mm"@en ;
+  sbsp:profileClass "BendingRoundBar" ;
+  sbsp:diameter "8.0"^^xsd:decimal ;
+  sbsp:length "100.0"^^xsd:decimal .
+
+sbsp:iso7438_round_d10x120 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:roundBar ;
+  skos:notation "iso7438_round_d10x120" ;
+  skos:prefLabel "ISO 7438 Round d=10, L=120 mm"@en ;
+  sbsp:profileClass "BendingRoundBar" ;
+  sbsp:diameter "10.0"^^xsd:decimal ;
+  sbsp:length "120.0"^^xsd:decimal .
+
+sbsp:iso7438_round_d12x150 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:roundBar ;
+  skos:notation "iso7438_round_d12x150" ;
+  skos:prefLabel "ISO 7438 Round d=12, L=150 mm"@en ;
+  sbsp:profileClass "BendingRoundBar" ;
+  sbsp:diameter "12.0"^^xsd:decimal ;
+  sbsp:length "150.0"^^xsd:decimal .
+
+sbsp:iso7438_round_d16x200 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:roundBar ;
+  skos:notation "iso7438_round_d16x200" ;
+  skos:prefLabel "ISO 7438 Round d=16, L=200 mm"@en ;
+  sbsp:profileClass "BendingRoundBar" ;
+  sbsp:diameter "16.0"^^xsd:decimal ;
+  sbsp:length "200.0"^^xsd:decimal .
+
+sbsp:iso7438_round_d20x250 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:roundBar ;
+  skos:notation "iso7438_round_d20x250" ;
+  skos:prefLabel "ISO 7438 Round d=20, L=250 mm"@en ;
+  sbsp:profileClass "BendingRoundBar" ;
+  sbsp:diameter "20.0"^^xsd:decimal ;
+  sbsp:length "250.0"^^xsd:decimal .
+
+sbsp:iso7438_round_d25x300 a skos:Concept ;
+  skos:inScheme sbsp:ISO7438SpecimenProfiles ;
+  skos:broader sbsp:roundBar ;
+  skos:notation "iso7438_round_d25x300" ;
+  skos:prefLabel "ISO 7438 Round d=25, L=300 mm"@en ;
+  sbsp:profileClass "BendingRoundBar" ;
+  sbsp:diameter "25.0"^^xsd:decimal ;
+  sbsp:length "300.0"^^xsd:decimal .
+
+# ============================================================
+# EN 12384 Specimen Profiles (Cu-Federstreifen)
+# ============================================================
+
+sbsp:EN12384SpecimenProfiles a skos:ConceptScheme ;
+  skos:prefLabel "EN 12384 spring strip specimen profiles"@en ;
+  skos:prefLabel "Federstreifenproben nach EN 12384"@de .
+
+sbsp:en12384_strip_005 a skos:Concept ;
+  skos:inScheme sbsp:EN12384SpecimenProfiles ;
+  skos:broader sbsp:stripSpecimen ;
+  skos:notation "en12384_strip_005" ;
+  skos:prefLabel "EN 12384 Strip t=0.05 mm"@en ;
+  sbsp:profileClass "SpringStrip" ;
+  sbsp:thickness "0.05"^^xsd:decimal ;
+  sbsp:width "10.0"^^xsd:decimal ;
+  sbsp:length "50.0"^^xsd:decimal .
+
+sbsp:en12384_strip_010 a skos:Concept ;
+  skos:inScheme sbsp:EN12384SpecimenProfiles ;
+  skos:broader sbsp:stripSpecimen ;
+  skos:notation "en12384_strip_010" ;
+  skos:prefLabel "EN 12384 Strip t=0.10 mm"@en ;
+  sbsp:profileClass "SpringStrip" ;
+  sbsp:thickness "0.10"^^xsd:decimal ;
+  sbsp:width "10.0"^^xsd:decimal ;
+  sbsp:length "60.0"^^xsd:decimal .
+
+sbsp:en12384_strip_020 a skos:Concept ;
+  skos:inScheme sbsp:EN12384SpecimenProfiles ;
+  skos:broader sbsp:stripSpecimen ;
+  skos:notation "en12384_strip_020" ;
+  skos:prefLabel "EN 12384 Strip t=0.20 mm"@en ;
+  sbsp:profileClass "SpringStrip" ;
+  sbsp:thickness "0.20"^^xsd:decimal ;
+  sbsp:width "10.0"^^xsd:decimal ;
+  sbsp:length "70.0"^^xsd:decimal .
+
+sbsp:en12384_strip_050 a skos:Concept ;
+  skos:inScheme sbsp:EN12384SpecimenProfiles ;
+  skos:broader sbsp:stripSpecimen ;
+  skos:notation "en12384_strip_050" ;
+  skos:prefLabel "EN 12384 Strip t=0.50 mm"@en ;
+  sbsp:profileClass "SpringStrip" ;
+  sbsp:thickness "0.50"^^xsd:decimal ;
+  sbsp:width "10.0"^^xsd:decimal ;
+  sbsp:length "150.0"^^xsd:decimal .
+
+sbsp:en12384_strip_100 a skos:Concept ;
+  skos:inScheme sbsp:EN12384SpecimenProfiles ;
+  skos:broader sbsp:stripSpecimen ;
+  skos:notation "en12384_strip_100" ;
+  skos:prefLabel "EN 12384 Strip t=1.00 mm"@en ;
+  sbsp:profileClass "SpringStrip" ;
+  sbsp:thickness "1.00"^^xsd:decimal ;
+  sbsp:width "10.0"^^xsd:decimal ;
+  sbsp:length "150.0"^^xsd:decimal .

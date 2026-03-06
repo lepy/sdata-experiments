@@ -1,53 +1,178 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sdb: <https://w3id.org/sdata/bending/> .
 @prefix sdata: <https://w3id.org/sdata/core/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
+@prefix bending: <http://example.org/vocab/bending/> .
 
 <https://w3id.org/sdata/bending/>
   a owl:Ontology ;
   rdfs:label "SData Bending"@en ;
-  rdfs:comment "Bending-test specific extensions."@en ;
-  owl:imports <https://w3id.org/sdata/core/> ;
+  rdfs:comment "Bending-test specific extensions for ISO 7438 and EN 12384."@en ;
+  owl:imports <https://w3id.org/sdata/core> ;
   owl:imports <https://w3id.org/sdata/bending/specimens/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
-  owl:imports <https://w3id.org/sdata/testdata/> .
+  owl:imports <https://w3id.org/sdata/testdata/> ;
+  owl:imports <http://example.org/vocab/bending/> .
+
+# ============================================================
+# Classes
+# ============================================================
 
 sdb:BendingTest a owl:Class ;
   rdfs:subClassOf sdt:QuasiStaticTest ;
   rdfs:label "Bending test"@en .
 
+sdb:ThreePointBendingTest a owl:Class ;
+  rdfs:subClassOf sdb:BendingTest ;
+  rdfs:label "Three-point bending test"@en ;
+  rdfs:comment "3-Punkt-Biegeversuch."@de ;
+  rdfs:seeAlso bending:ThreePointBending .
+
+sdb:FourPointBendingTest a owl:Class ;
+  rdfs:subClassOf sdb:BendingTest ;
+  rdfs:label "Four-point bending test"@en ;
+  rdfs:comment "4-Punkt-Biegeversuch."@de ;
+  rdfs:seeAlso bending:FourPointBending .
+
+sdb:SpringBendingTest a owl:Class ;
+  rdfs:subClassOf sdb:BendingTest ;
+  rdfs:label "Spring bending test"@en ;
+  rdfs:comment "Federbiegeversuch nach EN 12384."@de ;
+  rdfs:seeAlso bending:SpringBendingTest .
+
 sdb:BendingTestResult a owl:Class ;
   rdfs:subClassOf sdt:TestResult ;
   rdfs:label "Bending test result"@en .
+
+# ============================================================
+# Test -> Result relation
+# ============================================================
 
 sdb:hasBendingResult a owl:ObjectProperty ;
   rdfs:domain sdb:BendingTest ;
   rdfs:range sdb:BendingTestResult ;
   rdfs:label "has bending result"@en .
 
+# ============================================================
+# SKOS link property (analog sdn:reportsIso6892Property)
+# ============================================================
+
+sdb:reportsIso7438Property a owl:ObjectProperty ;
+  rdfs:domain sdata:AttributeQuantityValue ;
+  rdfs:range skos:Concept ;
+  rdfs:label "reports ISO 7438 property"@en .
+
+# ============================================================
+# Result properties: Stress / Strength
+# ============================================================
+
 sdb:FlexuralStrength a owl:ObjectProperty ;
   owl:equivalentProperty sq:FlexuralStrength ;
   rdfs:domain sdb:BendingTestResult ;
   rdfs:range sdata:AttributeQuantityValue ;
-  rdfs:label "flexural strength"@en .
+  rdfs:label "flexural strength sigma_bB"@en ;
+  rdfs:seeAlso bending:sigma_bB .
 
-sdb:FlexuralModulus a owl:ObjectProperty ;
-  owl:equivalentProperty sq:FlexuralModulus ;
+sdb:BendingYieldStrength a owl:ObjectProperty ;
+  owl:equivalentProperty sq:BendingYieldStrength ;
   rdfs:domain sdb:BendingTestResult ;
   rdfs:range sdata:AttributeQuantityValue ;
-  rdfs:label "flexural modulus"@en .
+  rdfs:label "bending yield strength sigma_bF"@en ;
+  rdfs:seeAlso bending:sigma_bF .
+
+sdb:BendingProofStress a owl:ObjectProperty ;
+  owl:equivalentProperty sq:BendingProofStress ;
+  rdfs:domain sdb:BendingTestResult ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "bending proof stress sigma_b0.2"@en ;
+  rdfs:seeAlso bending:sigma_b02 .
+
+sdb:SpringBendingLimit a owl:ObjectProperty ;
+  owl:equivalentProperty sq:SpringBendingLimit ;
+  rdfs:domain sdb:BendingTestResult ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "spring bending limit sigma_sbl"@en ;
+  rdfs:seeAlso bending:sigma_sbl .
+
+# ============================================================
+# Result properties: Force
+# ============================================================
+
+sdb:BendingForce a owl:ObjectProperty ;
+  owl:equivalentProperty sq:BendingForce ;
+  rdfs:domain sdb:BendingTestResult ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "bending force Fb"@en ;
+  rdfs:seeAlso bending:Fb .
+
+sdb:MaximumBendingForce a owl:ObjectProperty ;
+  owl:equivalentProperty sq:MaximumBendingForce ;
+  rdfs:domain sdb:BendingTestResult ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "maximum bending force Fb_max"@en ;
+  rdfs:seeAlso bending:Fb_max .
+
+# ============================================================
+# Result properties: Deflection
+# ============================================================
 
 sdb:MaximumDeflectionAtFailure a owl:ObjectProperty ;
   owl:equivalentProperty sq:MaximumDeflectionAtFailure ;
   rdfs:domain sdb:BendingTestResult ;
   rdfs:range sdata:AttributeQuantityValue ;
-  rdfs:label "maximum deflection at failure"@en .
+  rdfs:label "maximum deflection at failure f_B"@en ;
+  rdfs:seeAlso bending:f_B .
+
+sdb:ElasticDeflection a owl:ObjectProperty ;
+  owl:equivalentProperty sq:ElasticDeflection ;
+  rdfs:domain sdb:BendingTestResult ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "elastic deflection f_el"@en ;
+  rdfs:seeAlso bending:f_el .
+
+sdb:BendingAngle a owl:ObjectProperty ;
+  owl:equivalentProperty sq:BendingAngle ;
+  rdfs:domain sdb:BendingTestResult ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "bending angle alpha"@en ;
+  rdfs:seeAlso bending:alpha .
+
+# ============================================================
+# Result properties: Modulus
+# ============================================================
+
+sdb:FlexuralModulus a owl:ObjectProperty ;
+  owl:equivalentProperty sq:FlexuralModulus ;
+  rdfs:domain sdb:BendingTestResult ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "flexural modulus E_b"@en ;
+  rdfs:seeAlso bending:E_b .
+
+# ============================================================
+# Test properties: Geometric parameters (domain BendingTest)
+# ============================================================
 
 sdb:SupportSpanLength a owl:ObjectProperty ;
   owl:equivalentProperty sq:SupportSpanLength ;
   rdfs:domain sdb:BendingTest ;
   rdfs:range sdata:AttributeQuantityValue ;
-  rdfs:label "support span length"@en .
+  rdfs:label "support span length l_s"@en ;
+  rdfs:seeAlso bending:l_s .
+
+sdb:MandrelDiameter a owl:ObjectProperty ;
+  owl:equivalentProperty sq:MandrelDiameter ;
+  rdfs:domain sdb:BendingTest ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "mandrel diameter D"@en ;
+  rdfs:seeAlso bending:D .
+
+sdb:InnerBendingRadius a owl:ObjectProperty ;
+  owl:equivalentProperty sq:InnerBendingRadius ;
+  rdfs:domain sdb:BendingTest ;
+  rdfs:range sdata:AttributeQuantityValue ;
+  rdfs:label "inner bending radius r"@en ;
+  rdfs:seeAlso bending:param_r .

@@ -11,7 +11,7 @@ MIN -> sdata-core -> sdata-quantities
 ```
 
 `core/sdata-testdata.ttl` ist die gemeinsame Zwischenschicht fuer versuchsartuebergreifende Modellanteile.
-Alle TTL-Module und Shape-/Vokabular-Graphen importieren zusaetzlich direkt `https://w3id.org/sdata/core/`.
+Alle TTL-Module und Shape-/Vokabular-Graphen importieren zusaetzlich direkt `https://w3id.org/sdata/core` (aktuell v0.14.0).
 
 ## Designprinzip
 

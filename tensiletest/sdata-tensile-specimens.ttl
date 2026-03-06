@@ -10,7 +10,7 @@
   a owl:Ontology ;
   rdfs:label "SData tensile specimen geometries"@en ;
   rdfs:comment "Controlled vocabulary for tensile specimen forms and standardized tensile specimen profiles."@en ;
-  owl:imports <https://w3id.org/sdata/core/> .
+  owl:imports <https://w3id.org/sdata/core> .
 
 stsp:ConceptScheme a skos:ConceptScheme ;
   skos:prefLabel "Tensile specimen geometries"@en .

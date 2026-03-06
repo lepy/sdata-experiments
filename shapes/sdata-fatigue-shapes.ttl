@@ -7,7 +7,7 @@
 
 <https://w3id.org/sdata/shapes/fatigue/>
   a owl:Ontology ;
-  owl:imports <https://w3id.org/sdata/core/> ;
+  owl:imports <https://w3id.org/sdata/core> ;
   owl:imports <https://w3id.org/sdata/shapes/core/> ;
   owl:imports <https://w3id.org/sdata/quantities/> ;
   owl:imports <https://w3id.org/sdata/testdata/> ;
