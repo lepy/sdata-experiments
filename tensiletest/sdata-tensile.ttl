@@ -1,10 +1,9 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix sdt: <https://w3id.org/sdata/testdata/> .
-@prefix sdn: <https://w3id.org/sdata/tensile/> .
 @prefix sdata: <https://w3id.org/sdata/core/> .
+@prefix sdn: <https://w3id.org/sdata/tensile/> .
+@prefix sdt: <https://w3id.org/sdata/testdata/> .
 @prefix sq: <https://w3id.org/sdata/quantities/> .
 @prefix iso6892: <http://example.org/vocab/iso6892-1/> .
 
@@ -18,6 +17,10 @@
   owl:imports <https://w3id.org/sdata/testdata/> ;
   owl:imports <http://example.org/vocab/iso6892-1/> .
 
+# ============================================================
+# Classes
+# ============================================================
+
 sdn:TensileTest a owl:Class ;
   rdfs:subClassOf sdt:QuasiStaticTest ;
   rdfs:label "Tensile test"@en .
@@ -25,6 +28,10 @@ sdn:TensileTest a owl:Class ;
 sdn:TensileTestResult a owl:Class ;
   rdfs:subClassOf sdt:TestResult ;
   rdfs:label "Tensile test result"@en .
+
+# ============================================================
+# Core tensile relations
+# ============================================================
 
 sdn:hasTensileResult a owl:ObjectProperty ;
   rdfs:domain sdn:TensileTest ;
@@ -35,6 +42,10 @@ sdn:reportsIso6892Property a owl:ObjectProperty ;
   rdfs:domain sdata:AttributeQuantityValue ;
   rdfs:range skos:Concept ;
   rdfs:label "reports ISO 6892-1 property"@en .
+
+# ============================================================
+# ISO 6892-1 aligned result properties
+# ============================================================
 
 sdn:Rm a owl:ObjectProperty ;
   owl:equivalentProperty sq:Rm ;
@@ -140,6 +151,10 @@ sdn:Fm a owl:ObjectProperty ;
   rdfs:domain sdn:TensileTestResult ;
   rdfs:range sdata:AttributeQuantityValue ;
   rdfs:label "maximum force Fm"@en .
+
+# ============================================================
+# Legacy aliases
+# ============================================================
 
 sdn:YieldStrength a owl:ObjectProperty ;
   owl:equivalentProperty sdn:Rp ;

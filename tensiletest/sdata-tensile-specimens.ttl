@@ -12,31 +12,49 @@
   rdfs:comment "Controlled vocabulary for tensile specimen forms and standardized tensile specimen profiles."@en ;
   owl:imports <https://w3id.org/sdata/core> .
 
+# ============================================================
+# Concept schemes
+# ============================================================
+
 stsp:ConceptScheme a skos:ConceptScheme ;
-  skos:prefLabel "Tensile specimen geometries"@en .
+  skos:prefLabel "Tensile specimen geometries"@en ;
+  skos:prefLabel "Zugprobengeometrien"@de .
 
 stsp:FlatTensileSpecimenProfiles a skos:ConceptScheme ;
-  skos:prefLabel "Flat tensile specimen profiles"@en .
+  skos:prefLabel "Flat tensile specimen profiles"@en ;
+  skos:prefLabel "Flachzugproben-Profile"@de .
+
+# ============================================================
+# Shape families
+# ============================================================
 
 stsp:flat a skos:Concept ;
   skos:inScheme stsp:ConceptScheme ;
   skos:prefLabel "flat tensile specimen"@en ;
+  skos:prefLabel "Flachzugprobe"@de ;
   skos:altLabel "flat"@en .
 
 stsp:round a skos:Concept ;
   skos:inScheme stsp:ConceptScheme ;
   skos:prefLabel "round tensile specimen"@en ;
+  skos:prefLabel "Rundzugsprobe"@de ;
   skos:altLabel "round"@en .
 
 stsp:tubular a skos:Concept ;
   skos:inScheme stsp:ConceptScheme ;
   skos:prefLabel "tubular tensile specimen"@en ;
+  skos:prefLabel "Rohrzugprobe"@de ;
   skos:altLabel "tubular"@en .
 
 stsp:hexa a skos:Concept ;
   skos:inScheme stsp:ConceptScheme ;
   skos:prefLabel "hexagonal tensile specimen"@en ;
+  skos:prefLabel "Sechskantzugprobe"@de ;
   skos:altLabel "hexa"@en .
+
+# ============================================================
+# Geometric descriptor properties
+# ============================================================
 
 stsp:profileClass a owl:DatatypeProperty ;
   rdfs:domain skos:Concept ;
@@ -97,6 +115,9 @@ stsp:r a owl:DatatypeProperty ;
   qudt:unit unit:MilliM ;
   rdfs:label "transition radius r"@en .
 
+# ============================================================
+# Standardized flat profile concepts
+# ============================================================
 
 stsp:din527_2_1a a skos:Concept ;
   skos:inScheme stsp:FlatTensileSpecimenProfiles ;
@@ -257,307 +278,3 @@ stsp:din50125_e25x90 a skos:Concept ;
   stsp:l1 "114.0"^^xsd:decimal ;
   stsp:lt "258.0"^^xsd:decimal ;
   stsp:r "20.0"^^xsd:decimal .
-
-stsp:din50125_e30x100 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "din50125_e30x100" ;
-  skos:prefLabel "DIN 50125 - E 10 x 30 x 100"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "30.0"^^xsd:decimal ;
-  stsp:t "10.0"^^xsd:decimal ;
-  stsp:l0 "100.0"^^xsd:decimal ;
-  stsp:W "40.0"^^xsd:decimal ;
-  stsp:l2 "70.0"^^xsd:decimal ;
-  stsp:lg "60.0"^^xsd:decimal ;
-  stsp:l1 "126.0"^^xsd:decimal ;
-  stsp:lt "296.0"^^xsd:decimal ;
-  stsp:r "25.0"^^xsd:decimal .
-
-stsp:din50125_e26x100 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "din50125_e26x100" ;
-  skos:prefLabel "DIN 50125 - E 12 x 26 x 100"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "26.0"^^xsd:decimal ;
-  stsp:t "12.0"^^xsd:decimal ;
-  stsp:l0 "100.0"^^xsd:decimal ;
-  stsp:W "34.0"^^xsd:decimal ;
-  stsp:l2 "65.0"^^xsd:decimal ;
-  stsp:lg "55.0"^^xsd:decimal ;
-  stsp:l1 "127.0"^^xsd:decimal ;
-  stsp:lt "285.0"^^xsd:decimal ;
-  stsp:r "25.0"^^xsd:decimal .
-
-stsp:din50125_e30x120 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "din50125_e30x120" ;
-  skos:prefLabel "DIN 50125 - E 15 x 30 x 120"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "30.0"^^xsd:decimal ;
-  stsp:t "15.0"^^xsd:decimal ;
-  stsp:l0 "120.0"^^xsd:decimal ;
-  stsp:W "40.0"^^xsd:decimal ;
-  stsp:l2 "70.0"^^xsd:decimal ;
-  stsp:lg "60.0"^^xsd:decimal ;
-  stsp:l1 "152.0"^^xsd:decimal ;
-  stsp:lt "322.0"^^xsd:decimal ;
-  stsp:r "25.0"^^xsd:decimal .
-
-stsp:din50125_e30x130 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "din50125_e30x130" ;
-  skos:prefLabel "DIN 50125 - E 18 x 30 x 130"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "30.0"^^xsd:decimal ;
-  stsp:t "18.0"^^xsd:decimal ;
-  stsp:l0 "130.0"^^xsd:decimal ;
-  stsp:W "40.0"^^xsd:decimal ;
-  stsp:l2 "70.0"^^xsd:decimal ;
-  stsp:lg "60.0"^^xsd:decimal ;
-  stsp:l1 "165.0"^^xsd:decimal ;
-  stsp:lt "335.0"^^xsd:decimal ;
-  stsp:r "25.0"^^xsd:decimal .
-
-stsp:din50125_h12.5x50 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "din50125_h12.5x50" ;
-  skos:prefLabel "DIN 50125 - H 12.5 x 50"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "12.5"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "50.0"^^xsd:decimal ;
-  stsp:W "20.0"^^xsd:decimal ;
-  stsp:l2 "35.0"^^xsd:decimal ;
-  stsp:lg "30.0"^^xsd:decimal ;
-  stsp:l1 "75.0"^^xsd:decimal ;
-  stsp:lt "165.0"^^xsd:decimal ;
-  stsp:r "20.0"^^xsd:decimal .
-
-stsp:din50125_h20x80 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "din50125_h20x80" ;
-  skos:prefLabel "DIN 50125 - H 20 x 80"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "20.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "80.0"^^xsd:decimal ;
-  stsp:W "30.0"^^xsd:decimal ;
-  stsp:l2 "50.0"^^xsd:decimal ;
-  stsp:lg "40.0"^^xsd:decimal ;
-  stsp:l1 "120.0"^^xsd:decimal ;
-  stsp:lt "250.0"^^xsd:decimal ;
-  stsp:r "20.0"^^xsd:decimal .
-
-stsp:vwgr_ut_std_v1 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "vwgr_ut_std_v1" ;
-  skos:prefLabel "VWGR-UT-STD-V1"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "10.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "50.0"^^xsd:decimal ;
-  stsp:W "20.0"^^xsd:decimal ;
-  stsp:l2 "49.27"^^xsd:decimal ;
-  stsp:lg "40.0"^^xsd:decimal ;
-  stsp:l1 "75.0"^^xsd:decimal ;
-  stsp:lt "200.0"^^xsd:decimal ;
-  stsp:r "20.0"^^xsd:decimal .
-
-stsp:iso6892_b1_1 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "iso6892_b1_1" ;
-  skos:prefLabel "ISO6892 B1-1"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "12.5"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "50.0"^^xsd:decimal ;
-  stsp:W "20.0"^^xsd:decimal ;
-  stsp:l2 "50.0"^^xsd:decimal ;
-  stsp:lg "40.0"^^xsd:decimal ;
-  stsp:l1 "75.0"^^xsd:decimal ;
-  stsp:lt "200.0"^^xsd:decimal ;
-  stsp:r "20.0"^^xsd:decimal .
-
-stsp:iso6892_b1_2 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "iso6892_b1_2" ;
-  skos:prefLabel "ISO6892 B1-2"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "20.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "80.0"^^xsd:decimal ;
-  stsp:W "30.0"^^xsd:decimal ;
-  stsp:l2 "50.0"^^xsd:decimal ;
-  stsp:lg "40.0"^^xsd:decimal ;
-  stsp:l1 "120.0"^^xsd:decimal ;
-  stsp:lt "250.0"^^xsd:decimal ;
-  stsp:r "20.0"^^xsd:decimal .
-
-stsp:iso6892_b1_3 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "iso6892_b1_3" ;
-  skos:prefLabel "ISO6892 B1-3"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "25.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "50.0"^^xsd:decimal ;
-  stsp:W "35.0"^^xsd:decimal ;
-  stsp:l2 "55.0"^^xsd:decimal ;
-  stsp:lg "45.0"^^xsd:decimal ;
-  stsp:l1 "60.0"^^xsd:decimal ;
-  stsp:lt "200.0"^^xsd:decimal ;
-  stsp:r "25.0"^^xsd:decimal .
-
-stsp:presshaerten a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "presshaerten" ;
-  skos:prefLabel "Presshaerten A30"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "5.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "30.0"^^xsd:decimal ;
-  stsp:W "9.0"^^xsd:decimal ;
-  stsp:l2 "45.0"^^xsd:decimal ;
-  stsp:lg "40.0"^^xsd:decimal ;
-  stsp:l1 "36.0"^^xsd:decimal ;
-  stsp:lt "136.0"^^xsd:decimal ;
-  stsp:r "15.0"^^xsd:decimal .
-
-stsp:astm_e8_e8m_f40x200 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "astm_e8_e8m_f40x200" ;
-  skos:prefLabel "ASTM E8/E8M Flat 40 x 200"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "40.0"^^xsd:decimal ;
-  stsp:t "5.0"^^xsd:decimal ;
-  stsp:l0 "200.0"^^xsd:decimal ;
-  stsp:W "50.0"^^xsd:decimal ;
-  stsp:l2 "97.5"^^xsd:decimal ;
-  stsp:lg "65.0"^^xsd:decimal ;
-  stsp:l1 "225.0"^^xsd:decimal ;
-  stsp:lt "450.0"^^xsd:decimal ;
-  stsp:r "25.0"^^xsd:decimal .
-
-stsp:astm_e8_e8m_f12.5x50 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "astm_e8_e8m_f12.5x50" ;
-  skos:prefLabel "ASTM E8/E8M Flat 12.5 x 50"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "12.5"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "50.0"^^xsd:decimal ;
-  stsp:W "20.0"^^xsd:decimal ;
-  stsp:l2 "50.0"^^xsd:decimal ;
-  stsp:lg "40.0"^^xsd:decimal ;
-  stsp:l1 "75.0"^^xsd:decimal ;
-  stsp:lt "200.0"^^xsd:decimal ;
-  stsp:r "20.0"^^xsd:decimal .
-
-stsp:astm_e8_e8m_f6x25 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "astm_e8_e8m_f6x25" ;
-  skos:prefLabel "ASTM E8/E8M Flat 6 x 25"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "6.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "25.0"^^xsd:decimal ;
-  stsp:W "10.0"^^xsd:decimal ;
-  stsp:l2 "29.5"^^xsd:decimal ;
-  stsp:lg "25.0"^^xsd:decimal ;
-  stsp:l1 "32.0"^^xsd:decimal ;
-  stsp:lt "100.0"^^xsd:decimal ;
-  stsp:r "15.0"^^xsd:decimal .
-
-stsp:jis_z2241 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "jis_z2241" ;
-  skos:prefLabel "JIS Z2241"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "25.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "50.0"^^xsd:decimal ;
-  stsp:W "35.0"^^xsd:decimal ;
-  stsp:l2 "55.0"^^xsd:decimal ;
-  stsp:lg "45.0"^^xsd:decimal ;
-  stsp:l1 "60.0"^^xsd:decimal ;
-  stsp:lt "200.0"^^xsd:decimal ;
-  stsp:r "25.0"^^xsd:decimal .
-
-stsp:iso8256_typ3 a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "iso8256_typ3" ;
-  skos:prefLabel "ISO 8256 Typ 3"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "10.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "10.0"^^xsd:decimal ;
-  stsp:W "15.0"^^xsd:decimal ;
-  stsp:l2 "25.0"^^xsd:decimal ;
-  stsp:lg "20.0"^^xsd:decimal ;
-  stsp:l1 "10.0"^^xsd:decimal ;
-  stsp:lt "80.0"^^xsd:decimal ;
-  stsp:r "21.25"^^xsd:decimal .
-
-stsp:iso527_1ba a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "iso527_1ba" ;
-  skos:prefLabel "ISO 527 1BA"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "5.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "30.0"^^xsd:decimal ;
-  stsp:W "10.0"^^xsd:decimal ;
-  stsp:l2 "30.0"^^xsd:decimal ;
-  stsp:lg "25.0"^^xsd:decimal ;
-  stsp:l1 "30.0"^^xsd:decimal ;
-  stsp:lt "118.0"^^xsd:decimal ;
-  stsp:r "40.45"^^xsd:decimal .
-
-stsp:iwm a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "iwm" ;
-  skos:prefLabel "IWM"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "7.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "14.0"^^xsd:decimal ;
-  stsp:W "20.0"^^xsd:decimal ;
-  stsp:l2 "25.0"^^xsd:decimal ;
-  stsp:lg "20.0"^^xsd:decimal ;
-  stsp:l1 "14.0"^^xsd:decimal ;
-  stsp:lt "86.0"^^xsd:decimal ;
-  stsp:r "12.558"^^xsd:decimal .
-
-stsp:junginger a skos:Concept ;
-  skos:inScheme stsp:FlatTensileSpecimenProfiles ;
-  skos:broader stsp:flat ;
-  skos:notation "junginger" ;
-  skos:prefLabel "Junginger"@en ;
-  stsp:profileClass "UTFlatType1" ;
-  stsp:w "6.0"^^xsd:decimal ;
-  stsp:t "1.0"^^xsd:decimal ;
-  stsp:l0 "5.0"^^xsd:decimal ;
-  stsp:W "20.0"^^xsd:decimal ;
-  stsp:l2 "25.0"^^xsd:decimal ;
-  stsp:lg "20.0"^^xsd:decimal ;
-  stsp:l1 "5.0"^^xsd:decimal ;
-  stsp:lt "85.4"^^xsd:decimal ;
-  stsp:r "20.003"^^xsd:decimal .
